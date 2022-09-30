@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: G3W-SUITE 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-15 15:32+0100\n"
+"POT-Creation-Date: 2020-06-05 10:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,8 +29,7 @@ msgid "Tutorial"
 msgstr "Tutorial"
 
 #: ../../index.rst:8
-#, fuzzy
-msgid "Welcome to G3W-SUITE 3.1 documentation!"
+msgid "Welcome to G3W-SUITE's documentation!"
 msgstr "Benvenuti nella documentazione di G3W-SUITE"
 
 #: ../../index.rst:9
@@ -76,9 +75,8 @@ msgstr ""
 "dell'applicazione G3W-SUITE solo con l'ultima versione LTR di QGIS.**"
 
 #: ../../index.rst:19
-#, fuzzy
 msgid ""
-"**The current release (3.1) is compatible with QGIS 3.10 LTR (Server and "
+"**The current release is compatible with QGIS 3.10 LTR (Server and "
 "Desktop).**"
 msgstr ""
 "**L'attuale release è compatibile con la versione `3.10 LTR (Server e "
@@ -121,9 +119,8 @@ msgstr ""
 "contenitori tematici e servizi WebGis"
 
 #: ../../index.rst:31
-#, fuzzy
 msgid ""
-"**Caching Module:** tile caching module for single layer powered by "
+"**Caching Module:** tile caching module for single layer powerd by "
 "TileStache4"
 msgstr ""
 "**Modulo di Cache:** modulo per la gestione della cache dei singoli layer"

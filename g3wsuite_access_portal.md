@@ -6,16 +6,10 @@ The G3W-SUITE application is accessible via any internet browser (FireFox and Ch
 
 If you have also installed the front-end portal from the [GitHub repository](https://github.com/g3w-suite/g3w-admin-frontend), access to the application will be via the portal itself.
 
-The home page will contain, in addition to a brief and customizable presentation of the service, also:
-
- * a **menu at the top right side** ![](images/manual/g3wsuite_portal_menu_toprigth.png) with the following items:  
-   * **`Change language`**
-   * **`Go back to the home page`**
-   * **`Login`**
- * a **panel menu on the right** with the following items:
-   * **`Maps`**
-   * **`Info`**
-
+The front-end portal contains a brief presentation of the service and a side menu with the following items:
+ * **`About it`**
+ * **`Maps`**
+ * **`Login`**
 
 ![](images/manual/g3wsuite_portal_frontend.png)
 
@@ -23,8 +17,8 @@ Most of the information shown in the access portal can be defined from the **`Co
 
 ![](images/manual/g3wclient_icon_config.png)
 
-### Info
-The **Info** session can contains a small introduction and contact information for your company or public facility.
+### About it
+The **About it** session can contains a small introduction and contact information for your company or public facility.
 
 ![](images/manual/g3wsuite_portal_aboutit.png)
 
