@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: G3W-SUITE 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-01 16:44+0200\n"
+"POT-Creation-Date: 2021-03-17 17:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,21 +60,16 @@ msgid ""
 "cartographic management systems"
 msgstr ""
 
-#: ../../introduction.md:12
-msgid "publishing and managing QGIS projects as WebGis services"
-msgstr ""
-
 #: ../../introduction.md:13
 msgid ""
-"creation of searches, visualization of graphics created with the "
-"DataPlotly plugin and definition of constraints (geographic and "
-"alphanumeric) on visualization and editing permissions"
+"The current release (3.2) is compatible with QGIS 3.16.x LTR (Server and "
+"Desktop)."
 msgstr ""
 
 #: ../../introduction.md:15
 msgid ""
-"The current release (3.4) is compatible with QGIS 3.22.x LTR (Server and "
-"Desktop)."
+"NB: The filter function (based on features selection) at the print level "
+"is supported only with QGIS 3.18"
 msgstr ""
 
 #: ../../introduction.md:21
@@ -84,11 +79,11 @@ msgstr ""
 #: ../../introduction.md:23
 msgid ""
 "At the moment it's not used a classic versioning system for the suite, "
-"this branches are avialable."
+"there are main 3 branches."
 msgstr ""
 
 #: ../../introduction.md:88
-msgid "Main contributors"
+msgid "Contributors"
 msgstr ""
 
 #: ../../introduction.md:89
@@ -111,10 +106,6 @@ msgstr ""
 msgid "Luigi Pirelli - QCooperative (@luipir)"
 msgstr ""
 
-#: ../../introduction.md:94
-msgid "Mazano - Kartoza (@NyakudyaA) (Dockerization refactoring)"
-msgstr ""
-
 #~ msgid ""
 #~ "The current release (3.1) is compatible"
 #~ " with QGIS 3.10.x LTR (Server and "
@@ -125,32 +116,5 @@ msgstr ""
 #~ "At the moment is not used a "
 #~ "classic versioning system for the suite,"
 #~ " there are main 3 branches."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "At the moment it's not used a "
-#~ "classic versioning system for the suite,"
-#~ " there are main 3 branches."
-#~ msgstr ""
-
-#~ msgid "Contributors"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The current release (3.2) is compatible"
-#~ " with QGIS 3.16.x LTR (Server and "
-#~ "Desktop)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "The current release (3.3) is compatible"
-#~ " with QGIS 3.16.x LTR (Server and "
-#~ "Desktop)."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "NB: The filter function (based on "
-#~ "features selection) at the print level"
-#~ " is supported only with QGIS 3.18"
 #~ msgstr ""
 

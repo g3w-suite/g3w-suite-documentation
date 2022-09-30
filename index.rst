@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-=======================================================
-Welcome to G3W-SUITE development version documentation!
-=======================================================
+=====================================
+Welcome to G3W-SUITE 3.2 documentation!
+=====================================
 **G3W-SUITE is a frame-work, based on Django and written in Python language, which allows to manage in an integrated way the different components of QGIS for the realization of its own Geographic Information System and for the publication on WebGis of its own projects in a simple and intuitive way.**
 
 G3W-SUITE is entirely based on tested Open Source software components built around QGIS:
@@ -16,7 +16,7 @@ G3W-SUITE is entirely based on tested Open Source software components built arou
 
 **The current development policy provides for the compatibility of the G3W-SUITE application only with the latest LTR version of QGIS**
 
-**The current release (3.4) is compatible with QGIS 3.22 LTR (Server and Desktop).**
+**The current release (3.2) is compatible with QGIS 3.16 LTR (Server and Desktop).**
 
 G3W-SUITE is a modular client-server application for the publication and management of QGIS cartographic projects, consisting of 3 components:
 
@@ -54,7 +54,6 @@ Through the web interface of the G3W-SUITE framework it is possible to:
 
    install
    docker
-   docker_env
    settings
 
 

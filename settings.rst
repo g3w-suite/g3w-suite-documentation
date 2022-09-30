@@ -25,11 +25,6 @@ G3W-SUITE accessory modules:
 ^^^^^^^^^^^^^^^^^^^
 Path to geo data directory (shp, Spatialite, raster, etc..).
 
-``G3WFILE_FORM_UPLOAD_FORMATS``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-List of formats file that `file form ajax uploader` can manage at global level.
-Default is `['qgs', 'qgz', 'png', 'jpg', 'jpeg', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'ods']`
-
 .. Important::
     Last part of path could be common with QGIS project datasource path. I.e.:
 
@@ -244,8 +239,8 @@ Settings params for ``filemanager`` module.
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 Mandatory, path to disk space where to CRUD geo data files i.e. Shp Raster, etc.
 
-``FILEMANAGER_MAX_UPLOAD_N_FILES``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``FILENAMANAGER_MAX_N_FILES``
+^^^^^^^^^^^^^^^^^^^^^^^^^
 Default is 5, max number files to upload simultaneously.
 
 Qplotly settings
@@ -270,19 +265,3 @@ Openrouteservice API key, optional, can be blank if the key is not required by t
 ^^^^^^^^^^^^^^^^
 List of available Openrouteservice profiles, default: ``("driving-car", "driving-hgv")``
 
-Vendors settings
-****************
-Settings variables about third part services, i.e. Google API etc..
-
-``VENDOR_KEYS``
-^^^^^^^^^^^^^^^
-A list with services API keys.
-I.e.::
-
-    VENDOR_KEYS = {
-     'google': 'fhgnrjwipòflsjhjjdhjdhashhabs',
-     'bing': 'agbsgtrkADgstejaaklkklkds8irncdfk'
-    }
-
-At the moment only `Google` and `Bing` services are supported, for background base map and for google geoconding
-service plus of `Nominatim` default service.
