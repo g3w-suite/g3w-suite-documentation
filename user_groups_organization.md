@@ -1,5 +1,5 @@
 # Hierarchical organization of WebGis services and types of Users (roles)
-_**This paragraph allows you to understand how G3W-SUITE makes it possible to manage the individual WebGis services in a structured and hierarchical way.**_
+_**This paragraph allows you to understand how G3W-SUITE makes it possible to manage the individual WebGis services in a structured and hierarchical way._**
 
 In G3W-SUITE it is possible to organize WebGis services on two thematic/functional levels
  * **`Cartographic MacroGroups`**
@@ -44,7 +44,7 @@ In particular **Editor1 users will also be able to create/manage users who can b
 The cases relating to one or two organizational levels will be better described below.
 
 ### One organization level (absence of MacroGroups)
-If MacroGroups are not needed, the Admin user will be the only administrator of the suite and can therefore:
+In case it is not need use MacroGruppi, the Admin user will be the only administrator of the suite and can therefore:
  * create users (individuals and/or groups) of various types
  * create **Cartographic Groups**
  * publish **WebGis services** within the individual **Cartographic Groups**
