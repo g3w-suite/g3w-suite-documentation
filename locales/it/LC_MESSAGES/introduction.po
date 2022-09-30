@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: G3W-SUITE 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-15 15:32+0100\n"
+"POT-Creation-Date: 2020-11-06 14:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,7 +76,7 @@ msgstr ""
 #: ../../introduction.md:13
 #, fuzzy
 msgid ""
-"The current release (3.1) is compatible with QGIS 3.10.x LTR (Server and "
+"The current release is compatible with QGIS 3.10.x LTR (Server and "
 "Desktop)."
 msgstr "**L'attuale release è compatibile con la versione **`3.10.x LTR`**.**"
 
@@ -91,30 +91,6 @@ msgid ""
 msgstr ""
 "Al momento per la suite non è utilizzato un sistema di versionamento "
 "classico, sono presenti 3 branch principali di riferimento"
-
-#: ../../introduction.md:72
-msgid "Contributors"
-msgstr ""
-
-#: ../../introduction.md:73
-msgid "Walter Lorenzetti - Gis3W (@wlorenzetti)"
-msgstr ""
-
-#: ../../introduction.md:74
-msgid "Leonardo Lami - Gis3W (@leolami)"
-msgstr ""
-
-#: ../../introduction.md:75
-msgid "Francesco Boccacci - Gis3W (@volterra79)"
-msgstr ""
-
-#: ../../introduction.md:76
-msgid "Alessandro Pasotti - QCooperative (@elpaso)"
-msgstr ""
-
-#: ../../introduction.md:77
-msgid "Luigi Pirelli - QCooperative (@luipir)"
-msgstr ""
 
 #~ msgid ""
 #~ "The next version (whose release is "
