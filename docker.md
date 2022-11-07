@@ -201,4 +201,4 @@ Plese refer to the [Add new stack](https://docs.portainer.io/v/ce-2.9/user/docke
 * Walter Lorenzetti - Gis3W ([@wlorenzetti](https://github.com/wlorenzetti))
 * Alessandro Pasotti - ItOpen ([@elpaso](https://github.com/elpaso))
 * Mazano - Kartoza ([@NyakudyaA](https://github.com/NyakudyaA))
-* Matteo Tosi ([@Raruto](https://github.com/Raruto))
+* Matteo Tosi - Gis3w ([@Raruto](https://github.com/Raruto))
