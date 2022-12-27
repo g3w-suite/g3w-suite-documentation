@@ -1,58 +1,9 @@
 # Raw installation
 
-The following instructions are for a Ubuntu 18.04 LTS.
+The following instructions are for a Ubuntu 22.04 LTS.
 
-## Installation of node.js and Yarn
-G3W-ADMIN use javacript package manager [**Yarn**](https://yarnpkg.com/) and [**Node.js**](https://nodejs.org/it/)
-
-```bash
-sudo apt-get install -y nodejs-legacy npm
-```
-
-for install Yarn follow main installation instructions:
-
-https://yarnpkg.com/en/docs/install#debian-stable
-
-> **note**
->
-> If your account is connected to the provider, we'll try to setup the
-> webhook automatically. If something fails, you can still setup the
-> webhook manually.
-
-## Create virtualenv
-
-[**Virtualenv**](https://virtualenv.pypa.io/en/stable/)
-
-The following instructions are for python 3.6 
-
-Install python pip
-
-```bash
-sudo apt-get install python3-pip
-```
-
-now we can install virtualenvwrapper
-```bash
-sudo pip3 install virtualenvwrapper
-```
-
-To activate virtuenvwrapper on system login, add follow lines to 'bashrc' config file of your user
-```bash
-nano ~/.bashrc
-....
-export WORKON_HOME=<path_to_virtualenvs_directory>
-source /usr/local/bin/virtualenvwrapper.sh
-```
-
-## Virtualenv creation
-To create a virtualnenv is sufficent call mkvirtualenv commando follow by the identification name for virtualenv (to use QGIS API into a virtualenv only solution is to give access python system site-packages to it using *--system-site-packages* option)
-```bash
-mkvirtualenv g3wsuite
-```
-
-## Install G3W-SUITE
-
-First step is install dev libraries packages for python module to install with requiriments.txt
+## Install required packages
+First step is install dev libraries packages for python module
 
 ```bash
 sudo apt-get install -y \
@@ -60,16 +11,79 @@ sudo apt-get install -y \
     libxslt-dev \
     postgresql-server-dev-all \
     libgdal-dev \
-    python-dev
+    python3-dev
 ```
 
-after is necessary install the correct python module for GDAL library, check your version and install correct module
+If you are running a ubuntu Server version is necessary to install also a XServer for the Qt libraries. 
+Is possibile install `XVFB` a virtual framebuffer X server for X Version 11 and run it.
 
 ```bash
-export CPLUS_INCLUDE_PATH=/usr/include/gdal
-export C_INCLUDE_PATH=/usr/include/gdal
+sudo apt intall -y xvfb
 
-pip install GDAL==<installed_version or closest>
+sudo Xvfb :99 -screen 0 640x480x24 -nolisten tcp &
+export DISPLAY=:99
+```
+I suggest you to create a systemd service to run it on bootstrap.
+
+
+## Install QGIS Server
+wget -qO - https://qgis.org/downloads/qgis-2022.gpg.key | sudo  gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import 
+sudo chmod a+r /etc/apt/trusted.gpg.d/qgis-archive.gpg
+sudo bash -c "echo \"deb [arch=amd64] https://qgis.org/ubuntu-ltr jammy main\" >> /etc/apt/sources.list"
+sudo apt update && sudo apt install -y python3-qgis qgis-server
+
+## Installation of node.js and Yarn
+G3W-ADMIN use javacript package manager [**Yarn**](https://yarnpkg.com/) and [**Node.js**](https://nodejs.org/it/)
+
+```bash
+sudo curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt install -y yarn
+```
+## Create virtualenv
+
+Install the follow python package
+[**Virtualenv**](https://virtualenv.pypa.io/en/stable/)
+[*Virtualenvwrapper*](https://bitbucket.org/virtualenvwrapper/virtualenvwrapper/src/master/)
+
+The following instructions are for python 3.10
+
+Install python pip and virtualenvwrapper
+
+```bash
+sudo apt-get install python3-pip && sudo pip3 install virtualenvwrapper
+```
+
+Create a directory where to create environments for your virtualenvs.
+```bash
+mkdir <path_to_virtualenvs_directory>
+```
+
+To activate virtuenvwrapper on system login, add follow lines to 'bashrc' config file of your user
+```bash
+nano ~/.bashrc
+....
+export WORKON_HOME=<path_to_virtualenvs_directory>
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+```
+Login again with your user to activate `Virtualenvwrapper`
+
+```bash
+sudo su <my_ubuntu_username>
+```
+
+## Virtualenv creation
+To create a virtualnenv is sufficent call mkvirtualenv follow by the identification name for virtualenv (to use QGIS API into a virtualenv only solution is to give access python system site-packages to it using *--system-site-packages* option)
+```bash
+mkvirtualenv --system-site-packages g3wsuite
+```
+
+## Install G3W-SUITE
+
+### Clone code from github
+```bash
+git clone https://github.com/g3w-suite/g3w-admin.git
 ```
 
 ### Set local_config.py file
@@ -107,6 +121,8 @@ MEDIA_ROOT = '<path_to_media_root>'
 
 SESSION_COOKIE_NAME = '<unique_session_id>'
 ```
+
+
 
 ### With paver commands
 
@@ -182,7 +198,8 @@ ln -s "../../../node_modules/@bower_components" bower_components
 Possibily within a virtual env:
 
 ```bash
-pip install -r requirements.tx
+pip install -r requirements.txt
+pip install -r requirements_huey.txt
 ```
 
 ### Django setup
@@ -208,17 +225,15 @@ python manage.py sitetree_resync_apps
 
 ## Continuous integration testing
 
-CI tests are automatically run on CircleCI for the `dev` branch only.
+CI tests are automatically run on Github by custom actions.
 
-The Docker compose configuration used in the CI tests is available at [docker-compose.yml](docker-compose.yml).
-
-Another configuration for running local tests is provided with [docker-compose-local.yml](docker-compose-local.yml)
- and can also be used for local testing by running:
-
-```bash
-docker-compose -f docker-compose-local.yml up
-```
+The Docker compose configuration used in the CI tests is available at [docker-compose.latest.yml](https://github.com/g3w-suite/g3w-admin/blob/dev/docker-compose.latest.yml).
 
 The testing image is built from the dependency image and it will run all install and build steps from the local repository.
 
-The dependency image is built from the [Dockerfile.deps](ci_scripts/Dockerfile).
+The dependency image is built from the [Dockerfile.deps](https://github.com/g3w-suite/g3w-admin/blob/dev/ci_scripts/Dockerfile.deps).
+
+G3W-SUITE supports the latest LTR QGIS version, so at now is the 3.22, therefore there are alse dockerfiles and docker compose files for this version:
+
+* [docker-composer.322.yml](https://github.com/g3w-suite/g3w-admin/blob/dev/docker-compose.322.yml)
+* [Dockerfile.32..deps](https://github.com/g3w-suite/g3w-admin/blob/dev/ci_scripts/Dockerfile.322.deps)
