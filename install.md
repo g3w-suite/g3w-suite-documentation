@@ -27,10 +27,13 @@ I suggest you to create a systemd service to run it on bootstrap.
 
 
 ## Install QGIS Server
+
+```sh
 wget -qO - https://qgis.org/downloads/qgis-2022.gpg.key | sudo  gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import 
 sudo chmod a+r /etc/apt/trusted.gpg.d/qgis-archive.gpg
 sudo bash -c "echo \"deb [arch=amd64] https://qgis.org/ubuntu-ltr jammy main\" >> /etc/apt/sources.list"
 sudo apt update && sudo apt install -y python3-qgis qgis-server
+```
 
 ## Installation of node.js and Yarn
 G3W-ADMIN use javacript package manager [**Yarn**](https://yarnpkg.com/) and [**Node.js**](https://nodejs.org/it/)
