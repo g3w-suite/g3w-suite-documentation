@@ -79,6 +79,16 @@ To create a virtualnenv is sufficent call mkvirtualenv follow by the identificat
 mkvirtualenv --system-site-packages g3wsuite
 ```
 
+
+This last command just make active your new virtualenv environment, for the next times is possible use the follow command to activate the virtualenv environment:
+
+```bash
+workon g3wsuite
+```
+
+### Use of native `venv` Python3
+For G3W-SUITE deploy clearly can be used the native Python3 `venv` module, `virtualenvwrapper` is a third part module that render the use and management of virtual environments very simple.
+
 ## Install G3W-SUITE
 
 ### Clone code from github
