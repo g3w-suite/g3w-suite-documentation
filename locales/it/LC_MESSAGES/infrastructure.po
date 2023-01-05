@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: G3W-SUITE 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-08 14:16+0200\n"
+"POT-Creation-Date: 2023-01-04 17:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,35 +26,37 @@ msgstr ""
 "Il sistema di pubblicazione è basato su una serie di strumenti e software"
 " OS"
 
-#: ../../infrastructure.md:7
+#: ../../infrastructure.md:5
 msgid "PostgreSQL/PostGis: for the management of application data"
 msgstr "**`PostgreSQL/PostGis`**: per la gestione dei dati dell'applicativo"
 
-#: ../../infrastructure.md:8
-msgid "PostgreSQL/PostGis or SpatiaLite: for the management of gegraphic data"
+#: ../../infrastructure.md:6
+#, fuzzy
+msgid "PostgreSQL/PostGis or SpatiaLite: for the management of geographic data"
 msgstr ""
-"**`PostgreSQL/PostGi`s** o **`SQLite/SpatiaLite`**: per la gestione dei dati "
-"geografici"
+"**`PostgreSQL/PostGi`s** o **`SQLite/SpatiaLite`**: per la gestione dei "
+"dati geografici"
 
-#: ../../infrastructure.md:9
+#: ../../infrastructure.md:7
 msgid "QGIS Server LTR as OGC services server"
 msgstr "**`QGIS Server LTR`** come server per i servizi OGC"
 
-#: ../../infrastructure.md:10
+#: ../../infrastructure.md:8
 msgid "G3W-ADMIN - the Administration component: developed in Python using Django"
 msgstr ""
 "**`G3W-ADMIN` - la componente di Amministrazione**: sviluppata in "
 "**`Python`** usando **`Django`**"
 
-#: ../../infrastructure.md:11
+#: ../../infrastructure.md:9
+#, fuzzy
 msgid ""
-"G3W-CLIENT - the Cartographic client: based on OpenLayer3 and developed "
+"G3W-CLIENT - the Cartographic client: based on OpenLayers3 and developed "
 "with reactive tecnology by Vue.js"
 msgstr ""
 "**`G3W-CLIENT` - il client cartografico**: basato su **`OpenLayer3`** e "
 "sviluppato con **tecnologia reattiva tramite `Vue.js`**"
 
-#: ../../infrastructure.md:12
+#: ../../infrastructure.md:10
 msgid ""
 "The main libraries used for the management and the visualization of the "
 "geographical part and the interaction with the user are: OpenLayer, "
@@ -64,7 +66,7 @@ msgstr ""
 "della parte geografica e  l’interazione con l’utente sono: **`OpenLayer, "
 "Boostrap, jQuery, Lodash` e `Vue.js`**."
 
-#: ../../infrastructure.md:13
+#: ../../infrastructure.md:11
 msgid "Gulp.js as task runner"
 msgstr "**`Gulp.js`** come task runner"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: G3W-SUITE 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-15 15:32+0100\n"
+"POT-Creation-Date: 2023-01-04 17:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,8 +33,7 @@ msgstr ""
 #: ../../datamanagement.md:4
 msgid ""
 "Thanks to the integration with the APIs of QGIS it is now possible to "
-"manage the main formats (geographically and not) supported by QGIS "
-"Server:"
+"manage the main formats (geographic or not) supported by QGIS Server:"
 msgstr ""
 
 #: ../../datamanagement.md:6
@@ -42,75 +41,96 @@ msgid "reading and editing mode"
 msgstr ""
 
 #: ../../datamanagement.md:7
-msgid "PostGreSQL/PostGis"
+msgid "PostGreSQL/PostGIS"
 msgstr ""
 
 #: ../../datamanagement.md:8
-msgid "SQLite/SpatiaLite"
+msgid "Oracle Spatial (compiling QGIS Server)"
 msgstr ""
 
 #: ../../datamanagement.md:9
-msgid "GeoPackage"
+msgid "SQLite/SpatiaLite"
 msgstr ""
 
 #: ../../datamanagement.md:10
+msgid "GeoPackage"
+msgstr ""
+
+#: ../../datamanagement.md:11
 msgid "ShapeFile"
 msgstr ""
 
-#: ../../datamanagement.md:12
+#: ../../datamanagement.md:14
 msgid "reading mode"
 msgstr ""
 
-#: ../../datamanagement.md:13
+#: ../../datamanagement.md:15
 msgid "SQL Server"
 msgstr ""
 
-#: ../../datamanagement.md:14
-msgid "Virtal layer"
-msgstr ""
-
 #: ../../datamanagement.md:16
-msgid "The suite also allows you to manage 1:N relational editing."
+msgid "Virtual layer"
 msgstr ""
 
 #: ../../datamanagement.md:18
+msgid "The suite also allows you to manage the consultation and editing of:"
+msgstr ""
+
+#: ../../datamanagement.md:19
+msgid "simple join data with no nesting limits"
+msgstr ""
+
+#: ../../datamanagement.md:20
+msgid "1:N relation data"
+msgstr ""
+
+#: ../../datamanagement.md:21
+msgid "N:M relation data"
+msgstr ""
+
+#: ../../datamanagement.md:23
 msgid "Data on DB Server"
 msgstr "Dati su DB Server"
 
-#: ../../datamanagement.md:20
+#: ../../datamanagement.md:25
+#, fuzzy
 msgid ""
-"If your geographical data are stored on Server DB, it will be sufficient "
-"to allow access to the DB from the IP address on which the application is"
-" installed."
+"If your geographic data is stored on Server DB, it will be sufficient to "
+"allow access to the DB from the IP address on which the application is "
+"installed."
 msgstr ""
 "Nel caso i dati geografici utilizzati per realizzare i vostri progetti "
 "cartografici QGIS siano situati su **`Server DB`**, sarà sufficiente "
 "**permettere l’accesso al DB dall’indirizzo IP su cui è installato "
 "l’applicativo**."
 
-#: ../../datamanagement.md:22
-msgid "Data on SpatiaLite or OGR format"
+#: ../../datamanagement.md:27
+#, fuzzy
+msgid "Data on SpatiaLite/GeoPackage or OGR format"
 msgstr "Dati su SpatiaLite o formati OGR"
 
-#: ../../datamanagement.md:23
+#: ../../datamanagement.md:28
+#, fuzzy
 msgid ""
-"If your geographical data are stored on SpatiaLite or on physical files "
-"(.gpkg, .shp, .kml, .tif ...) located on your local PC, you will need:"
+"If your geographical data are stored on SpatiaLite, GeoPackage or an "
+"other physical files (.shp, .kml, .tif...) located on your local PC, you "
+"will need:"
 msgstr ""
 "Nel caso i dati geografici utilizzati per realizzare i vostri progetti "
 "cartografici QGIS siano situati su **GeoDB `SpatiaLite`** o su altro tipo"
 " di file fisico **(`.gpkg`, `.shp`, `.kml`, `.tif`...)** situati sul "
 "proprio PC locale, sarà necessario:"
 
-#: ../../datamanagement.md:24
+#: ../../datamanagement.md:29
+#, fuzzy
 msgid ""
-"organize data and projects in predefined localy directories and "
+"organize data and projects in predefined local directories and "
 "subdirectories"
 msgstr ""
 "**organizzare dati e progetti in directory e sottodirectory locali "
 "predefinite**"
 
-#: ../../datamanagement.md:25
+#: ../../datamanagement.md:30
 msgid ""
 "upload/synchronize geographic data to the corresponding folder located on"
 " the server where the application is installed"
@@ -118,19 +138,20 @@ msgstr ""
 "**uploadare/sincronizzare** i dati geografici sulle corrispondenti "
 "directory poste **sul server di installatazione dell'applicativo**"
 
-#: ../../datamanagement.md:27
+#: ../../datamanagement.md:32
+#, fuzzy
 msgid ""
-"Of course, mixed solutions with geographical data on PostGreSQL/PostGis, "
+"Of course, mixed solutions with geographical data on PostGreSQL/PostGIS, "
 "SpatiaLite and other formats will also be possible."
 msgstr ""
 "**Naturalmente saranno possibili anche soluzioni miste con dati "
 "geografici su PostGreSQL/PostGis, SpatiaLite ed altri formati.**"
 
-#: ../../datamanagement.md:29
+#: ../../datamanagement.md:34
 msgid "Organization of data and projects"
 msgstr "Organizzazione dati e progetti"
 
-#: ../../datamanagement.md:31
+#: ../../datamanagement.md:36
 msgid ""
 "Data on physical files and / or on GeoDB SpatiaLite and QGIS cartographic"
 " projects must be organized in compliance with the following indications:"
@@ -138,13 +159,13 @@ msgstr ""
 "Dati su file fisici e/o su GeoDB SpatiaLite e progetti cartografici QGIS "
 "**devono essere organizzati** nel rispetto delle seguenti indicazioni:"
 
-#: ../../datamanagement.md:32
+#: ../../datamanagement.md:37
 msgid "a main directory named and positioned in according to need's user"
 msgstr ""
 "una **directory principale** nominata e posizionata secodo l'esigenze "
 "dell'utente e contenente"
 
-#: ../../datamanagement.md:33
+#: ../../datamanagement.md:38
 msgid ""
 "a project_data sub-directory that must contain the geographic data used "
 "for the various cartographic projects, such data can also be organized in"
@@ -155,7 +176,7 @@ msgstr ""
 "possono anche essere organizzati in ulteriori sub-directory senza limiti "
 "di nidificazione."
 
-#: ../../datamanagement.md:34
+#: ../../datamanagement.md:39
 msgid ""
 "a projects sub-directory that must contain the QGIS cartographic projects"
 " (.qgz or .qgs files)"
@@ -163,7 +184,7 @@ msgstr ""
 "una sub directory nominata **`projects`** che ospiterà i **progetti "
 "QGIS** da pubblicare."
 
-#: ../../datamanagement.md:38
+#: ../../datamanagement.md:43
 msgid ""
 "NB: The name of the local directory dedicated to geographic data must "
 "correspond to the name defined for the DATASOURCE_PATH variable set "
@@ -175,7 +196,7 @@ msgstr ""
 "dedicato](https://g3w-suite.readthedocs.io/it/latest/settings.html#base-"
 "settings)"
 
-#: ../../datamanagement.md:41
+#: ../../datamanagement.md:46
 msgid ""
 "That directory is also used to contain images used in the print layouts "
 "associated with the QGIS cartographic projects."
@@ -183,11 +204,11 @@ msgstr ""
 "Tale directory è adibita anche a contenere immagini utilizzate nei "
 "**layout di stampa associati ai progetti cartografici QGIS**."
 
-#: ../../datamanagement.md:43
+#: ../../datamanagement.md:48
 msgid "Geographic data synchronization on the server"
 msgstr "Sincronizzazione dati geografici su spazio server"
 
-#: ../../datamanagement.md:45
+#: ../../datamanagement.md:50
 #, fuzzy
 msgid ""
 "The data stored in the local project_data directory must be synchronized "
@@ -198,7 +219,7 @@ msgstr ""
 "nell'omonima directory sul server in cui è installato l'applicativo G3W-"
 "SUITE."
 
-#: ../../datamanagement.md:47
+#: ../../datamanagement.md:52
 #, fuzzy
 msgid ""
 "The geographic data stored in the local project_data folder must be "
@@ -208,7 +229,7 @@ msgstr ""
 "locale nella cartella **geo_data** rispecchiando l'eventuale struttura in"
 " subdirectory."
 
-#: ../../datamanagement.md:49
+#: ../../datamanagement.md:54
 #, fuzzy
 msgid ""
 "To synchronize your data access to the Administration panel of G3W-ADMIN "
@@ -218,12 +239,12 @@ msgstr ""
 "![](images/manual/iconconfiguration.png) posta nell'angolo in alto a "
 "destra permette di accedere ad un menù a tendina."
 
-#: ../../datamanagement.md:51
+#: ../../datamanagement.md:56
 #, fuzzy
 msgid "Choose the File Manager item in the linked menu."
 msgstr "Si scelga la voce **`File Manager`** per accedere allo strumento dedicato"
 
-#: ../../datamanagement.md:57
+#: ../../datamanagement.md:62
 msgid ""
 "Using this tool it is possible to manage the physical geographic data on "
 "the server in a simple and intuitive way."
@@ -231,38 +252,50 @@ msgstr ""
 "Tramite tale strumento è possibile gestire i file fisici geografici sul "
 "server in modo semplice ed intuitivo."
 
-#: ../../datamanagement.md:59
-msgid "This the directories present by default:"
-msgstr "Queste le directory definite durante l'installazione della suite:"
-
-#: ../../datamanagement.md:60
-#, fuzzy
+#: ../../datamanagement.md:64
 msgid ""
-"project_data: the folder in which to store the geographical data and any "
-"images inserted in the print layouts"
+"The root directory of the File Manager corresponds to the local "
+"project_data directory"
 msgstr ""
-"**`geo_data`**: la cartella in cui archiviare i **dati geografici** ed "
-"eventuali **immagini inserite nei layout di stampa**"
 
-#: ../../datamanagement.md:61
-msgid "media_user: a folder exposed on the web, to store your multimedia files"
+#: ../../datamanagement.md:66
+msgid ""
+"It will therefore be necessary, in the case of using geographic files on "
+"the file system, to synchronize the contents of the local project_data "
+"directory (and any sub-directories) before proceeding with the "
+"publication of QGIS projects."
+msgstr ""
+
+#: ../../datamanagement.md:68
+msgid ""
+"Two specific directories can also be created within the root directory of"
+" the File Manager:"
+msgstr ""
+
+#: ../../datamanagement.md:70
+#, fuzzy
+msgid "media_user: a directory exposed on the web, to store your multimedia files"
 msgstr ""
 "**`media_user`**: la cartella esposta su web, per la gestione dei file "
 "multimediali"
 
-#: ../../datamanagement.md:62
-msgid "svg: a folder to store extra SVG icons used your QGIS projects"
+#: ../../datamanagement.md:71
+#, fuzzy
+msgid "svg: a directory to store extra SVG icons used your QGIS projects"
 msgstr ""
 "**`svg`**: una cartella per gestire simboli SVG extra usati a livello di "
 "progetto QGIS"
 
-#: ../../datamanagement.md:64
-msgid "All the folder can be organized in subdirectories with no nesting limits."
+#: ../../datamanagement.md:73
+#, fuzzy
+msgid ""
+"All the directories can be organized in subdirectories with no nesting "
+"limits."
 msgstr ""
 "Tutte le cartelle possono essere contenere sub-directory senza limiti di "
 "annidamento"
 
-#: ../../datamanagement.md:66
+#: ../../datamanagement.md:75
 msgid ""
 "NB: The names of these directories are defined by the basic settings set "
 "during the installation of the suite. See dedicated paragraph."
@@ -271,6 +304,13 @@ msgstr ""
 "base impostate durante l'installazione della suite. [Vedi paragrafo "
 "dedicato](https://g3w-suite.readthedocs.io/it/latest/settings.html#base-"
 "settings)"
+
+#: ../../datamanagement.md:80
+msgid ""
+"The example shows the case in which in the local project_data directory "
+"there are two directories (geopackage and spatialite) in addition to the "
+"two system directories (svg and media_user)."
+msgstr ""
 
 #~ msgid ""
 #~ "Thanks to the integration with the "
@@ -292,4 +332,34 @@ msgstr ""
 #~ "Cosnulta qui la [lista dei "
 #~ "formati](https://docs.qgis.org/3.10/en/docs/user_manual/preamble/features.html"
 #~ "#view-data) gestisti da QGIS."
+
+#~ msgid ""
+#~ "Thanks to the integration with the "
+#~ "APIs of QGIS it is now possible"
+#~ " to manage the main formats "
+#~ "(geographically and not) supported by "
+#~ "QGIS Server:"
+#~ msgstr ""
+
+#~ msgid "PostGreSQL/PostGis"
+#~ msgstr ""
+
+#~ msgid "Virtal layer"
+#~ msgstr ""
+
+#~ msgid "The suite also allows you to manage 1:N relational editing."
+#~ msgstr ""
+
+#~ msgid "This the directories present by default:"
+#~ msgstr "Queste le directory definite durante l'installazione della suite:"
+
+#~ msgid ""
+#~ "project_data: the folder in which to "
+#~ "store the geographical data and any "
+#~ "images inserted in the print layouts"
+#~ msgstr ""
+#~ "**`geo_data`**: la cartella in cui "
+#~ "archiviare i **dati geografici** ed "
+#~ "eventuali **immagini inserite nei layout "
+#~ "di stampa**"
 
