@@ -245,7 +245,7 @@ Settings params for ``filemanager`` module.
 Mandatory, path to disk space where to CRUD geo data files i.e. Shp Raster, etc.
 
 ``FILEMANAGER_MAX_UPLOAD_N_FILES``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Default is 5, max number files to upload simultaneously.
 
 Qplotly settings

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: G3W-SUITE 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-15 15:32+0100\n"
+"POT-Creation-Date: 2023-01-04 17:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../index.rst:52
+#: ../../index.rst:50
 msgid "Installation and deploy"
 msgstr "Installazione e deploy"
 
@@ -29,9 +29,8 @@ msgid "Tutorial"
 msgstr "Tutorial"
 
 #: ../../index.rst:8
-#, fuzzy
-msgid "Welcome to G3W-SUITE 3.1 documentation!"
-msgstr "Benvenuti nella documentazione di G3W-SUITE"
+msgid "Welcome to G3W-SUITE development version documentation!"
+msgstr ""
 
 #: ../../index.rst:9
 msgid ""
@@ -78,16 +77,17 @@ msgstr ""
 #: ../../index.rst:19
 #, fuzzy
 msgid ""
-"**The current release (3.1) is compatible with QGIS 3.10 LTR (Server and "
+"**The current release (3.4) is compatible with QGIS 3.22 LTR (Server and "
 "Desktop).**"
 msgstr ""
 "**L'attuale release è compatibile con la versione `3.10 LTR (Server e "
 "Desktop)`**."
 
 #: ../../index.rst:21
+#, fuzzy
 msgid ""
 "G3W-SUITE is a modular client-server application for the publication and "
-"management of QGIS cartographic projects, consisting of 2 components:"
+"management of QGIS cartographic projects, consisting of 3 components:"
 msgstr ""
 "**G3W-SUITE è un'applicazione modulare client-server per la pubblicazione"
 " e gestione di progetti QGIS, costituita da 2 componenti principali**"
@@ -109,10 +109,6 @@ msgstr ""
 "interazione con i servizi OGC"
 
 #: ../../index.rst:27
-msgid "Optional OS modules are:"
-msgstr "Ulteriori moduli OS opzionali sono:"
-
-#: ../../index.rst:29
 msgid ""
 "**Front-end geographic portal:** access to information, thematic groups "
 "and WebGis services"
@@ -121,25 +117,16 @@ msgstr ""
 "contenitori tematici e servizi WebGis"
 
 #: ../../index.rst:31
-#, fuzzy
-msgid ""
-"**Caching Module:** tile caching module for single layer powered by "
-"TileStache4"
-msgstr ""
-"**Modulo di Cache:** modulo per la gestione della cache dei singoli layer"
-" basato su TileStache"
-
-#: ../../index.rst:33
 msgid "Through the web interface of the G3W-SUITE framework it is possible to:"
 msgstr ""
 "Attraverso l'interfaccia web della componente di Amministrazione è "
 "possibile:"
 
-#: ../../index.rst:35
+#: ../../index.rst:33
 msgid "**publish QGIS projects** directly on WebGis in a structured way"
 msgstr "**pubblicare progetti QGIS** in modo diretto estrutturato"
 
-#: ../../index.rst:37
+#: ../../index.rst:35
 msgid ""
 "**organize webgis services in thematic-functional containers** of various"
 " levels"
@@ -147,7 +134,7 @@ msgstr ""
 "**organizzare servizi webgis** in contenitori tematici-funzionali di vari"
 " livelli"
 
-#: ../../index.rst:39
+#: ../../index.rst:37
 msgid ""
 "**manage users and groups of users** by defining each of them **different"
 " functional roles**"
@@ -155,19 +142,19 @@ msgstr ""
 "**gestire utenti** e gruppi di utenti definendo ciascuno di essi **ruoli "
 "funzionali diversi**"
 
-#: ../../index.rst:41
+#: ../../index.rst:39
 msgid "**create and manage research methods**"
 msgstr "creare e gestire **strumenti di ricerca**"
 
-#: ../../index.rst:43
+#: ../../index.rst:41
 msgid "allow **online editing**"
 msgstr "permettere l'**editing on line**"
 
-#: ../../index.rst:45
+#: ../../index.rst:43
 msgid "activate **specific functional modules**"
 msgstr "attivare **specifici moduli funzionali**"
 
-#: ../../index.rst:47
+#: ../../index.rst:45
 msgid ""
 "**define permissions to access services and to use functional modules** "
 "at the individual user level"
@@ -190,4 +177,18 @@ msgstr ""
 #~ "è programmata per **Luglio 2020**) sarà"
 #~ " compatibile con la **versione `3.10 "
 #~ "LTR`.**"
+
+#~ msgid "Welcome to G3W-SUITE 3.1 documentation!"
+#~ msgstr "Benvenuti nella documentazione di G3W-SUITE"
+
+#~ msgid "Optional OS modules are:"
+#~ msgstr "Ulteriori moduli OS opzionali sono:"
+
+#~ msgid ""
+#~ "**Caching Module:** tile caching module "
+#~ "for single layer powered by TileStache4"
+#~ msgstr ""
+#~ "**Modulo di Cache:** modulo per la "
+#~ "gestione della cache dei singoli layer"
+#~ " basato su TileStache"
 
