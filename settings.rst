@@ -127,6 +127,17 @@ I.e.::
         G3WSUITE_CUSTOM_STATIC_URL +'css/custom.css'
     ]
 
+``G3WSUITE_CUSTOM_JS``
+^^^^^^^^^^^^^^^^^^^^^^
+A list of custom js files added to `admin` pages and to the `client`.
+Mandatory is set ``G3WSUITE_CUSTOM_STATIC_URL``.
+I.e.::
+
+    G3WSUITE_CUSTOM_JS = [
+        G3WSUITE_CUSTOM_STATIC_URL +'js/custom.js'
+    ]
+
+
 Client layout settings
 **********************
 
