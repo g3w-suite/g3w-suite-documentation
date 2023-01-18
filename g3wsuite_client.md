@@ -45,7 +45,7 @@ The choice of a Theme will determine the **automatic activation of the layers an
 
 At the base of the map area there is an information bar showing:
  * **display scale**
- * **mouse coordinates**
+ * **mouse coordinates**: coordinates can be shown in project projection system and in WGS84 LatLong (ESPG: 4326)
  * **project projection system**
  * **icon to copy the URL with the references to the extension currently displayed**
  
@@ -65,6 +65,8 @@ At the base of the map area there is an information bar showing:
  * ![ ](images/manual/icon_navigation_geolocation.png) **`geolocation`:** geolocation tool (useful for consultation from tablet)
  * ![ ](images/manual/icon_navigation_nominatim.png) **`nominatin`:** search tools for addresses and toponyms based on OSM
  * ![ ](images/manual/icon_navigation_streetview.png) **`streetview`:** Google StreetView on your map
+    * in the presence of GoogleMaps API Key, StreetView it is integrated on the client and synchronized with the position and direction of the icon on the map
+    * in the absence of GoogleMaps API Key, StreetView it will open on a new browse tab without the aspects of synchronization with the map
  * ![ ](images/manual/icon_navigation_lunghezza.png) **`length`:** linear measuring instrument
  * ![ ](images/manual/icon_navigation_area.png) **`area`:** tool for measuring surfaces
  * ![ ](images/manual/icon_navigation_addlayer.png) **`addlayers`:** tool for temporarily uploading GML, GeoJson, KML, GPX, SHP (zipped) and CSV with coordinate to WebGis. These layers will remain until the end of the work session
@@ -91,7 +93,7 @@ Upon querying a geometry, the form structure will be replicated at the client le
 
 Any links to photos will determine the display of a clickable preview, any links to links or other multimedia content will determine the display of the Open button that will allow consultation of the link.
 
-For further information on this point, see the [**dedicated paragraph**](https://g3w-suite.readthedocs.io/en/v.3.4.x/projectsettings.html#viewing-multimedia-content).
+For further information on this point, see the [**dedicated paragraph**](https://g3w-suite.readthedocs.io/en/v.3.5.x/projectsettings.html#viewing-multimedia-content).
 
 #### Single result
 
@@ -159,11 +161,14 @@ single/list features by value of a field
 
 Here the URL paramters available:
  * **map_extent (Zoom to map extent)**
-   * Ex: <url_project>?map_extent=Xmin, Ymin,Xmax,Ymax
+   * Ex: `<url_project>?map_extent=Xmin, Ymin,Xmax,Ymax`
  * **zoom_to_fid (Zoom to a specific feature by FID)**
-   * Ex: <url_project>?zoom_to_fid=<layer_id>|<fid value>
+   * Ex: `<url_project>?zoom_to_fid=<layer_id>|<fid value>`
  * **ztf (Zoom to features defined on the basis of attribute values)**
-   * Ex: <url_project>?ztf=<layer_id or layer name>:<field name>=<field value>
+   * Ex: `<url_project>?ztf=<layer_id or layer name>:<field name>=<field value>`
+
+If **Views (Themes)** are set up in the QGIS project, it will also be possible to parameterize them in the webgis URL: 
+   * Ex: `<url>?map_theme=<theme_name>`
 
 ## Tools panel
 ### Metadata
@@ -230,7 +235,7 @@ The cards to be printed are defined by referring to the atlas identifier defined
 ### WMS
 **Through this tool the user can add custom WMS layers to the WebGis service.**
 
-The user can add one or more WMS URL and, for each of them, define:
+The user can add one or more WMS URLs (associated with a customizable name) and, for each of them, define:
  * the position (top or buttom) with respect to the other layers of the project
  * the layer to load
  * the projection system to be associated
@@ -258,6 +263,8 @@ Through this tool it is possible to:
  * edit a previously saved query
  
 The saved query will be available until the browser cache is cleared
+
+**NB:** fields not exposed as QGIS project-level WMS are not available for query building.
 
 ![](images/manual/g3wclient_querybuilder.png)
 
@@ -287,6 +294,7 @@ This session has three tabs:
  
 In the list of layers, right click on the name of the single layer shows the following items:
  * **Name and kind of geometry** of the layer
+  * **Metadata:** descriptive information inherited from what has been defined, at QGIS project level, in the 'Abstract' form of the 'QGIS Server' session of the 'Layer Properties'
  * **Styles:** to choose the style to be applied to the layer, in the case of multi-style layers
  * **Abstract:**  a text (also html) defined in the **Layer Properties**, **Metadata** session, **Identification** tab, **Abstract** form.
  * **Zoom to layer:** to zoom in on the extension of the layer
@@ -296,7 +304,7 @@ In the list of layers, right click on the name of the single layer shows the fol
  * **Download GeoPackage:** to download the layer as a GeoPackage; function activatable from the administration panel
  * **Download CSV:** to download the layer as a CSV; function activatable from the administration panel
  * **Download XLS:** to download the layer as a XLS; function activatable from the administration panel
- * **WMS URL:** URL of the WMS service relative to the project or URL of the external WMS
+ * **WMS/WFS URL:** URL of the WMS/WFS service relative to the project or URL of the external WMS
 
 ![](images/manual/g3wclient_layer_function.png)
 
@@ -370,9 +378,12 @@ If the option is activated on the QGIS project, the **legend is filtered on the 
 
 ## Time series
 
+**NB: the Time Series function is only available with a QGIS Server version >= 3.26**
+
 This version of G3W-SUITE manages the temporal aspects for both vector and raster layers but with limitations:
  * **vector layers:** limited to the **Single field with Date/Time** configuration
  * **raster layers:** only for **NetCDF** file upload as raster (no Mesh)
+ * **WMS-T**
 
 If in the QGIS project  a temporal vector/raster layer on which the **Dynamic temporal control** property has been activated is present, the client will show an additional panel called **Time series**.
 
@@ -388,14 +399,3 @@ The modification of the start date of the series will determine the updating of 
 **Pay attention: to use the Time series function for raster data, it must also be activated at the level of the G3W-ADMIN layer properties.**
 
 ![](images/manual/g3wclient_timeseries_admin.png)
-
-
-## Temporal raster charts
-
-If in the QGIS project  a temporal raster layer on which the **Dynamic temporal control** property has been activated is present, the **Time series** panel .
-
-The panel will show an additional button called **Show Charts**.
-
-By clicking on it it will be possible to click on the map in different points obtaining, for each of them, a time chart that will show the variation of the values of the individual cells over time.
-
-![](images/manual/g3wclient_timecharts_tool.png)
