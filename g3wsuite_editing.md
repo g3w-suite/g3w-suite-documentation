@@ -1,5 +1,7 @@
 # Editing on line
 ## Activation and configuration
+### Introduction and main features
+The **editing settings** are defined partly at the **QGIS project level (editing form structure, widgets associated with individual attributes, 1:n and, in part, N:M relations)** and partly at the **Administration level** (users with editing power, activation scale, alpha and geo constraints).
 
 Thanks to the integration with the APIs of QGIS it is now possible to manage the main formats (geographically and not) supported by QGIS Server:
 
@@ -7,32 +9,40 @@ Thanks to the integration with the APIs of QGIS it is now possible to manage the
    * PostGreSQL/PostGis
    * SQLite/SpatiaLite
    * Oracle Spatial
-   * GeoPackage (not recommended for multi-user editing)
-   * ShapeFile
+   * GeoPackage
+   * ShapeFile(not recommended for multi-user editing)
 
  * **reading mode**
    * SQL Server
    * Virtual layer
 
-The suite also allows you to manage **`1:N and N:M relational editing`**.
+### 1:N and N:M relational editing
+
+The editing function manages both direct editing on geometric and alphanumeric layers, and editing on layers in a 1:N or N:M relations, also both geometric and alphanumeric.
 
 **Attention:** the management of the editing of the N: M relations is limited to the management of the 1:N relationship between the parent layer and the intermediate table.
 
 This means that currently it is not possible to create new records in table M but only:
- * modify the current relationships present
- * create new relationships between new elements of layer N and pre-existing records of layer M
+ * modify the current relations present
+ * create new relations between new elements of layer N and pre-existing records of layer M
 
-The **editing settings** are defined partly at the **QGIS project level** (**editing form structure, widgets associated with individual attributes, 1:n  and N:M relationsrelations**) and partly at the **Administration level** (users with editing power, activation scale, alpha and geo constraints).
+The **editing settings** are defined partly at the **QGIS project level** (**editing form structure, widgets associated with individual attributes, 1:n  and N:M relations**) and partly at the **Administration level** (users with editing power, activation scale, alpha and geo constraints).
 
-It should be noted that this function manages **`multi-user editing`** through a **features-lock system**.
+### Multi-user editing
+G3W-SUITE manages **multi-user editing** through a **feature lock system**.
+
+It’s strongly recommended to allow multi-user editing only in the case of layers on the GeoDatabase and not on physical files.
 
 When an enabled user activates the editing function at the map client level, the **features visible on the map at that time will be blocked**, in relation to the editing aspect, **for all the other enabled users** who will still be able to edit features present outside this geographical extension. .
+
+In case of features of a layer locked by other users, the user will receive a warning message when starting the editing.
 
 This block will be deactivated when the user exits the editing mode.
 
 ### QGIS project settings
 
-#### Definition of the attribute editing form
+#### Definition of editing widgets associated with individual attributes
+
 In the QGIS project, for each layer it is possible to **define the structure of the attribute display module**.
 
 The same structure will be used in the cartographic client when editing attributes.
@@ -62,18 +72,15 @@ The alias and editing widgets defined at the project level will be available dur
 
 Below are the available widgets and any limitations:
  * **`Checkbox`**
- * **`Date/time`:** management of the date only
+ * **`Date/time`:** management limited to the date
  * **`Attachment`**
  * **`Range`**
- * **`Text edit`** with this excluded options:
-   * multiline
-   * html
+ * **`Text edit`** multiline and html included
  * **`Unique values`**: this widget will be equipped with a **pick layer** tool at the cartographic client level
  * **`Value map`**
- * **`Value relations`** with this excluded options:
-   * sort by value
-   * allow multiple selections
-   * filter expression
+ * **`Value relations`** with `QGIS expression-based filter` management, the suite not support `sort by value` and `allow multiple selections` options
+
+ **The expression-based filter can also be dependent on the values of other fields on the form and useful to create cascading drill down.**
    
 With regard to the **`Attachment widget`**, it is necessary to specify that the association of a multimedia file with a feature requires that this file is uploaded to a dedicated space (exposed on the web) on the server and that the association takes place via a URL that refers to that file.
 
@@ -86,14 +93,24 @@ In the **`Attribute Form`** section of the **`Layer Properties`** it is also pos
  * **mandatory and/or unique constraints**
  * **range of acceptable values** through the **Range** widget
  * **default values**
+  * **conditional forms**
  
 #### QGIS expressions and default values
 
 **All the QGIS expressions can be used as default values.**
 
-In this case, at the online edit level, the form relating to the field thus defined will be self-calculated and not editable by the user.
+The default values defined for individual fields at the QGIS project level are inherited from the suite.
+
+In this case, at the online edit level, the form relating to the field thus defined will be self-calculated and can be set not editable by the user.
+
+**The result of the expression can also be dependent on the values of other fields on the form.**
 
 Very useful in all cases where we want the values of a field to be calculated automatically through the potential of QGIS expressions.
+
+
+The `Apply the default value also to the update` option is supported for all non-geometric functions and only for the following geometric functions:  `$area`, `$perimeter`, `$length`, `$x`, `$y` `$geometry`
+
+As in QGIS the default values are displayed in the form during editing and not only after saving.
 
 #### Definition of 1:n relations
 In the event that, at the QGIS project level, one or more 1: n type relationships have been associated with a layer (**`Project menu → Properties…`, `Relations` section**), it will be possible to carry out relational editing also on the webgis platform.
@@ -264,7 +281,9 @@ In the alphanumeric constraints list you can see a summary of the setted rules.
 
 **Once the online editing function has been activated and configured on one or more layers of a WebGis project, the `Editing` item, inside the `Tools` menu of the cartoographic client, will be shown.**
 
-If the editing function is activated at the Admin level, it is also possible to start the online editing also through the Editing icon that appears at the level of the search and query results form of a vector layer.
+In the case of many editable layers, a useful **filter** allows you to view only the layers of interest in the list.
+
+If the editing function is activated at the Admin level, it is also possible to start the online editing also through the **Editing icon** that appears at the level of the **search and query results form** of a vector layer.
 
 ![](images/manual/editing_client_start.png) 
 
@@ -280,18 +299,27 @@ The tools available are the following:
 
 **Geometric layers**
  * ![](images/manual/icon_feature_add.png) **Add feature:** to add a feature
- * ![](images/manual/icon_feature_attribute.png) **Modify feature:** to modify the attribute values associated with an existing feature
- * ![](images/manual/icon_feature_multiattribute.png) **Update attributes for selected features:** to modify the attribute values associated with more than one features
+  * ![](images/manual/icon_feature_attribute.png)**Update feature attribute:** to modify the attribute values associated with an existing feature
  * ![](images/manual/icon_feature_modify.png) **Update feature vertex:** to modify the shape of a geometry
- * ![](images/manual/icon_feature_move.png) **Move feature:** to move a feature
  * ![](images/manual/icon_feature_remove.png) **Remove feature**
+ * ![](images/manual/icon_feature_multiattribute.png) **Update attributes for selected features:** to modify the attribute values associated with more than one features
+ 
+ * ![](images/manual/icon_feature_move.png) **Move feature:** to move a feature
+
+  * ![](images/manual/icon_feature_paste.png) **Paste features from other layers:** query another layer with the same geometry, select the features to copy, press the Paste icon, select the features to paste and confirm.
+
+ * ![](images/manual/icon_feature_copy.png) **Copy features:** to copy one or more features from the same layer
+
  * ![](images/manual/icon_feature_add_part.png) **Add part** of a multi-geometry
  * ![](images/manual/icon_feature_delete_part.png) **Delete part** of a multi-geometry
- * ![](images/manual/icon_feature_copy.png) **Copy features:** to move one or more features
- * ![](images/manual/icon_feature_dissolve.png) **Dissolve features:** to dissolve two or more features
+
  * ![](images/manual/icon_feature_split.png) **Split features:** to split one or more features
 
+ * ![](images/manual/icon_feature_dissolve.png) **Dissolve features:** to dissolve two or more features
+
 A help panel will describe the steps to take for copy, dissolve and split operations.
+
+In case of interaction of the editing tools with overlapping geometries, an intermediate step will allow to select the effective geometry on which to operate.
 
 ##### Snap and other available function
 Activating the Add features and Update feature vertex tools allows you to:
@@ -315,16 +343,6 @@ The changes made can be saved only after satisfying any constraints of mandatory
 
 For this reason the green button **SAVE** will be disabled until all constraints are met.
 
-#### Saving changes
-Saving all the changes made in an editing session can be done in two ways:
- * by clicking on the **`diskette icon`** ![](images/manual/icon_disk.png) placed at the top right. The changes made will be saved and you can continue making new changes
- * by deactivating the editing by clicking on the **`Edit layer icon`** ![](images/manual/icon_edit2.png). 
-
-By deactivating the editing function, a modal window will be displayed which will show the **list of changes made** and the request for confirmation or not of saving them.
-
-![](images/manual/editing_client_save.png)
-
-Remember that during the editing phase the **`undo/redo icons`** ![](images/manual/icon_undoredo.png) allow you to delete/restore the latest changes made.
 
 
 ### 1:N and N:M related tables editing
@@ -349,10 +367,24 @@ Clicking on it the form switch in a session dedicated to the edit of the relatio
  * **associate an existing records** (linked to other features or orphan) to the edited feature
  * **modify the records** currently associated with the edited feature
 
-#### Creation of a new related records
+#### Creation of a new related child records
 By clicking on the icon **`Create and link a new relation`** ![](images/manual/icon_plus.png)(located at the top right) it will be show the attribute form to insert a new record.
 
 You can fill in the individual attributes and save the new record. **The change must be validated by clicking on the `Save` button at the bottom of the form.**
+
+If the child layer is of the geometric type, it will be possible to add a new feature in two ways:
+
+ * **classic geometry editing**
+ * **copy and paste a feature from other layers (WFS included)** present in the project and characterized by the same type of geometry
+
+![](images/manual/editing_form_relations.png)
+
+To copy a geometry from another layer operate in this order:
+ * select the layer from which to copy the geometry from the drop-down menu
+ * click on the Copy button on the right of the list
+ * click on the feature of the layer to copy from
+ * select the feature of interest by consulting its attributes and/or zooming in on it, only one feature per operation
+ * fill in the attribute form of the pasted feature, some fields may already be filled in if they are omonymus to those of the feature's origin layer
 
 #### Association of an existing record
 By clicking on the icon **`Join a relation to this feature`** ![](images/manual/icon_join.png) (located at the top right) you can associate a record, already linked to other features or orphaned, to the edited feature.
@@ -369,13 +401,14 @@ A series of icons appear to the right of each record associated with the edited 
  * ![](images/manual/icon_record_attribute.png) **Update feature:** modify the values associated with the attributes of this record; the change must be validated by clicking on the Save button at the bottom of the form.
 
 #### Saving changes
-Saving changes made at the level of related tables is managed by saving made at the level of the parent layer:
- * by clicking on the **`diskette icon`** ![](images/manual/icon_disk.png) placed at the top right. The changes made will be saved and you can continue making new changes
- * by deactivating the editing by clicking on the **`Edit layer icon`** ![](images/manual/icon_edit2.png). 
+Saving all the changes made in an editing session can be done in three ways:
+ * by clicking on the **`diskette icon`** ![](images/manual/icon_disk.png) placed at the top right. This icon is very useful in the case of complex projects with related data on various levels as it allows you to **save any changes made regardless of the form on which you are at the time of saving.** You will not be asked to confirm the save.
+  * by clicking on the **`diskette icon`** ![](images/manual/icon_save_all.png) placed at the top left of the TOC. The icon will only be active once you exit the attribute editing form. The changes made will be saved and you can continue making new changes. You will not be asked to confirm the save.
+ * bexiting edit mode by clicking on the **`Edit layer icon`** ![](images/manual/icon_edit2.png). 
  
-By deactivating the editing function, a modal window will be displayed which will show the list of changes made and the request for confirmation or not of saving them.
+BExiting edit mode, a modal window will be displayed which will show the list of changes made and the request for confirmation or not of saving them.
 
 ![](images/manual/editing_client_save.png)
 
-
+Remember that during the editing phase the **undo/redo icons** allow you to delete/restore the latest changes made. 
  
