@@ -48,7 +48,7 @@ The option **`Automatically create transaction group where possible`** is automa
  
 
 **NB: this differentiation is only possible by using the QGIS APIs such as Search URL endpoint.**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.4.x/settings.html#g3w-client-search-endpoint)
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/settings.html#g3w-client-search-endpoint)
 
 
 ![](images/manual/datasources.png)
@@ -60,7 +60,7 @@ See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.4.x/settings.h
 
 This information, together with info about the structure of the attribute tables of the layers present in the project, will be displayed in the **Metadata session** of the cartographic client.
 
-See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.4.x/g3wsuite_client.html#metadata)
+See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/g3wsuite_client.html#metadata)
 
 ![](images/manual/qgisservercapabilities.png)
 
@@ -118,6 +118,8 @@ The creation of **Themes** (combination of off / on layers and differentiated si
 
 A specific menu on the webgis will allow you to choose the Theme to be displayed.
 
+The views will be parameterizable at the URL level of the related webgis service.
+
 ### Layer order
 
 The option to define the layer order different from the order in the TOC on the QGIS project is automatically supported.
@@ -148,6 +150,10 @@ The request to delete the basic embedded project causes a warning message as thi
 ### Simbology
 The rendering style associated with the individual layers is replicated autonomously on the WebGis service.
 
+The suite allows the switching on/off of the individual categories linked to the various simbolgy methods (categorized, graduated, by rules …).
+
+![](images/manual/g3wsuite_simbology_onoff.png)
+
 If external SVG icons are used (added to the basic ones of QGIS, via the **`Settings -> Options -> System -> SVG paths`**), these must be uploaded to the server (through the **`File Manager`** tool) in order to be used by QGIS Server.
 
 #### Manage custom SVG icons
@@ -168,11 +174,11 @@ Through this tool it is possible to manage SVG icons on the server in a simple a
 The SVG folder on the server must reflect the structure in any subfolders present locally.
 
 **NB:** The name of this directory is defined by the basic settings set during the installation of the suite.
-[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v.3.4.x/settings.html#base-settings)
+[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v.3.5.x/settings.html#base-settings)
 
 **PS:** remember that the **`File Manager`** tool also allows you to manage the synchronization of geographical data (in the case of using physical files) and the management of multimedia files.
 
-See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.4.x/projectsettings.html#viewing-multimedia-content)
+See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/projectsettings.html#viewing-multimedia-content)
 
 
 
@@ -206,8 +212,14 @@ This structural organization will be replicated directly on the query form on th
 
 The current version of QGIS also handles conditional forms and cascade drill-downs
 
+### Layer basic information
+
+If you set a descriptive information in the **`Abstract`** form of the **`QGIS Server`** session of the **`Layer Properties`**, this information will be associated with the layer at the webgis level.
+
 
 ### Temporal settings
+
+This functionality is only available using QGIS Server >= 3.26
 
 This version of G3W-SUITE manages the temporal aspects for both vector and raster layers but with limitations:
 
@@ -255,7 +267,7 @@ You can set also a **custom title** (definible in the WebGis side) setting an **
 
 Any images present in the print layouts must be placed in the local **`project_data`** folder (in any subdirectory) and synchronized on the server.
 
-See also the dedicated paragraph [Geographic data synchronization on the server](https://g3w-suite.readthedocs.io/en/v.3.4.x/datamanagement.html#geographic-data-synchronization-on-the-server).
+See also the dedicated paragraph [Geographic data synchronization on the server](https://g3w-suite.readthedocs.io/en/v.3.5.x/datamanagement.html#geographic-data-synchronization-on-the-server).
 
 ## Performances optimization
 
