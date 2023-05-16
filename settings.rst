@@ -64,7 +64,7 @@ Database logging
 
 With v3.6.x version G3W-SUITE can save message logs inside the database.
 To activate it is sufficient add a new log `handler` inside Django `LOGGING` settings and use it for a `logger`:
-
+::
     LOGGING = {
         ...
         'handlers': {
