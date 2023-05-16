@@ -59,6 +59,34 @@ If set to True remember to set Django emailing settings (https://docs.djangoproj
 Default is `'GET'`, set to `'POST'` to change default http call method.
 
 
+Database logging
+****************
+
+With v3.6.x version G3W-SUITE can save message logs inside the database.
+To activate it is sufficient add a new log `handler` inside Django `LOGGING` settings and use it for a `logger`:
+
+    LOGGING = {
+        ...
+        'handlers': {
+            ...
+            'db_log': {
+                'level': 'DEBUG',
+                'class': 'core.utils.logs.db_handler.DatabaseLogHandler'
+                },
+            ...
+        }
+        ...
+        'loggers': {
+            ...
+            '': {
+                'handlers': ['db_log'],
+                'level': 'DEBUG',
+            },
+            ...
+        }
+    }
+
+
 Frontend portal setting
 ***********************
 
