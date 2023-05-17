@@ -48,7 +48,7 @@ The option **`Automatically create transaction group where possible`** is automa
  
 
 **NB: this differentiation is only possible by using the QGIS APIs such as Search URL endpoint.**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/settings.html#g3w-client-search-endpoint)
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/settings.html#g3w-client-search-endpoint)
 
 
 ![](images/manual/datasources.png)
@@ -60,7 +60,7 @@ See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/settings.h
 
 This information, together with info about the structure of the attribute tables of the layers present in the project, will be displayed in the **Metadata session** of the cartographic client.
 
-See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/g3wsuite_client.html#metadata)
+See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/g3wsuite_client.html#metadata)
 
 ![](images/manual/qgisservercapabilities.png)
 
@@ -128,6 +128,14 @@ The option to define the layer order different from the order in the TOC on the 
 
 The activation of the **`Filter legend by Map content`** option on the QGIS project is automatically applied to the derived WebGis service.
 
+If the **`Show features count`** function is activated in the QGIS project at vector layer level, the same information will be displayed on the web map.
+
+The number of features updates automatically based on the style associated with the layer.
+
+### Spatial Bookmarks
+
+In case **`Spatial Bookmarks`** are saved at the QGIS project level, they will also be available on the web map.
+
 ### Mutually exclusive groups
 
 The activation on the QGIS project of the **`Mutually exclusive group`** option for the layers groups is automatically applied to the derived WebGis service.
@@ -174,11 +182,11 @@ Through this tool it is possible to manage SVG icons on the server in a simple a
 The SVG folder on the server must reflect the structure in any subfolders present locally.
 
 **NB:** The name of this directory is defined by the basic settings set during the installation of the suite.
-[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v.3.5.x/settings.html#base-settings)
+[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v.3.6.x/settings.html#base-settings)
 
 **PS:** remember that the **`File Manager`** tool also allows you to manage the synchronization of geographical data (in the case of using physical files) and the management of multimedia files.
 
-See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/projectsettings.html#viewing-multimedia-content)
+See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/projectsettings.html#viewing-multimedia-content)
 
 
 
@@ -221,10 +229,11 @@ If you set a descriptive information in the **`Abstract`** form of the **`QGIS S
 
 This functionality is only available using QGIS Server >= 3.26
 
-This version of G3W-SUITE manages the temporal aspects for both vector and raster layers but with limitations:
+The Temporal Controller functions in QGIS are replicated on the webgis component
 
- * vector layers: limited to the Single filed with Date/Time configuration
- * raster layers: only for NetCDF file upload as raster (no Mesh)
+Time series functionality works on both vector and raster data, even in multi-layer mode.
+
+Time setting on vector data is limited to the **`Single Field with Date/Time`** case
 
 ![](images/manual/qgislayerproperties_displayform_relations.png)
 
@@ -267,7 +276,7 @@ You can set also a **custom title** (definible in the WebGis side) setting an **
 
 Any images present in the print layouts must be placed in the local **`project_data`** folder (in any subdirectory) and synchronized on the server.
 
-See also the dedicated paragraph [Geographic data synchronization on the server](https://g3w-suite.readthedocs.io/en/v.3.5.x/datamanagement.html#geographic-data-synchronization-on-the-server).
+See also the dedicated paragraph [Geographic data synchronization on the server](https://g3w-suite.readthedocs.io/en/v.3.6.x/datamanagement.html#geographic-data-synchronization-on-the-server).
 
 ## Performances optimization
 

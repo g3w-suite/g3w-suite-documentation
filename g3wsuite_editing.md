@@ -108,7 +108,7 @@ In this case, at the online edit level, the form relating to the field thus defi
 Very useful in all cases where we want the values of a field to be calculated automatically through the potential of QGIS expressions.
 
 
-The `Apply the default value also to the update` option is supported for all non-geometric functions and only for the following geometric functions:  `$area`, `$perimeter`, `$length`, `$x`, `$y` `$geometry`
+The `Apply the default value also to the update` option is supported.
 
 As in QGIS the default values are displayed in the form during editing and not only after saving.
 
@@ -306,7 +306,7 @@ The tools available are the following:
  
  * ![](images/manual/icon_feature_move.png) **Move feature:** to move a feature
 
-  * ![](images/manual/icon_feature_paste.png) **Paste features from other layers:** query another layer with the same geometry, select the features to copy, press the Paste icon, select the features to paste and confirm.
+  * ![](images/manual/icon_feature_paste.png) **Paste features from other layers:** query another layer with the same geometry, select the features to copy, press the **`Paste`** icon, select the features to paste and confirm. The copy and paste operation can also be performed by referring to geometries deriving from layers added by the user using the AddLayer tool.
 
  * ![](images/manual/icon_feature_copy.png) **Copy features:** to copy one or more features from the same layer
 

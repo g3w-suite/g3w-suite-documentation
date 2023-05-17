@@ -21,10 +21,12 @@ The color of the interface depends on the type of user logged in.
 ![](images/manual/g3wclient_header.png)
 
 The **`Tools panel`** is located on the left and containing the following objects:
- * **Metadata:** content defined on QGIS project
+ * **Metadata:** any content defined in the GetCapabilities of the QGIS Project
  * **Print:** printing tool based on the layouts defined on the QGIS project
- * **Search:** with the search tools defined through the Administration panel
- * **Tools:** session that collects the various tools that may be activated on the WebGis service
+ * **Search:** with the search tools defined in the Administration session, as well as a free **Query Builder** like the one present in QGIS
+ * **Charts:** visualization of any graphs created on QGIS with the DataPlotly plugin
+ * **Spatial Bookmarks:** tool for using the Spatial Bookmarks associated with the QGIS project and allowing the user to create new ones for his exclusive use.
+ * **Tools:** session that collects the various tools that may be activated on the WebGis service (including editing tools)
  * **WMS:** session to add custom WMS services to the map
  * **Map:** containing:
    * **Layers:** structured list of layers, defined on the QGIS project
@@ -59,9 +61,11 @@ At the base of the map area there is an information bar showing:
  * ![ ](images/manual/icon_navigation_fitextent.png) **`zoomtoextent`:** zoom to the initial extension
  * ![ ](images/manual/icon_navigation_zoomin.png) **`zoom`:** zoom in and zoom out
  * ![ ](images/manual/icon_navigation_zoomtobox.png) **`zoombox`:** zoom tool based on drawing a rectangle
+ * ![ ](images/manual/icon_navigation_zomme_lastnext.png) **Zoom last/next:** undo/redo tools to navigate previous and post visualization areas (icons in the down-left corner)
  * ![ ](images/manual/icon_navigation_querylayer.png) **`query`:** puntual query of geographical layers
  * ![ ](images/manual/icon_navigation_querybox.png) **`querybbox`:** query via bounding box - **N.B.** for the layers to be queried according to this method it is necessary that they are published as WFS services on the QGIS project
- * ![ ](images/manual/icon_navigation_querypoligon.png) **`querybypolygon`:** it will be possible to automatically query the features of one or more layers that fall within a polygonal element of a guide layer. (Eg what's inside a cadastral parcel?). - **N.B.** the questionable layers must be published as WFS services on the QGIS project
+  * ![ ](images/manual/icon_navigation_querypoligon.png) **`querybypolygon`:** it will be possible to automatically query the features of one or more layers that fall within a polygonal element of a guide layer. (Eg what's inside a cadastral parcel?). - **N.B.** the questionable layers must be published as WFS services on the QGIS project
+   * ![ ](images/manual/icon_navigation_querybydraw.png) **`querybydraw`:**: query based on an irregularly shaped polygon drawn by the user - N.B. for the layers to be queried according to this method it is necessary that they are published as WFS services on the QGIS project 
  * ![ ](images/manual/icon_navigation_geolocation.png) **`geolocation`:** geolocation tool (useful for consultation from tablet)
  * ![ ](images/manual/icon_navigation_nominatim.png) **`nominatin`:** search tools for addresses and toponyms based on OSM
  * ![ ](images/manual/icon_navigation_streetview.png) **`streetview`:** Google StreetView on your map
@@ -79,9 +83,17 @@ It should be noted that the query function acts, by default, with the coring met
 
 To query a single layer, it must be previously selected at the TOC level.
 
-Remember that query modes based on **querybbox** and **querybypolygon** require the publication of all the layers involved as WFS services at the QGIS project level.
+Remember that query modes based on `querybbox`, `querybypolygon` and `querybydraw` require the publication of all the layers involved as WFS services at the QGIS project level.
 
-**NB:** Remember that, after viewing the results, it will be possible to zoom on the feature associated with the individual results only if the option **`Add geometry to object response`** has been activated at the QGIS project level (**`Project → Properties, QGIS Server session`**).
+The result of these three types of queries can be based on the geometric operations intersection and containment.
+
+The choice made via the drop-down menu allows you to move from one result to another dynamically.
+
+![ ](images/manual/query_intersect_within.png)
+
+The querybypoligon tupe works also on the polygon layers added using the AddLayer tool
+
+**NB:** it will be possible to zoom on the feature associated with the individual results only if the option **`Add geometry to object response`** has been activated at the QGIS project level (**`Project → Properties, QGIS Server session`**).
 
 ### Map query
 
@@ -93,7 +105,7 @@ Upon querying a geometry, the form structure will be replicated at the client le
 
 Any links to photos will determine the display of a clickable preview, any links to links or other multimedia content will determine the display of the Open button that will allow consultation of the link.
 
-For further information on this point, see the [**dedicated paragraph**](https://g3w-suite.readthedocs.io/en/v.3.5.x/projectsettings.html#viewing-multimedia-content).
+For further information on this point, see the [**dedicated paragraph**](https://g3w-suite.readthedocs.io/en/v.3.6.x/projectsettings.html#viewing-multimedia-content).
 
 #### Single result
 
@@ -235,7 +247,14 @@ The cards to be printed are defined by referring to the atlas identifier defined
 ### WMS
 **Through this tool the user can add custom WMS layers to the WebGis service.**
 
-The user can add one or more WMS URLs (associated with a customizable name) and, for each of them, define:
+The user can add one or more WMS service by defining: 
+ * custom title
+ * WMS URL
+
+![](images/manual/g3wclient_wms_add.png)
+
+After that, using the + key it is possible to view the list of maps associated with the service, choose which one to load by defining:
+
  * the position (top or buttom) with respect to the other layers of the project
  * the layer to load
  * the projection system to be associated
@@ -291,7 +310,15 @@ This session has three tabs:
  * **Legend:** graphic legend
  
 #### Layers
- 
+
+This tab shows the layers prepared on QGIS projects with the same organization the groups and subgroups.
+
+If the **`Show features count`** function is activated in the project, the layer will show the number of total features and based on the subdivision linked to the symbology.
+
+In case of multistyle associated with the layer, the number of geometries reported will vary following the passage from one style to another.
+
+![](images/manual/g3wclient_features_count.png)
+
 In the list of layers, right click on the name of the single layer shows the following items:
  * **Name and kind of geometry** of the layer
   * **Metadata:** descriptive information inherited from what has been defined, at QGIS project level, in the 'Abstract' form of the 'QGIS Server' session of the 'Layer Properties'
@@ -382,8 +409,10 @@ If the option is activated on the QGIS project, the **legend is filtered on the 
 
 This version of G3W-SUITE manages the temporal aspects for both vector and raster layers but with limitations:
  * **vector layers:** limited to the **Single field with Date/Time** configuration
- * **raster layers:** only for **NetCDF** file upload as raster (no Mesh)
+ * **raster layers:** Mesh layer
  * **WMS-T**
+
+ It is possible to create animations based on multiple temporal layers both raster and vector.
 
 If in the QGIS project  a temporal vector/raster layer on which the **Dynamic temporal control** property has been activated is present, the client will show an additional panel called **Time series**.
 
