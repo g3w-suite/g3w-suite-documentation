@@ -190,7 +190,7 @@ In this section it is possible to view the list of Cartographic Macrogroups, man
 
 **ATTENTION: use the Cartographic MacroGroups only if you need them.**
 
-See chapter [Hierarchical organization of WebGis services and types of Users](https://g3w-suite.readthedocs.io/en/v.3.5.x/user_groups_organization.html#hierarchical-organization-of-webgis-services-and-types-of-users-roles) to learn more about this aspect.
+See chapter [Hierarchical organization of WebGis services and types of Users](https://g3w-suite.readthedocs.io/en/v.3.6.x/user_groups_organization.html#hierarchical-organization-of-webgis-services-and-types-of-users-roles) to learn more about this aspect.
 
 For example, you can create a **Macrogroup** to collect a series of **Cartographic Groups** belonging to the same Administration (single Municipality within a Union of Municipalities) or more simply to have main containers that contain second level groupings (Groups).
 
@@ -333,7 +333,9 @@ In this box you can define:
    * **zoombox:** zoom tool based on drawing a rectangle
    * **query:** puntual query of geographical layers
    * **querybbox:** query via bounding box (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**)
-   * **querybypolygon:** it will be possible to automatically query the features of one or more layers that fall inside a polygonal element of a guide layer. (Eg what's inside a cadastral parcel?). - **N.B. it is necessary that the all the layers involved in this kind of query are published as WFS services on the QGIS project**
+   * **querybypolygon:** it will be possible to automatically query the features of one or more layers that fall inside a polygonal element of a guide layer. (Eg what's inside a cadastral parcel?) - **N.B. it is necessary that the all the layers involved in this kind of query are published as WFS services on the QGIS project**
+  * **querybydrawpolygon:** query based on a polygon drawn on the map  (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**) 
+   * **zoomhistory:** undo/redo tools to navigate previous and post visualization areas
    * **overview:** presence of a panoramic map
    * **scaleline:** presence of the scale bar
    * **scale:** tool for defining the display scale
@@ -352,7 +354,7 @@ In this box you can define:
  * **`Background color`:** choice of the background color of the maps (default white)
  
 ***NB:** the security protocols prevent the creation of screenshots if WMS services with domains other than the publication one are present on the map. **In this case the icons will not be present on the client even if the MapControl is selected.**
-To avoid this, set the WMS as **external WMS** in the [Widget managment](https://g3w-suite.readthedocs.io/en/v.3.5.x/g3wsuite_administration.html#widget-management) session.
+To avoid this, set the WMS as **external WMS** in the [Widget managment](https://g3w-suite.readthedocs.io/en/v.3.6.x/g3wsuite_administration.html#widget-management) session.
 
 ![](images/manual/g3wsuite_administration_group_add_geodata.png)
 
@@ -367,7 +369,7 @@ In this regard, consult the session [**Base map layer**](https://g3w-suite.readt
 
 It is possible to create/add **customized Base Layers** starting from the cache of the single layers present in published webgis
 
-See [**Caching layer**](https://g3w-suite.readthedocs.io/en/v.3.5.x/g3wsuite_administration.html#caching-layer-base-map) paragraph in the **Widget management** session.
+See [**Caching layer**](https://g3w-suite.readthedocs.io/en/v.3.6.x/g3wsuite_administration.html#caching-layer-base-map) paragraph in the **Widget management** session.
 
 #### Copyrigth
 **`Terms of use`:** description of the terms of use of the map and any other info
@@ -396,6 +398,22 @@ There are also a series of icons to access specific functions:
 A large **+ icon** is available to access the form for creating a new group.
 
 ![](images/manual/g3wsuite_administration_group_list.png)
+
+#### Cartographic Group Trash
+
+The operation of deleting a Cartographic Group is not definitive.
+
+The Group with all its related content (projects and widgets) is moved to the Trash session.
+
+It is possible to access the list of trashed.
+
+Cartographic Groups and the restore functions through the menu on the left sidebar.
+
+![](images/manual/g3wadmin_trash_group.png)
+
+Restoring a Cartographic Group involves restoring all the projects it contains and all the accessory settings/functions of both the group and the projects (permissions, searches, editing settings, downloads, etc...).
+
+**Deleting a Cartographic Group from the trash is an irreversible action.**
 
 #### Define the Groups order on the FrontEnd
 Using the Drag & Drop function it is possible to define the order of the Groups in the list.
@@ -524,7 +542,7 @@ Always starting from the list of WebGis services, it is possible to manage numer
 Through the single icons, placed at the level of each project, it is possible to:
  * ![](images/manual/iconsmall_viewmap.png) **Display the cartographic project on the WebGis interface:** to check the display by the user
  * ![](images/manual/iconsmall_layerlist.png) **Access the list of layers** present within the project and define their functional aspects
- * ![](images/manual/iconsmall_view.png) **VShow details**: for each WebGis service it will be possible to access a detailed summary that will list all the activated settings and widgets:
+ * ![](images/manual/iconsmall_view.png) **Show details**: for each WebGis service it will be possible to access a detailed summary that will list all the activated settings and widgets:
    *  access and modification permissions
    *  the list of active searches
    *  editing permissions on individual layers
@@ -538,6 +556,45 @@ Through the single icons, placed at the level of each project, it is possible to
    **Warning:** removing a project also removes all the widgets (e.g. searches) that would be orphaned after the project has been removed
  * ![](images/manual/iconsmall_download.png) **Download of the QGIS project**
  * ![](images/manual/iconsmall_ogc.png) **List of OGC services** associated with the project
+  * ![](images/manual/iconsmall_message.png) **Messages** the tool allows you to define personalized (timed) messages visible when the WebGis service starts
+ 
+ **Below are some insights into specific features**
+
+#### Show details
+
+A useful tool for having a summary of all the settings and functions connected to the project.
+
+![](images/manual/tools_details.png)
+
+#### Messages
+
+The tool allows you to define personalized (timed) messages visible when the WebGis service starts.
+
+By clicking on the icon, the messages associated with the service are displayed.
+
+![](images/manual/messages_list.png)
+
+Using the + Message key it is possible to create a new message by defining:
+  * title
+  * message body (also in html)
+  * message type (info, warning, error, critical)
+  * validity period (optional)
+
+ ![](images/manual/messages_new.png)
+
+
+#### Project Trash
+
+The operation of deleting a Project is not definitive.
+The Project with all its related content (widgets and settings) is moved to the Trash session.
+
+It is possible to access the list of trashed Projects and the restore functions through the tab Trash positioned just above the list of published projects
+
+![](images/manual/g3wadmin_trash_project.png)
+
+Restoring a Projetc involves restoring all the accessory settings/functions of  the project (permissions, searches, editing settings, downloads, etc...).
+
+**Deleting a project from the trash is an irreversible action.**
 
 
 ### Setting up the overview map for WebGis services
@@ -605,7 +662,7 @@ The newly created base layer will be available to be associated with those avail
 
 Through this icon it is possible to activate the online editing function on the individual layers and define the permissions for individual / groups of users
 
-See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v.3.5.x/g3wsuite_editing.html).
+See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v.3.6.x/g3wsuite_editing.html).
 
 
 ### ![](images/manual/icon_filter_layer.png) Hide layer by user/groups
@@ -649,7 +706,7 @@ If the chart is linked to a child layer in a 1:N relation, it can also be displa
 
 Through the **Geo-constraints by user/group** and **Alphanumeric and QGIS expressions constraints by user/groups**  widgets it is possible to define editing and display filters for users authorized to consult/edit the project.
 
-See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v.3.5.x/g3wsuite_editing.html#constraints-setting).
+See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v.3.6.x/g3wsuite_editing.html#constraints-setting).
 
 
 ### ![](images/manual/icon_hide_columns.png) Hide columns by User/Groups
@@ -682,7 +739,7 @@ In G3W-SUITE it is possible to create search widgets.
 By default, searches can be built on individual vector layers based on the fields of the table associated with the layer.
 
 **NB: to create searches based on fields derived from simple joins (1:1/N:1) or from 1:N relation, you have to change the setting of the method used (from WMS to QGIS API).**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/settings.html#g3w-client-search-endpoint).**
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/settings.html#g3w-client-search-endpoint).**
 
 Every search widget will be saved by referring to the layer identifiers (for example the DB parameters: IP, DB name, schema, layer name).
 
@@ -735,7 +792,7 @@ Otherwise it will be possible to define the values of the individual fields free
 
 **Warning: in the case of fields with more than 100 unique values, the WMS service does not allow to obtain the complete list of values. In this case it is recommended not to use the `SelectBox` method**
 
-**Alternatively, you can use the QGIS API as a search method to overcome this limitation. See** [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/settings.html#g3w-client-search-endpoint).
+**Alternatively, you can use the QGIS API as a search method to overcome this limitation. See** [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/settings.html#g3w-client-search-endpoint).
 
 The button ![](images/manual/button_add.png) allows you to add additional fields for the construction of the search query currently manageable through **AND/OR operators**.
 
@@ -774,7 +831,7 @@ Especially useful in the case of multigeometric layers.
 The option allows you to create a search based on the fields of a table (child in a 1:N relation) and obtain results relating to the parent layer of the relation.
 
 **N.B. to create searches based on fields derived from simple joins (1: 1 / N: 1) or from 1: N relation, you have to change the setting of the method used (from WMS to QGIS API).**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.5.x/settings.html#g3w-client-search-endpoint).
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/settings.html#g3w-client-search-endpoint).
 
 The **Relations** option allows you to to define the relationship to be used (if present) to identify the parent layer whose results will be shown.
 
@@ -796,6 +853,7 @@ By default the suite manages four languages:
  * Italian
  * Finnish
  * Swedish
+ * Romanian
 
 Other languages ​​can be added.
 
@@ -814,7 +872,7 @@ Fixed front end content is already available in the four basic languages.
 
 Variable contents, i.e. user-definable contents, are instead translated:
 
- * Sessions **`Home`**, **`About`**, **`Maps`** and **`Login`**: content that can be defined and translated in the [**Edit General Data**](https://g3w-suite.readthedocs.io/en/v.3.5.x/g3wsuite_administration.html#front-end-portal-customization) session of the Control Panel Administration
+ * Sessions **`Home`**, **`About`**, **`Maps`** and **`Login`**: content that can be defined and translated in the [**Edit General Data**](https://g3w-suite.readthedocs.io/en/v.3.6.x/g3wsuite_administration.html#front-end-portal-customization) session of the Control Panel Administration
  * Sessions **`MacroGroups Cartogarfici`**, **`Groups Cartogarfici`** and **`WebGis Services`**: contents definable and translatable in the form defining these elements, limited to the items:
    * **Public Title**
    * **Description**
