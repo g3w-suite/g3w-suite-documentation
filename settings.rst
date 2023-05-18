@@ -86,6 +86,13 @@ To activate it is sufficient add a new log `handler` inside Django `LOGGING` set
         }
     }
 
+.. Important::
+    This logging system continues to save log records with no upper limit. To keep the table from getting too big, there is a `django command` that deletes records older than a set number of days.
+    Is possible set a cronjob with the follow command:
+
+    `python3 manage.py clear_db_logs --days 30`
+
+    In this case records older than 30 days will be deleted.
 
 Frontend portal setting
 ***********************
