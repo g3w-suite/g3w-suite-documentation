@@ -18,7 +18,7 @@ Through the tutorials it will be possible to:
 
 # Download demo data
 
-The tutorial is based on predefined data and QGIS 3.28.x LTR project **downloadable from <a href="https://drive.google.com/file/d/1x66-47m4QHt2fzkAuphVZp9B_QmVSFIY/view?usp=share_link" target="_blank">this link</a>**.
+The tutorial is based on predefined data and QGIS 3.28.x LTR project **downloadable from <a href="https://drive.google.com/file/d/1K7IUUMtqZvftSXz3aCJR5Me5CMamChqk/view" target="_blank">this link</a>**.
 
 The .zip file contains the **`G3W-SUITE`** directory with three sub directories:
 * **`projects`:** containing a QGIS project (**`buildings_management.qgs`**) already optimized for the tutorial
@@ -346,7 +346,7 @@ Once the editing function is activated, updating the service, the **`Tools menu`
 
 ![](images/manual/editing_form2.png)
 
-For **further information** on the web editing function, read the [**dedicated chapter on the manual**](https://g3w-suite.readthedocs.io/en/v.3.6.x/g3wsuite_editing.html#online-editing-tools-at-cartographic-client-level)
+For **further information** on the web editing function, read the [**dedicated chapter on the manual**](https://g3w-suite.readthedocs.io/en/v3.6.x/g3wsuite_editing.html#online-editing-tools-at-cartographic-client-level)
 
 # Personalize your demo
 
@@ -354,6 +354,6 @@ For **further information** on the web editing function, read the [**dedicated c
 
 Redefine attribute forms, aliases and editing widgets associated with the individual fields and reload the project to check the new settings.
 
-**It is advisable to consult the** [paragraph dedicated](https://g3w-suite.readthedocs.io/en/v.3.6.x/g3wsuite_editing.html#activation-and-configuration) **to the list and limitations of the individual editing widgets inheritable from the QGIS project.**
+**It is advisable to consult the** [paragraph dedicated](https://g3w-suite.readthedocs.io/en/v3.6.x/g3wsuite_editing.html#activation-and-configuration) **to the list and limitations of the individual editing widgets inheritable from the QGIS project.**
 
 

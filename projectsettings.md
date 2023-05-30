@@ -48,7 +48,7 @@ The option **`Automatically create transaction group where possible`** is automa
  
 
 **NB: this differentiation is only possible by using the QGIS APIs such as Search URL endpoint.**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/settings.html#g3w-client-search-endpoint)
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.6.x/settings.html#g3w-client-search-endpoint)
 
 
 ![](images/manual/datasources.png)
@@ -60,7 +60,7 @@ See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/settings.h
 
 This information, together with info about the structure of the attribute tables of the layers present in the project, will be displayed in the **Metadata session** of the cartographic client.
 
-See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/g3wsuite_client.html#metadata)
+See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.6.x/g3wsuite_client.html#metadata)
 
 ![](images/manual/qgisservercapabilities.png)
 
@@ -182,11 +182,11 @@ Through this tool it is possible to manage SVG icons on the server in a simple a
 The SVG folder on the server must reflect the structure in any subfolders present locally.
 
 **NB:** The name of this directory is defined by the basic settings set during the installation of the suite.
-[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v.3.6.x/settings.html#base-settings)
+[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v3.6.x/settings.html#base-settings)
 
 **PS:** remember that the **`File Manager`** tool also allows you to manage the synchronization of geographical data (in the case of using physical files) and the management of multimedia files.
 
-See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v.3.6.x/projectsettings.html#viewing-multimedia-content)
+See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.6.x/projectsettings.html#viewing-multimedia-content)
 
 
 
@@ -276,7 +276,7 @@ You can set also a **custom title** (definible in the WebGis side) setting an **
 
 Any images present in the print layouts must be placed in the local **`project_data`** folder (in any subdirectory) and synchronized on the server.
 
-See also the dedicated paragraph [Geographic data synchronization on the server](https://g3w-suite.readthedocs.io/en/v.3.6.x/datamanagement.html#geographic-data-synchronization-on-the-server).
+See also the dedicated paragraph [Geographic data synchronization on the server](https://g3w-suite.readthedocs.io/en/v3.6.x/datamanagement.html#geographic-data-synchronization-on-the-server).
 
 ## Performances optimization
 
