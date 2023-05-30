@@ -105,7 +105,7 @@ Upon querying a geometry, the form structure will be replicated at the client le
 
 Any links to photos will determine the display of a clickable preview, any links to links or other multimedia content will determine the display of the Open button that will allow consultation of the link.
 
-For further information on this point, see the [**dedicated paragraph**](https://g3w-suite.readthedocs.io/en/v.3.6.x/projectsettings.html#viewing-multimedia-content).
+For further information on this point, see the [**dedicated paragraph**](https://g3w-suite.readthedocs.io/en/v3.6.x/projectsettings.html#viewing-multimedia-content).
 
 #### Single result
 
@@ -334,6 +334,8 @@ In the list of layers, right click on the name of the single layer shows the fol
  * **WMS/WFS URL:** URL of the WMS/WFS service relative to the project or URL of the external WMS
 
 ![](images/manual/g3wclient_layer_function.png)
+
+Double clicking on the layer or Layer Group zooms to the extent of the layer or Group content.
 
 It is possible to hide, automatically, layers from the TOC when they have no records. 
 
