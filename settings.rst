@@ -332,3 +332,28 @@ I.e.::
 
 At the moment only `Google` and `Bing` services are supported, for background base map and for google geoconding
 service plus of `Nominatim` default service.
+
+Registration
+************
+Settings variables for user registration system.
+
+``REGISTRATION_OPEN``
+^^^^^^^^^^^^^^^^^^^^^
+Default is *False*, Activate/deactivate the user registration system.
+
+``REGISTRATION_ACTIVE_BY_ADMIN``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default is *False*, if *True* the activation of a self-signed user must be done by administrator user.
+
+``ACCOUNT_ACTIVATION_DAYS``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default is *2*, this is the number of days users will have to activate their accounts after registering. If a user does not activate within that period, the account will remain permanently inactive unless a site administrator manually activates it.
+
+``REGISTRATION_EMAIL_SUBJECT_PREFIX``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default *[G3W-SUITE]*, Prefix for email subjects of Registration workflow: activation, activated and activation admin email.
+
+``REGISTRATION_EMAIL_BODY_SIGN``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default *g3wsuite.it*, Email's sign of emails of Registration workflow: activation, activated and activation admin email.
+
