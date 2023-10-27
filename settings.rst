@@ -332,3 +332,48 @@ I.e.::
 
 At the moment only `Google` and `Bing` services are supported, for background base map and for google geoconding
 service plus of `Nominatim` default service.
+
+Google reCAPTCHA
+****************
+Google reCAPTCHA system can be added to *login form* and to *password reset form* ((is activated)) and *registration form* (is activated)
+
+``RECAPTCHA``
+^^^^^^^^^^^^^
+Default is *False*, active or deactive Google reCAPTCHA checkbox.
+
+``RECAPTCHA_VERSION``
+^^^^^^^^^^^^^^^^^^^^^
+Default is *2*, reCAPTCHA version *2* or *3*
+
+``RECAPTCHA_PUBLIC_KEY``
+^^^^^^^^^^^^^^^^^^^^^^^^
+Required if RECAPTCHA is True, Google reCAPATCHA public key.
+
+``RECAPTCHA_PRIVATE_KEY``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Required if RECAPTCHA is True, Google reCAPATCHA private key.
+
+Registration
+************
+Settings variables for user registration system.
+
+``REGISTRATION_OPEN``
+^^^^^^^^^^^^^^^^^^^^^
+Default is *False*, Activate/deactivate the user registration system.
+
+``REGISTRATION_ACTIVE_BY_ADMIN``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default is *False*, if *True* the activation of a self-signed user must be done by administrator user.
+
+``ACCOUNT_ACTIVATION_DAYS``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default is *2*, this is the number of days users will have to activate their accounts after registering. If a user does not activate within that period, the account will remain permanently inactive unless a site administrator manually activates it.
+
+``REGISTRATION_EMAIL_SUBJECT_PREFIX``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default *[G3W-SUITE]*, Prefix for email subjects of Registration workflow: activation, activated and activation admin email.
+
+``REGISTRATION_EMAIL_BODY_SIGN``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Default *g3wsuite.it*, Email's sign of emails of Registration workflow: activation, activated and activation admin email.
+
