@@ -333,6 +333,26 @@ I.e.::
 At the moment only `Google` and `Bing` services are supported, for background base map and for google geoconding
 service plus of `Nominatim` default service.
 
+Google reCAPTCHA
+****************
+Google reCAPTCHA system can be added to *login form* and to *password reset form* ((is activated)) and *registration form* (is activated)
+
+``RECAPTCHA``
+^^^^^^^^^^^^^
+Default is *False*, active or deactive Google reCAPTCHA checkbox.
+
+``RECAPTCHA_VERSION``
+^^^^^^^^^^^^^^^^^^^^^
+Default is *2*, reCAPTCHA version *2* or *3*
+
+``RECAPTCHA_PUBLIC_KEY``
+^^^^^^^^^^^^^^^^^^^^^^^^
+Required if RECAPTCHA is True, Google reCAPATCHA public key.
+
+``RECAPTCHA_PRIVATE_KEY``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Required if RECAPTCHA is True, Google reCAPATCHA private key.
+
 Registration
 ************
 Settings variables for user registration system.
