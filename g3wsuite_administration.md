@@ -18,7 +18,7 @@ The main page of the Administration Panel shows:
    * **Language:** to choose the interface language
    * **A gear icon** ![](images/manual/iconconfiguration.png): to access a menu with:
    
-       **-->  Edit general data**: to set informations shown in the front-end portal 
+       **-->  Edit general data**: to set information shown in the front-end portal 
        
        **-->  Django Administration** (only for Admin01 user): to configure Django advanced settings
        
@@ -39,7 +39,7 @@ The main page of the Administration Panel shows:
 ## Front end portal customization
 From the main page of the **Administration Panel** it is possible to customize the information shown on the Front End Portal.
 
-Click on the **Configurations** icon ![](images/manual/iconconfiguration.png) located at the rigth bottom and choose the item **Edit general data** which will appear in the menu below.
+Click on the **Configurations** icon ![](images/manual/iconconfiguration.png) located at the right bottom and choose the item **Edit general data** which will appear in the menu below.
 
 ![](images/manual/g3wsuite_administration_configuration.png)
 
@@ -194,7 +194,7 @@ See chapter [Hierarchical organization of WebGis services and types of Users](ht
 
 For example, you can create a **Macrogroup** to collect a series of **Cartographic Groups** belonging to the same Administration (single Municipality within a Union of Municipalities) or more simply to have main containers that contain second level groupings (Groups).
 
-In the left side menu there is the **MacroGroup Cartographic** item with two sub-items:
+On the left side menu there is the **MacroGroup Cartographic** item with two sub-items:
  * **Add MacroGroups:** to create a new Cartographic MacroGroup
  * **MacroGroups list:** to access the list of MacroGroups present
  
@@ -239,12 +239,12 @@ There are a series of icons to access specific functions:
  * ![](images/manual/icon_erase.png) **Delete** MacroGroup
 
 **ATTENTION:** the removal of the Cartographic MacroGroup group will result in:
- * the **removal of all the Cartoghraphic Groups** contained in it
+ * the **removal of all the Cartographic Groups** contained in it
  * the **removal of all the cartographic projects** contained in the individual Groups
  * the **removal of all the widgets** (eg searches) that would remain orphaned after the removal of the cartographic projects contained in the group. See the Widget chapter for more information.
 
 #### Define the MacroGroups order on the FrontEnd
-Through the Drag & Drop function it is possible to define the order of the MacroGroups in the list. This order will be reflected in the FronEnd.
+Through the Drag & Drop function it is possible to define the order of the MacroGroups in the list. This order will be reflected in the FrontEnd.
 
 ## Cartographic Groups
 _**In this section it is possible to view the list of Cartographic Groups present, manage them and create new ones.**_
@@ -292,7 +292,7 @@ If you select the **Use MacroGroup title and logo for the client** options, the 
  If you select the **Use Group logo for the client** options, the map client header, for each WebGis service, will instead consist of:
  * main title (if set at General Data management level)
  * title associated with the **Cartographic MacroGroup**
- * logo associated with the **Cartographic Group** (if MacroGroup logo option is active this options takes precendence)
+ * logo associated with the **Cartographic Group** (if MacroGroup logo option is active this options takes precedence)
  * title of the WebGis service
      
 #### ACL Users
@@ -303,7 +303,7 @@ The options present will vary according to the type of user (Admin or Editor1) w
      The entry is present only when the Admin type user creates the Group
      If the Group is created by a user of type Editor1, the Group is associated directly with that user
  * **`Editor2 User`:** defines the **user (Editor2) manager of the Group**.
- * **`Viewers users`:** define the individual **users (Viewers) who have the credentials to view the contents of the group**. By choosing the anonymous user (AnonymusUser) the group will be free to access
+ * **`Viewers users`:** define the individual **users (Viewers) who have the credentials to view the contents of the group**. By choosing the anonymous user (AnonymousUser) the group will be free to access
  * **`Editor user groups`:** define the **user groups (Editor2) who manage the Group**.
  * **`Viewer user groups`:** you define the **user groups (Viewer) which have the credentials to view the contents of the group**.
 
@@ -371,7 +371,7 @@ It is possible to create/add **customized Base Layers** starting from the cache 
 
 See [**Caching layer**](https://g3w-suite.readthedocs.io/en/v3.6.x/g3wsuite_administration.html#caching-layer-base-map) paragraph in the **Widget management** session.
 
-#### Copyrigth
+#### Copyright
 **`Terms of use`:** description of the terms of use of the map and any other info
 **`Link to terms`:** link to text
 
@@ -426,9 +426,9 @@ This order will be reflected within the belonging MacroGroups.
 ### To publish a new QGIS cartographic project
 It is possible to publish new QGIS projects:
  * **from the list of cartographic groups:** click on the icon ![](images/manual/icon_add.png) located under the box of the cartographic group in which you want to publish the project.
- * **from the list of cartographic projects published within a group:** by clicking on the the buttom ![](images/manual/button_add_qgis_project.png)
+ * **from the list of cartographic projects published within a group:** by clicking on the the button ![](images/manual/button_add_qgis_project.png)
 
-In the dedicated form we could define the charatteristicsof the project being published:
+In the dedicated form we could define the characteristic of the project being published:
 
 #### QGIS project
 **`QGIS file`***: load the QGIS cartographic project to be published (.qgz or .qgs file)
@@ -479,7 +479,9 @@ The title associated with the WebGis service is inherited by the following setti
  
 Otherwise the initial extension will correspond to the maximum one defined on the basis of the extension associated with the WMS capabilities of the QGIS project (**Project properties -> QGIS Server -> WMS capabilities (Advertised extent)**)
 
- * **`Tab's TOC active as default`**: set tab's TOC (Layers, Base layers, Legend) open by default on startup of webgis service
+ * **`Tab's TOC active as default`**: set tab's TOC (Layers, Base layers, Legend) open by default on startup of 
+ * 
+ * webgis service
  
  * **`Tab’s TOC layer initial status`**: it is possible to define whether the TOC layer list is collapsed or expanded when the WebGis service is started
 
@@ -592,7 +594,7 @@ It is possible to access the list of trashed Projects and the restore functions 
 
 ![](images/manual/g3wadmin_trash_project.png)
 
-Restoring a Projetc involves restoring all the accessory settings/functions of  the project (permissions, searches, editing settings, downloads, etc...).
+Restoring a Project involves restoring all the accessory settings/functions of  the project (permissions, searches, editing settings, downloads, etc...).
 
 **Deleting a project from the trash is an irreversible action.**
 
@@ -822,7 +824,7 @@ If the additional layers have homologous fields (same name and type) the search 
 
 The results will be differentiated according to the corresponding layer.
 
-Especially useful in the case of multigeometric layers.
+Especially useful in the case of multi geometric layers.
 
 ![](images/manual/g3wsuite_administration_project_search_multilayers.png)
 

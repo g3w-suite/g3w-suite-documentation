@@ -166,12 +166,12 @@ In case of **active plots** on the related table, these will be displayed throug
 
 ### Parameterized URLs
 
-**It is possible to create parameterized URLs for direct zomming to:**
+**It is possible to create parameterized URLs for direct zooming to:**
 geographical extension 
 single feature by FID 
 single/list features by value of a field 
 
-Here the URL paramters available:
+Here the URL parameters available:
  * **map_extent (Zoom to map extent)**
    * Ex: `<url_project>?map_extent=Xmin, Ymin,Xmax,Ymax`
  * **zoom_to_fid (Zoom to a specific feature by FID)**
@@ -315,7 +315,7 @@ This tab shows the layers prepared on QGIS projects with the same organization t
 
 If the **`Show features count`** function is activated in the project, the layer will show the number of total features and based on the subdivision linked to the symbology.
 
-In case of multistyle associated with the layer, the number of geometries reported will vary following the passage from one style to another.
+In case of multi-style associated with the layer, the number of geometries reported will vary following the passage from one style to another.
 
 ![](images/manual/g3wclient_features_count.png)
 
@@ -343,7 +343,7 @@ Useful when using filters on layers or geographic views.
 
 ##### Attribute table
 
-The attribute table (resizable) is equipped with **paging function, highligth function and zooming** to the associated features.
+The attribute table (resizable) is equipped with **paging function, highlight function and zooming** to the associated features.
 
 In the case of links to **multimedia content**, the previews of the images and/or the **Open** button will be displayed for consultation of different types of content.
 
@@ -351,7 +351,7 @@ The window is resizable.
 
 ![](images/manual/g3wclient_table_view.png)
 
-A **generic filter**, positioned at the top right, is applied generically to the contents of all the fields and it will allow you to filter the list of displayed records. 
+A **generic filter**, positioned at the top right, is applied generically to the contents of all the fields, and it will allow you to filter the list of displayed records. 
 
 **Filters based on the contents of the individual fields** are available at the top of each column.
 

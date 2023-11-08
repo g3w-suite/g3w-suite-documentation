@@ -114,7 +114,7 @@ It is sufficient to check only the **`Published`** column
 
 ### Themes (Views)
 
-The creation of **Themes** (combination of off / on layers and differentiated simbology styles) is managed at the WebGis service level.
+The creation of **Themes** (combination of off / on layers and differentiated symbology styles) is managed at the WebGis service level.
 
 A specific menu on the webgis will allow you to choose the Theme to be displayed.
 
@@ -206,7 +206,7 @@ To define these settings, you access the properties of one of the vectors previo
 
 This submenu lists the fields associated to the table of the vector.
 
-The check box relating to the **`WMS`** column defines whether or not the values contained in this field will be available following the query on the WebGis service.
+The check box relating to the **`WMS`** column defines whether the values contained in this field will be available following the query on the WebGis service.
 
  ![](images/manual/qgislayerproperties_wmsfields.png)
 
@@ -214,7 +214,7 @@ The check box relating to the **`WMS`** column defines whether or not the values
 ### Definition of the attribute display form
 For each layer it is possible to define the structure of the attributes form associated with displaying the results following query operations.
 
-On QGIS we can build a personalized form (query form) by creating thematic tabs and groups and defining the distribution of the individual fields and their aliases.
+On QGIS, we can build a personalized form (query form) by creating thematic tabs and groups and defining the distribution of the individual fields and their aliases.
 
 This structural organization will be replicated directly on the query form on the WebGis service.
 
