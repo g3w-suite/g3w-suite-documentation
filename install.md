@@ -15,7 +15,7 @@ sudo apt-get install -y \
 ```
 
 If you are running a ubuntu Server version is necessary to install also a XServer for the Qt libraries. 
-Is possibile install `XVFB` a virtual framebuffer X server for X Version 11 and run it.
+Is possible install `XVFB` a virtual framebuffer X server for X Version 11 and run it.
 
 ```bash
 sudo apt intall -y xvfb
@@ -77,7 +77,7 @@ sudo su <my_ubuntu_username>
 ```
 
 ## Virtualenv creation
-To create a virtualnenv is sufficent call mkvirtualenv follow by the identification name for virtualenv (to use QGIS API into a virtualenv only solution is to give access python system site-packages to it using *--system-site-packages* option)
+To create a virtualnenv is sufficient call mkvirtualenv follow by the identification name for virtualenv (to use QGIS API into a virtualenv only solution is to give access python system site-packages to it using *--system-site-packages* option)
 ```bash
 mkvirtualenv --system-site-packages g3wsuite
 ```
@@ -140,7 +140,7 @@ SESSION_COOKIE_NAME = '<unique_session_id>'
 ### With paver commands
 
 G3W-ADMIN has a series of [paver](http://pythonhosted.org/Paver/) CLI commands to administrate the suite.
-After prepared environment if sufficient invoce paver *install* task
+After prepared environment if sufficient invoke paver *install* task
 
 ```bash
 paver install
@@ -160,7 +160,7 @@ paver stop
 ```
 
 
-G3W-ADMIN is a django application so is possibile run app by standard django manage.py commands
+G3W-ADMIN is a django application so is possible run app by standard django manage.py commands
 
 ```bash
 ./manage.py runserver
@@ -208,7 +208,7 @@ ln -s "../../../node_modules/@bower_components" bower_components
 
 ### Install requirements
 
-Possibily within a virtual env:
+Possibly within a virtual env:
 
 ```bash
 pip install -r requirements.txt
@@ -238,7 +238,7 @@ python manage.py sitetree_resync_apps
 
 ## Continuous integration testing
 
-CI tests are automatically run on Github by custom actions.
+CI tests are automatically run on GitHub by custom actions.
 
 The Docker compose configuration used in the CI tests is available at [docker-compose.latest.yml](https://github.com/g3w-suite/g3w-admin/blob/dev/docker-compose.latest.yml).
 
@@ -246,7 +246,7 @@ The testing image is built from the dependency image and it will run all install
 
 The dependency image is built from the [Dockerfile.deps](https://github.com/g3w-suite/g3w-admin/blob/dev/ci_scripts/Dockerfile.deps).
 
-G3W-SUITE supports the latest LTR QGIS version, so at now is the 3.22, therefore there are alse dockerfiles and docker compose files for this version:
+G3W-SUITE supports the latest LTR QGIS version, so at now is the 3.22, therefore there are also dockerfiles and docker compose files for this version:
 
 * [docker-composer.322.yml](https://github.com/g3w-suite/g3w-admin/blob/dev/docker-compose.322.yml)
 * [Dockerfile.32..deps](https://github.com/g3w-suite/g3w-admin/blob/dev/ci_scripts/Dockerfile.322.deps)

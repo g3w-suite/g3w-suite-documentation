@@ -279,7 +279,7 @@ In the alphanumeric constraints list you can see a summary of the setted rules.
 ## Online editing tools at cartographic client level
 ### Geographic and alphanumeric editing
 
-**Once the online editing function has been activated and configured on one or more layers of a WebGis project, the `Editing` item, inside the `Tools` menu of the cartoographic client, will be shown.**
+**Once the online editing function has been activated and configured on one or more layers of a WebGis project, the `Editing` item, inside the `Tools` menu of the cartographic client, will be shown.**
 
 In the case of many editable layers, a useful **filter** allows you to view only the layers of interest in the list.
 
@@ -355,7 +355,7 @@ For this reason the green button **SAVE** will be disabled until all constraints
 
 **Important:** to be able to edit related data, the relations must be inserted in the form of the parent layer, defined using the Drag and Drop designer method in the Layer Properties.
 
-After the editing has been activated on a record in the parent table, an editing icon (pen) will appears at the level of the relations references.
+After the editing has been activated on a record in the parent table, an editing icon (pen) will appear at the level of the relations references.
 
 ![](images/manual/editing_form2.png)
 
@@ -363,7 +363,7 @@ Moving on the macro tab relating to one of the child layers, the list of records
 
 ![](images/manual/editing_form_relations.png)
 
-Clicking on it the form switch in a session dedicated to the edit of the relationated table where it will be possible: * **create and add a new records** related to the edited feature
+Clicking on it the form switch in a session dedicated to the edit of the relational table where it will be possible: * **create and add a new records** related to the edited feature
  * **associate an existing records** (linked to other features or orphan) to the edited feature
  * **modify the records** currently associated with the edited feature
 
