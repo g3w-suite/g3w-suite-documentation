@@ -245,6 +245,34 @@ I.e.::
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Default is ``False``. Set to ``True`` for remove from webgis TOC vector layer empty, without data.
 
+``GEOCONDING_PROVIDERS``
+^^^^^^^^^^^^^^^^^^^^^^^^
+Set the geocoding providers available for webgis services. At now are available `nominatim`(OSM) and `bing`.
+By default si:
+::
+
+    GEOCODING_PROVIDERS = {
+      "nominatim": {
+        "label": "Nominatim (OSM)",
+        "url": "https://nominatim.openstreetmap.org/search"
+      },
+    }
+
+Is possbile add `bing` provider, but is necessary a bing api key:
+
+::
+
+    GEOCODING_PROVIDERS = {
+      "nominatim": {
+        "label": "Nominatim (OSM)",
+        "url": "https://nominatim.openstreetmap.org/search"
+      },
+      "bing": {
+        "label": "Bing",
+        "url": "https://dev.virtualearth.net/REST/v1/LocalSearch/?key=my.super.secret.key"
+      }
+    }
+
 Editing settings
 ****************
 Settings params for ``editing`` module.
@@ -376,4 +404,9 @@ Default *[G3W-SUITE]*, Prefix for email subjects of Registration workflow: activ
 ``REGISTRATION_EMAIL_BODY_SIGN``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Default *g3wsuite.it*, Email's sign of emails of Registration workflow: activation, activated and activation admin email.
+
+Caching
+*******
+Settings variables for *caching* workflow
+
 
