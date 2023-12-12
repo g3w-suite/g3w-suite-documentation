@@ -11,7 +11,12 @@ sudo apt-get install -y \
     libxslt-dev \
     postgresql-server-dev-all \
     libgdal-dev \
-    python3-dev
+    python3-dev \
+    libgdal30 \
+    python3-gdal \
+    python3-pip \
+    gdal-bin \
+    libsqlite3-mod-spatialite
 ```
 
 If you are running a ubuntu Server version is necessary to install also a XServer for the Qt libraries. 
@@ -43,6 +48,14 @@ sudo curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt install -y yarn
 ```
+
+## Install Redis as chaching framework
+```bash
+sudo apt install redis
+```
+
+
+
 ## Create virtualenv
 
 Install the follow python package
@@ -106,7 +119,7 @@ cd g3w-admin/g3w-admin/base/settings
 cp local_settings_example.py local_settings.py
 ```
 
-set database, media root and session cookies name:
+set database, media root and session cookies name and caching by redis:
 
 ```python
 ...
@@ -133,8 +146,19 @@ MEDIA_ROOT = '<path_to_media_root>'
 ...
 
 SESSION_COOKIE_NAME = '<unique_session_id>'
-```
 
+...
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://localhost:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+```
 
 
 ### With paver commands
@@ -143,6 +167,7 @@ G3W-ADMIN has a series of [paver](http://pythonhosted.org/Paver/) CLI commands t
 After prepared environment if sufficient invoke paver *install* task
 
 ```bash
+sudo pip3 install paver
 paver install
 ```
 
