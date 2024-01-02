@@ -157,18 +157,19 @@ The icons at the head of each row, allow you to:
  * ![](images/manual/icon_erase.png) **Delete:** to permanently delete a user
  
 ### Add Group Users
-Through this form it is possible to insert new user groups and define their role.
+Through this form it is possible to create new user groups and define their role.
 
 It is possible to create only two types of user groups:
  * **`Editor`:** in which only Editor2 users can be inserted
  * **`Viewer`:** in which only Viewer users can be inserted
 
-The association between user and user groups is made at the individual user management level.
+The association between user and user groups can also be achieved at the individual user management level.
 
 In the specific form for creating user groups, the following info are defined:
  * **Name**
- * **Role** (Editor or Viewer)
- 
+ * **Role:** Editor or Viewer
+ * **Users:** list of users belonging to the group
+
 ![](images/manual/g3wsuite_administration_usergroup_add.png)
  
 After filling in the from, click on the **Save** button to confirm your choices.
@@ -327,14 +328,14 @@ In the event that the Group is created by an Editor1 type user, the Group will b
 
 #### Base layers and Map interaction tools
 In this box you can define:
- * **`Mapcontrols`***: list of tools available on the WebGis client:
+   * **`Mapcontrols`***: list of tools available on the WebGis client:
    * **zoomtoextent:** zoom to the initial extension
    * **zoom:** zoom in and zoom out
    * **zoombox:** zoom tool based on drawing a rectangle
    * **query:** puntual query of geographical layers
    * **querybbox:** query via bounding box (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**)
    * **querybypolygon:** it will be possible to automatically query the features of one or more layers that fall inside a polygonal element of a guide layer. (Eg what's inside a cadastral parcel?) - **N.B. it is necessary that the all the layers involved in this kind of query are published as WFS services on the QGIS project**
-  * **querybydrawpolygon:** query based on a polygon drawn on the map  (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**) 
+   * **querybydrawpolygon:** query based on a polygon drawn on the map  (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**) 
    * **zoomhistory:** undo/redo tools to navigate previous and post visualization areas
    * **overview:** presence of a panoramic map
    * **scaleline:** presence of the scale bar
@@ -616,7 +617,8 @@ Next to each layer are a series of icons and checkboxes:
  * ![](images/manual/icon_layertype.png) **Type:** illustrates the type of data (WMS, PostGis, SpatiaLite, GDAL / OGR ...)
  * **WMS external:** to speed up loading, the WMS layers present in a QGIS project are managed directly by Django and not by QGIS-Server.
      * In case of non-external WMS, the service is managed by Django and this eliminates cross-domain problems but the only managed GetFeatureInfo response type is GML.
-   * The external WMS option allows obtaining a response to the query (GetFeatureInfo) even if the response is not in GML but also in HTML or text/plain format.
+     * The external WMS option allows obtaining a response to the query (GetFeatureInfo) even if the response is not in GML but also in HTML or text/plain format.
+     * The option is available only if the WMS loaded on the QGIS project is associated with the same projection system as the project.
  * **WFS:** a check mark shows whether the layer is published as a WFS service or not
  * **Actions:** a series of icons dedicated to various functions
    * ![](images/manual/icon_cache.png) **Caching Layer:** allows you to activate and manage the cache of the single layer at the project level
@@ -791,6 +793,13 @@ Otherwise it will be possible to define the values of the individual fields free
 
 ![](images/manual/g3wsuite_administration_project_search_form.png)
 
+**Tip**
+In the event that, at QGIS project level, the following editing widgets are associated with a field:
+ * Value relations
+ * Value maps
+ * Relationship reference
+
+The values shown in the search tool will be those defined on the basis of the tables related via widegt.
 
 **Warning: in the case of fields with more than 100 unique values, the WMS service does not allow to obtain the complete list of values. In this case it is recommended not to use the `SelectBox` method**
 
@@ -856,7 +865,6 @@ By default the suite manages four languages:
  * Finnish
  * Swedish
  * Romanian
- * Portuguese
 
 
 Other languages ​​can be added.

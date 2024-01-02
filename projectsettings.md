@@ -99,8 +99,9 @@ Two further aspects are manageable with regard to WMS capabilities
 **In this section it is possible to define which `layers are exposed as WFS services`.**
 
 The WFS service is needed if you want activate following types of query:
- * **bbox query**
- * **bypolygon query**
+ * **Query by bbox**
+ * **Query by polygon** (rectangle/square)
+ * **Query by draw polygon**
 
 It is sufficient to check only the **`Published`** column
 
@@ -142,7 +143,11 @@ The activation on the QGIS project of the **`Mutually exclusive group`** option 
 
 ### 1:N and N:M relations
 
-ATTENTION: to correctly manage these types of relations it is NECESSARY to insert the reference to the relations in the customized form
+The interface inherits the 1: and N:M relations defined in the **`Project Properties`** from the QGIS project.
+
+The suite also manages **relations based on multiple keys**.
+
+**ATTENTION:** to correctly manage these types of relations it is NECESSARY to insert the reference to the relations in the customized form
 
 ![](images/manual/qgislayerproperties_displayform_relations.png)
 
