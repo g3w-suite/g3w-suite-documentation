@@ -263,7 +263,7 @@ You can also add custom providers (or edit the existing ones within `static/clie
     https://dev.g3wsuite.it/static/client/geocoding-providers/nominatim.js
     https://dev.g3wsuite.it/static/client/geocoding-providers/bing_streets.js
     https://dev.g3wsuite.it/static/client/geocoding-providers/bing_places.js
-    https://dev.g3wsuite.it/static/client/geocoding-providers/my_custom_provider.js
+    https://dev.g3wsuite.it/static/client/geocoding-providers/your_custom_provider.js
 
 ::
     VENDOR_KEYS['bing'] = 'bing.secret.key'
@@ -284,7 +284,7 @@ You can also add custom providers (or edit the existing ones within `static/clie
         "url": "https://dev.virtualearth.net/REST/v1/LocalSearch/?key=" + VENDOR_KEYS['bing'],
         # "icon": "poi",
       },
-      "my_custom_provider": {
+      "your_custom_provider": {
         "label": "Custom Provider",
         "url": "url": "https://your-custom-server.com/Search/?key=super.secret.key",
         "icon": "poi",
