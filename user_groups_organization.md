@@ -86,6 +86,18 @@ When Editor 1 user creates a Cartographic Group, he can define:
  * the eventual **Editor2** user (individual/group) to associate with this Group
  * **Viewers** users (individuals/groups) who will have access to this container
 
+
+## Accessed the File Manager tool
+As described in the previous chapter, the users who can access the FileManager are the following:
+ * **Admin role users**
+ * **Editor1 role users**
+
+**Admin role users** will be able to access/edit/upload all the contents of the FileManager.
+
+**Editor1 role users** (administrators of a specific MacroGroup) will be able to access/modify/upload only the contents present within a folder identified with the same user name as Editor1 itself.
+
+Again from the perspective of an infrastructure dedicated to a Union of Municipalities, this will allow each Editor1 (manager of one Administrations) to be able to independently manage the geographical data of their own Administration.
+
 ## Summary table of access/administration policies
 Below is a summary table of the powers associated with the different roles.
 
