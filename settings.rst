@@ -247,8 +247,7 @@ Default is ``False``. Set to ``True`` for remove from webgis TOC vector layer em
 
 ``GEOCONDING_PROVIDERS``
 ^^^^^^^^^^^^^^^^^^^^^^^^
-Set the geocoding providers available for webgis services. At now are available `nominatim`(OSM) and `bing`.
-By default si:
+Set the geocoding providers available for webgis services:
 ::
 
     GEOCODING_PROVIDERS = {
@@ -258,20 +257,41 @@ By default si:
       },
     }
 
-Is possbile add `bing` provider, but is necessary a bing api key:
+You can also add custom providers (or edit the existing ones within `static/client/geocoding-providers` folder), just remember to use javascript file name as "provider" identifier:
 
 ::
+    https://dev.g3wsuite.it/static/client/geocoding-providers/nominatim.js
+    https://dev.g3wsuite.it/static/client/geocoding-providers/bing_streets.js
+    https://dev.g3wsuite.it/static/client/geocoding-providers/bing_places.js
+    https://dev.g3wsuite.it/static/client/geocoding-providers/my_custom_provider.js
+
+::
+    VENDOR_KEYS['bing'] = 'bing.secret.key'
 
     GEOCODING_PROVIDERS = {
-      "nominatim": {
-        "label": "Nominatim (OSM)",
-        "url": "https://nominatim.openstreetmap.org/search"
+     "nominatim": {
+       "label": "Nominatim (OSM)",
+       "url": "https://nominatim.openstreetmap.org/search",
+       # "icon": "road",
+     },
+     "bing_streets": {
+        "label": "Bing Streets",
+        "url": "https://dev.virtualearth.net/REST/v1/Locations/?key=" + VENDOR_KEYS['bing'],
+        # "icon": "road",
       },
-      "bing": {
-        "label": "Bing",
-        "url": "https://dev.virtualearth.net/REST/v1/LocalSearch/?key=my.super.secret.key"
-      }
+     "bing_places": {
+        "label": "Bing Places",
+        "url": "https://dev.virtualearth.net/REST/v1/LocalSearch/?key=" + VENDOR_KEYS['bing'],
+        # "icon": "poi",
+      },
+      "my_custom_provider": {
+        "label": "Custom Provider",
+        "url": "url": "https://your-custom-server.com/Search/?key=super.secret.key",
+        "icon": "poi",
+      },
     }
+
+NB: for more info see: `Getting a Bing maps key <https://learn.microsoft.com/en-us/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key>`
 
 Editing settings
 ****************
