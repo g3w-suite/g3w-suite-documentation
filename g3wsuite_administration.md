@@ -230,63 +230,6 @@ After compiling the form, click on the **Save button** to confirm your choices.
 ![](images/manual/buttom_save.png)
 
 
-#### Geocoding map control use case for populating project layers
-A specific editing function is associated with the Geocoding map control.
-
-In fact, it is possible to use the results deriving from the providers associated with this map control (OSM, Bing Streets, Bing Places) to populate point layers present within the webgis service.
-
-Below are the settings and steps to perform for this purpose.
-
-##### Activation of Geocoding map control at Cartographic Group level
-First of all, **Geocoding** must be associated with the Cartographic Group by selecting it at the **Base Layers and Map default features** session level. This will ensure that the tool is present on all WebGis services published within the Group.
-
-![](images/geocoding_providers.png)
-
-##### Definition of the providers to use for each WebGis service
-In the publication form of your QGIS project you need to define the providers to be associated with the Geocoding map control:
- * **Nominatim (OSM):** addresses based on OpenStreetMap
- * **Bing Streets:** Addresses based on Bing maps
- * **Bing Places:** places based on Bing maps (service available only for the USA)
-
-The association is created at the **Geocoding providers** session level.
-
-The use of the providers Bing Streets and Bing Places requires the acquisition of a free Bing API.
-
-See [Settings](https://g3w-suite.readthedocs.io/en/v3.6.x/settings.html) section for the API key definition.
-
-##### Using the Geocoding map control on the WebGis service
-The Geocoding tool allows you to search for addresses and places (based on active providers) and view their position on the map and the associated information on the information panel on the right.
-
-It is possible to load markers relating to multiple searches into the map.
-
-![](images/geocoding_marker.png)
-
-On the right of the search tool there will now be three new icons:
- * **Clear markers selection:** to delete all markers inserted on the map
- * **Toogle markers visibility:** to activate/deactivate the display of markers
- * **Toogle sidebar panel:** to view the list of markers loaded in the map and their attributes on the right panel
-
-![](images/ggeocoding_icons.png)
-
-##### Insert the markers present in the map into a vector layer
-This function allows you to insert the results, obtained through the Geocoding map control, at the level of one or more layers, exclusively point-like, present in the WebGis service.
-
-To be able to carry out this operation, the online editing functionality must be active on these layers.
-
-Only in this case will there be a pencil icon at the search results level.
-
-Clicking on this icon will show the list of point layers on which online editing is enabled.
-
-After choosing the layer on which to insert the result, click on the pencil icon to the right of the layer name to determine the insertion of the point on the layer itself.
-
-![](images/geocoding_insert.png)
-
-On the right, the information panel will open which will show the attributes of the self-editing layer filled in only to the fields of the same name as those of the source markers.
-
-![](images/geocoding_insert_attributes.png)
-
-By clicking on the green **Insert/Edit** button the point will be permanently saved on the layer in use.
-
 
 
 ### MacroGroups list
@@ -306,6 +249,7 @@ There are a series of icons to access specific functions:
 
 #### Define the MacroGroups order on the FrontEnd
 Through the Drag & Drop function it is possible to define the order of the MacroGroups in the list. This order will be reflected in the FrontEnd.
+
 
 ## Cartographic Groups
 _**In this section it is possible to view the list of Cartographic Groups present, manage them and create new ones.**_
@@ -388,7 +332,7 @@ In the event that the Group is created by an Editor1 type user, the Group will b
 
 #### Base layers and Map interaction tools
 In this box you can define:
-   * **`Mapcontrols`***: list of tools available on the WebGis client:
+ * **`Mapcontrols`***: list of tools available on the WebGis client:
    * **zoomtoextent:** zoom to the initial extension
    * **zoom:** zoom in and zoom out
    * **zoombox:** zoom tool based on drawing a rectangle
@@ -439,6 +383,66 @@ See [**Caching layer**](https://g3w-suite.readthedocs.io/en/v3.6.x/g3wsuite_admi
 After filling in the various form, click on the **Save** button to confirm your choices.
  
 ![](images/manual/buttom_save.png)
+
+
+### Geocoding map control use case for populating project layers
+A specific editing function is associated with the Geocoding map control.
+
+In fact, it is possible to use the results deriving from the providers associated with this map control (OSM, Bing Streets, Bing Places) to populate point layers present within the webgis service.
+
+Below are the settings and steps to perform for this purpose.
+
+#### Activation of Geocoding map control at Cartographic Group level
+First of all, **Geocoding** must be associated with the Cartographic Group by selecting it at the **Base Layers and Map default features** session level. This will ensure that the tool is present on all WebGis services published within the Group.
+
+![](images/manual/geocoding_providers.png)
+
+#### Definition of the providers to use for each WebGis service
+In the publication form of your QGIS project you need to define the providers to be associated with the Geocoding map control:
+ * **Nominatim (OSM):** addresses based on OpenStreetMap
+ * **Bing Streets:** Addresses based on Bing maps
+ * **Bing Places:** places based on Bing maps (service available only for the USA)
+
+The association is created at the **Geocoding providers** session level.
+
+The use of the providers Bing Streets and Bing Places requires the acquisition of a free Bing API.
+
+See [Settings](https://g3w-suite.readthedocs.io/en/v3.6.x/settings.html) section for the API key definition.
+
+#### Using the Geocoding map control on the WebGis service
+The Geocoding tool allows you to search for addresses and places (based on active providers) and view their position on the map and the associated information on the information panel on the right.
+
+It is possible to load markers relating to multiple searches into the map.
+
+![](images/manual/geocoding_marker.png)
+
+On the right of the search tool there will now be three new icons:
+ * **Clear markers selection:** to delete all markers inserted on the map
+ * **Toogle markers visibility:** to activate/deactivate the display of markers
+ * **Toogle sidebar panel:** to view the list of markers loaded in the map and their attributes on the right panel
+
+![](images/manual/geocoding_icons.png)
+
+#### Insert the markers present in the map into a vector layer
+This function allows you to insert the results, obtained through the Geocoding map control, at the level of one or more layers, exclusively point-like, present in the WebGis service.
+
+To be able to carry out this operation, the online editing functionality must be active on these layers.
+
+Only in this case will there be a pencil icon at the search results level.
+
+Clicking on this icon will show the list of point layers on which online editing is enabled.
+
+After choosing the layer on which to insert the result, click on the pencil icon to the right of the layer name to determine the insertion of the point on the layer itself.
+
+![](images/manual/geocoding_insert.png)
+
+On the right, the information panel will open which will show the attributes of the self-editing layer filled in only to the fields of the same name as those of the source markers.
+
+![](images/manual/geocoding_insert_attributes.png)
+
+By clicking on the green **Insert/Edit** button the point will be permanently saved on the layer in use.
+
+
 
 ### Groups List
 **From this item you can access the list of the created cartographic groups.**
