@@ -260,12 +260,14 @@ Set the geocoding providers available for webgis services:
 You can also add custom providers (or edit the existing ones within `static/client/geocoding-providers` folder), just remember to use javascript file name as "provider" identifier:
 
 ::
+
     https://dev.g3wsuite.it/static/client/geocoding-providers/nominatim.js
     https://dev.g3wsuite.it/static/client/geocoding-providers/bing_streets.js
     https://dev.g3wsuite.it/static/client/geocoding-providers/bing_places.js
     https://dev.g3wsuite.it/static/client/geocoding-providers/your_custom_provider.js
 
 ::
+
     VENDOR_KEYS['bing'] = 'bing.secret.key'
 
     GEOCODING_PROVIDERS = {
