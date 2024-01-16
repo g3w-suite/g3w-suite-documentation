@@ -157,18 +157,19 @@ The icons at the head of each row, allow you to:
  * ![](images/manual/icon_erase.png) **Delete:** to permanently delete a user
  
 ### Add Group Users
-Through this form it is possible to insert new user groups and define their role.
+Through this form it is possible to create new user groups and define their role.
 
 It is possible to create only two types of user groups:
  * **`Editor`:** in which only Editor2 users can be inserted
  * **`Viewer`:** in which only Viewer users can be inserted
 
-The association between user and user groups is made at the individual user management level.
+The association between user and user groups can also be achieved at the individual user management level.
 
 In the specific form for creating user groups, the following info are defined:
  * **Name**
- * **Role** (Editor or Viewer)
- 
+ * **Role:** Editor or Viewer
+ * **Users:** list of users belonging to the group
+
 ![](images/manual/g3wsuite_administration_usergroup_add.png)
  
 After filling in the from, click on the **Save** button to confirm your choices.
@@ -227,6 +228,66 @@ If you select the **Use MacroGroup title and logo for the client** options, the 
 After compiling the form, click on the **Save button** to confirm your choices.
 
 ![](images/manual/buttom_save.png)
+
+
+#### Geocoding map control use case for populating project layers
+A specific editing function is associated with the Geocoding map control.
+
+In fact, it is possible to use the results deriving from the providers associated with this map control (OSM, Bing Streets, Bing Places) to populate point layers present within the webgis service.
+
+Below are the settings and steps to perform for this purpose.
+
+##### Activation of Geocoding map control at Cartographic Group level
+First of all, **Geocoding** must be associated with the Cartographic Group by selecting it at the **Base Layers and Map default features** session level. This will ensure that the tool is present on all WebGis services published within the Group.
+
+![](images/geocoding_providers.png)
+
+##### Definition of the providers to use for each WebGis service
+In the publication form of your QGIS project you need to define the providers to be associated with the Geocoding map control:
+ * **Nominatim (OSM):** addresses based on OpenStreetMap
+ * **Bing Streets:** Addresses based on Bing maps
+ * **Bing Places:** places based on Bing maps (service available only for the USA)
+
+The association is created at the **Geocoding providers** session level.
+
+The use of the providers Bing Streets and Bing Places requires the acquisition of a free Bing API.
+
+See [Settings](https://g3w-suite.readthedocs.io/en/v3.6.x/settings.html) section for the API key definition.
+
+##### Using the Geocoding map control on the WebGis service
+The Geocoding tool allows you to search for addresses and places (based on active providers) and view their position on the map and the associated information on the information panel on the right.
+
+It is possible to load markers relating to multiple searches into the map.
+
+![](images/geocoding_marker.png)
+
+On the right of the search tool there will now be three new icons:
+ * **Clear markers selection:** to delete all markers inserted on the map
+ * **Toogle markers visibility:** to activate/deactivate the display of markers
+ * **Toogle sidebar panel:** to view the list of markers loaded in the map and their attributes on the right panel
+
+![](images/ggeocoding_icons.png)
+
+##### Insert the markers present in the map into a vector layer
+This function allows you to insert the results, obtained through the Geocoding map control, at the level of one or more layers, exclusively point-like, present in the WebGis service.
+
+To be able to carry out this operation, the online editing functionality must be active on these layers.
+
+Only in this case will there be a pencil icon at the search results level.
+
+Clicking on this icon will show the list of point layers on which online editing is enabled.
+
+After choosing the layer on which to insert the result, click on the pencil icon to the right of the layer name to determine the insertion of the point on the layer itself.
+
+![](images/geocoding_insert.png)
+
+On the right, the information panel will open which will show the attributes of the self-editing layer filled in only to the fields of the same name as those of the source markers.
+
+![](images/geocoding_insert_attributes.png)
+
+By clicking on the green **Insert/Edit** button the point will be permanently saved on the layer in use.
+
+
 
 ### MacroGroups list
 The menu provides access to the list of cartographic macro-groups present.
@@ -327,14 +388,14 @@ In the event that the Group is created by an Editor1 type user, the Group will b
 
 #### Base layers and Map interaction tools
 In this box you can define:
- * **`Mapcontrols`***: list of tools available on the WebGis client:
+   * **`Mapcontrols`***: list of tools available on the WebGis client:
    * **zoomtoextent:** zoom to the initial extension
    * **zoom:** zoom in and zoom out
    * **zoombox:** zoom tool based on drawing a rectangle
    * **query:** puntual query of geographical layers
    * **querybbox:** query via bounding box (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**)
    * **querybypolygon:** it will be possible to automatically query the features of one or more layers that fall inside a polygonal element of a guide layer. (Eg what's inside a cadastral parcel?) - **N.B. it is necessary that the all the layers involved in this kind of query are published as WFS services on the QGIS project**
-  * **querybydrawpolygon:** query based on a polygon drawn on the map  (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**) 
+   * **querybydrawpolygon:** query based on a polygon drawn on the map  (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**) 
    * **zoomhistory:** undo/redo tools to navigate previous and post visualization areas
    * **overview:** presence of a panoramic map
    * **scaleline:** presence of the scale bar
@@ -354,7 +415,7 @@ In this box you can define:
  * **`Background color`:** choice of the background color of the maps (default white)
  
 ***NB:** the security protocols prevent the creation of screenshots if WMS services with domains other than the publication one are present on the map. **In this case the icons will not be present on the client even if the MapControl is selected.**
-To avoid this, set the WMS as **internal WMS** in the [Widget managment](https://g3w-suite.readthedocs.io/en/v3.6.x/g3wsuite_administration.html#widget-management) session.
+To avoid this, set the WMS as **internal WMS** in the [Widget managment](https://g3w-suite.readthedocs.io/en/v3.7.x/g3wsuite_administration.html#widget-management) session.
 
 ![](images/manual/g3wsuite_administration_group_add_geodata.png)
 
@@ -500,6 +561,14 @@ The next options allow you to define the type of WMS / WFS query to be carried o
  * **`Query by bbox control mode`***: single or multiple
  * **`Query by polygon control mode`***: single or multiple
 
+ In the last box you have to define the providers to be associated with the Geocoding map control:
+ * **` Geocoding`**:
+   * **Nominatim (OSM):** addresses based on OpenStreetMap
+   * **Bing Streets:** Addresses based on Bing maps
+   * **Bing Places:** places based on Bing maps (service available only for the USA)
+
+Enabling providers is carried out at the general application [settings level](https://g3w-suite.readthedocs.io/en/v3.6.x/settings.html).
+
 **ATTENTION:** contents marked with * are mandatory.
 
 ![](images/manual/g3wsuite_administration_project_add_option.png)
@@ -616,7 +685,8 @@ Next to each layer are a series of icons and checkboxes:
  * ![](images/manual/icon_layertype.png) **Type:** illustrates the type of data (WMS, PostGis, SpatiaLite, GDAL / OGR ...)
  * **WMS external:** to speed up loading, the WMS layers present in a QGIS project are managed directly by Django and not by QGIS-Server.
      * In case of non-external WMS, the service is managed by Django and this eliminates cross-domain problems but the only managed GetFeatureInfo response type is GML.
-   * The external WMS option allows obtaining a response to the query (GetFeatureInfo) even if the response is not in GML but also in HTML or text/plain format.
+     * The external WMS option allows obtaining a response to the query (GetFeatureInfo) even if the response is not in GML but also in HTML or text/plain format.
+     * The option is available only if the WMS loaded on the QGIS project is associated with the same projection system as the project.
  * **WFS:** a check mark shows whether the layer is published as a WFS service or not
  * **Actions:** a series of icons dedicated to various functions
    * ![](images/manual/icon_cache.png) **Caching Layer:** allows you to activate and manage the cache of the single layer at the project level
@@ -791,6 +861,13 @@ Otherwise it will be possible to define the values of the individual fields free
 
 ![](images/manual/g3wsuite_administration_project_search_form.png)
 
+**Tip**
+In the event that, at QGIS project level, the following editing widgets are associated with a field:
+ * Value relations
+ * Value maps
+ * Relationship reference
+
+The values shown in the search tool will be those defined on the basis of the tables related via widegt.
 
 **Warning: in the case of fields with more than 100 unique values, the WMS service does not allow to obtain the complete list of values. In this case it is recommended not to use the `SelectBox` method**
 
@@ -856,7 +933,6 @@ By default the suite manages four languages:
  * Finnish
  * Swedish
  * Romanian
- * Portuguese
 
 
 Other languages ​​can be added.

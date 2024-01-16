@@ -10,11 +10,16 @@ Thanks to the integration with the APIs of QGIS it is now possible to manage the
    * SQLite/SpatiaLite
    * Oracle Spatial
    * GeoPackage
-   * ShapeFile(not recommended for multi-user editing)
+   * ShapeFile
 
  * **reading mode**
    * SQL Server
    * Virtual layer
+
+**Pay attention!**
+An important note in relation to the formats supported in editing: please remember that only data on PostGreSQL/PostGis and Oracle Satial support multi-user editing.
+
+Multi-user editing on formats such as Shapefile, but also GeoPackage and SpatiaLite, can lead to data corruption.
 
 ### 1:N and N:M relational editing
 
@@ -71,6 +76,7 @@ At the QGIS project level (always from **`Vector Properties`**, **`Attribute For
 The alias and editing widgets defined at the project level will be available during web editing with some limitations.
 
 Below are the available widgets and any limitations:
+ * **`Relation reference: with some option limitation`**
  * **`Checkbox`**
  * **`Date/time`:** management limited to the date
  * **`Attachment`**
@@ -129,7 +135,7 @@ When working with layers with the same source (es. layer from the same PostGreSQ
 
 ### Administration settings
 
-#### Activation of layer editing
+#### Activation of on-line editing on a single layer
 To activate the online editing functions, access the **`Layer list`** section of the project within the administration panel of G3W-ADMIN.
 
 ![](images/manual/g3wsuite_administration_project_layer_list.png)
@@ -165,6 +171,14 @@ These two fields will contain references to G3W-SUITE users who creators or modi
 All settings defined at the QGIS level for these fields (eg default values) will no longer be considered.
 
 It is recommended that these fields be set as non-editable at the project level.
+
+#### Activation of online editing on multiple layers at the same time
+In the case of a project in which it is necessary to activate the online editing function on many layers, by defining the same options for each of them it is possible to use the Project layer action function.
+
+![](images/manual/multi_layer_icon.png)
+
+![](images/manual/multi_layer_form.png)
+
 
 #### 1:N relational editing
 To allow editing on the related table in mode 1: n , the **editing function must also be activated** (always in the same way) **also for the related table** present in the project layers list.

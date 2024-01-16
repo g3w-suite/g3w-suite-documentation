@@ -12,7 +12,7 @@ The following aspects will be analyzed within the manual:
 * **publishing and managing QGIS projects as WebGis services**
 * **creation of searches, visualization of graphics created with the DataPlotly plugin and definition of constraints (geographic and alphanumeric) on visualization and editing permissions**
 
-**The current release (3.6) is compatible with `QGIS 3.28.x LTR` (Server and Desktop).**
+**The current release (3.7) is compatible with `QGIS 3.28.x LTR` (Server and Desktop).**
 
 ![](images/manual/demo_qgis_project.png)
 
@@ -24,11 +24,12 @@ At the moment it's not used a classic versioning system for the suite, this bran
 
 | Branch   | Python version | Django version | QGIS        | QGIS API | Status                 |
 |----------|----------------|----------------|-------------|----------|------------------------|
-| dev      | 3.10           | 3.2            | 3.28        | Used     | Continuous development |
+| dev      | 3.10           | 3.2            | 3.34        | Used     | Continuous development |
+| v3.7     | 3.10           | 3.2            | 3.28        | Used     | Bug fixing             |
 | v3.6     | 3.10           | 3.2            | 3.22        | Used     | Bug fixing             |
-| v3.5     | 3.10           | 2.2            | 3.22        | Used     | Bug fixing             |
+| v3.5     | 3.10           | 2.2            | 3.22        | Used     | Not longer supported   |
 | v3.4     | 3.8            | 2.2            | 3.22        | Used     | Not longer supported   |
-| v3.3     | 3.6            | 2.2            | 3.16        | Used     | Not longer supported  |
+| v3.3     | 3.6            | 2.2            | 3.16        | Used     | Not longer supported   |
 | v3.2     | 3.6            | 2.2            | 3.16        | Used     | Not longer supported   |
 | v3.1     | 3.6            | 2.2            | 3.10        | Used     | Not longer supported   |
 | v3.0     | 3.6            | 2.2            | 3.10        | Used     | Not longer supported   |
@@ -40,4 +41,4 @@ At the moment it's not used a classic versioning system for the suite, this bran
 * Alessandro Pasotti - QCooperative ([@elpaso](https://github.com/elpaso))
 * Luigi Pirelli - QCooperative ([@luipir](https://github.com/luipir))
 * Mazano - Kartoza ([@NyakudyaA](https://github.com/NyakudyaA)) (Dockerization refactoring)
-
+* Tudor Barascu - Kartoza ([@tudorbarascu](https://github.com/tudorbarascu))

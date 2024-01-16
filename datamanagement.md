@@ -41,11 +41,11 @@ Data on physical files and / or on GeoDB SpatiaLite and QGIS cartographic projec
 ![](images/manual/datamanagement.png)
 
 **NB:** The name of the local directory dedicated to geographic data must correspond to the name defined for the **`DATASOURCE_PATH`** variable set during installation.
-[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v3.6.x/settings.html#base-settings)
+[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v3.7.x/settings.html#base-settings)
 
 That directory is also used to contain **images used in the print layouts** associated with the QGIS cartographic projects.
 
-### Geographic data synchronization on the server
+### Geographical data synchronization on the server
 
 The data stored in the local **`project_data`** directory must be synchronized on the server where the G3W-SUITE application is installed.
 
@@ -73,9 +73,15 @@ Two specific directories can also be created within the root directory of the Fi
 All the directories can be organized in subdirectories with no nesting limits.
 
 **NB:** The names of these directories are defined by the basic settings set during the installation of the suite.
-[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v3.6.x/settings.html#base-settings)
+[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v3.7.x/settings.html#base-settings)
 
 ![](images/manual/g3wsuite_administration_file_manager.png)
 
 The example shows the case in which in the local **project_data** directory there are two directories (**geopackage** and **spatialite**) in addition to the two system directories (**svg** and **media_user**).
 
+### Accessed the File Manager tool
+Which users can access and manage data on FileManager?
+ * **Admin role users**
+ * **Editor1 role users**
+ 
+In the next chapter the powers and limits of the two roles will be described in detail.

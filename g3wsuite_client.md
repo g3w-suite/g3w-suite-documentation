@@ -65,9 +65,9 @@ At the base of the map area there is an information bar showing:
  * ![ ](images/manual/icon_navigation_querylayer.png) **`query`:** puntual query of geographical layers
  * ![ ](images/manual/icon_navigation_querybox.png) **`querybbox`:** query via bounding box - **N.B.** for the layers to be queried according to this method it is necessary that they are published as WFS services on the QGIS project
   * ![ ](images/manual/icon_navigation_querypoligon.png) **`querybypolygon`:** it will be possible to automatically query the features of one or more layers that fall within a polygonal element of a guide layer. (Eg what's inside a cadastral parcel?). - **N.B.** the questionable layers must be published as WFS services on the QGIS project
-   * ![ ](images/manual/icon_navigation_querybydraw.png) **`querybydraw`:**: query based on an irregularly shaped polygon drawn by the user - N.B. for the layers to be queried according to this method it is necessary that they are published as WFS services on the QGIS project 
+   * ![ ](images/manual/querybydraw.png) **`querybydraw`:**: query based on an irregularly shaped polygon drawn by the user - N.B. for the layers to be queried according to this method it is necessary that they are published as WFS services on the QGIS project 
  * ![ ](images/manual/icon_navigation_geolocation.png) **`geolocation`:** geolocation tool (useful for consultation from tablet)
- * ![ ](images/manual/icon_navigation_nominatim.png) **`nominatin`:** search tools for addresses and toponyms based on OSM
+ * ![ ](images/manual/icon_navigation_nominatim.png) **`geocoding`:** search tools for addresses and toponyms based on OSM or Bing, based on the providers activated at the administration level
  * ![ ](images/manual/icon_navigation_streetview.png) **`streetview`:** Google StreetView on your map
     * in the presence of GoogleMaps API Key, StreetView it is integrated on the client and synchronized with the position and direction of the icon on the map
     * in the absence of GoogleMaps API Key, StreetView it will open on a new browse tab without the aspects of synchronization with the map
@@ -105,7 +105,7 @@ Upon querying a geometry, the form structure will be replicated at the client le
 
 Any links to photos will determine the display of a clickable preview, any links to links or other multimedia content will determine the display of the Open button that will allow consultation of the link.
 
-For further information on this point, see the [**dedicated paragraph**](https://g3w-suite.readthedocs.io/en/v3.6.x/projectsettings.html#viewing-multimedia-content).
+For further information on this point, see the [**dedicated paragraph**](https://g3w-suite.readthedocs.io/en/v3.7.x/projectsettings.html#viewing-multimedia-content).
 
 #### Single result
 
@@ -357,11 +357,13 @@ A **generic filter**, positioned at the top right, is applied generically to the
 
 The **Show features visible on the map** icon ![](images/manual/g3wclient_mapfilter_table.png) allows you to filter the records of the table according to the features visible in the map.
 
-From this version it is possible to **select the features of the individual layers and apply filters** that will affect:
+It is possible to **select the features of the individual layers and apply filters** that will affect:
  * on the map content
  * on the attribute table content
  * on the contents of the plots
- * on print contents (only with QGIS 3.18)
+ * on print contents
+ * on the editable geometries
+
 
 The selection of features can be made:
  * at the attribute table level (through the checkboxes on the left of each records)
@@ -391,6 +393,40 @@ Activation of the filter is reflected:
  * on the attribute table content
  * on the data displayed by plots
  * on the print contents (only with QGIS 3.18)
+
+##### Filter users based
+**On the client you can select (highlight) and filter a subset of vector layer geometries.**
+
+It is possible to activate a filter on a layer starting from:
+ * query results
+ * search results
+ * attribute table management
+
+To be filtered, the geometries object of the filter must first be selected.
+
+Following activation of the filter, a logged in user (not AnonymosUser) will be able to save this filter to be recalled in subsequent work sessions.
+
+Saving the filter occurs via the dedicated icon present at layer level in the legend and in the results form.
+
+![](images/manual/filter_save.png)
+
+The saved filters can be recovered via the dedicated menu that can be viewed by right-clicking on the name of the layer
+
+![](images/manual/filter_load.png)
+
+The presence of an active filter on the layer is highlighted by the red icon next to the layer name.
+
+To deactivate an active filter, simply click on the icon itself.
+
+![](images/manual/filter_loaded.png)
+
+We remind you that activating a filter affects:
+ * geometries visible on the map
+ * records visible on attribute table
+ * editable geometries
+ * features underlying the graphs
+ * print contenent
+
 
 #### Base layer
 The list shows the active base layers at the cartographic group level.
