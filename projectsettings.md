@@ -2,7 +2,7 @@
 
 _**This section describes how to optimize your QGIS projects to publish as a WebGis service.**_
 
-Thanks to the integration with QGIS Server, all the symbology aspects associated with the singoly layers are automatically reproduced on the WebGis service
+Thanks to the integration with QGIS Server, all the symbology aspects associated with individual layers are automatically reproduced on the WebGis service.
 
 In the QGIS cartographic projects you can set some parameters and options that affect functionalities and contents in the derivative WebGis service, such as:
 * the **webgis service identification name**
@@ -71,10 +71,10 @@ To define it, set the desired geographical view on the map and then click on the
 
 ![](images/manual/qgisserversetmapexpetent.png)
 
-##### WMS Capabilities - CSR restrictions
+##### WMS Capabilities - CRS restrictions
 **In this section it is possible to define the `projection systems` for which the project is available in relation to `OGC services`.**
 
-It is clearly necessary to insert the projection system on which the project was made, this SR is added by clicking on the **'Used'** button.
+It is clearly necessary to insert the projection system on which the project was made, this CRS is added by clicking on the **'Used'** button.
 
 Other geographic reference systems can be implemented by clicking on the **'+'** button and choosing from the list of reference systems.
 
