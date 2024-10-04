@@ -1,6 +1,7 @@
 # Raw installation
 
-The following instructions are for a Ubuntu 22.04 LTS.
+The following instructions are for Ubuntu 24.04 LTS (Noble) with Python 3.12.3.
+This installation is useful for development but no for production deploy. 
 
 ## Install required packages
 First step is install dev libraries packages for python module
@@ -8,8 +9,7 @@ First step is install dev libraries packages for python module
 ```bash
 sudo apt-get install -y \
     libxml2-dev \
-    libxslt-dev \
-    postgresql-server-dev-all \
+    libxslt1-dev \
     libgdal-dev \
     python3-dev
 ```
@@ -18,7 +18,7 @@ If you are running a ubuntu Server version is necessary to install also a XServe
 Is possible install `XVFB` a virtual framebuffer X server for X Version 11 and run it.
 
 ```bash
-sudo apt intall -y xvfb
+sudo apt install -y xvfb
 
 sudo Xvfb :99 -screen 0 640x480x24 -nolisten tcp &
 export DISPLAY=:99
@@ -29,19 +29,20 @@ I suggest you to create a systemd service to run it on bootstrap.
 ## Install QGIS Server
 
 ```sh
-wget -qO - https://qgis.org/downloads/qgis-2022.gpg.key | sudo  gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import 
-sudo chmod a+r /etc/apt/trusted.gpg.d/qgis-archive.gpg
-sudo bash -c "echo \"deb [arch=amd64] https://qgis.org/ubuntu-ltr jammy main\" >> /etc/apt/sources.list"
-sudo apt update && sudo apt install -y python3-qgis qgis-server
+sudo curl -sS https://download.qgis.org/downloads/qgis-archive-keyring.gpg > /etc/apt/keyrings/qgis-archive-keyring.gpg && \
+sudo echo "deb [signed-by=/etc/apt/keyrings/qgis-archive-keyring.gpg] https://qgis.org/ubuntu-ltr noble main" | \
+sudo tee /etc/apt/sources.list.d/qgis.list && \
+sudo apt-get update && apt-get install -y python3-qgis qgis-server
 ```
 
 ## Installation of node.js and Yarn
 G3W-ADMIN use javacript package manager [**Yarn**](https://yarnpkg.com/) and [**Node.js**](https://nodejs.org/it/)
 
 ```bash
-sudo curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt install -y yarn
+sudo curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" | \
+sudo tee /etc/apt/sources.list.d/yarn.list && \
+sudo apt-get update && apt install -y yarn && apt-get clean
 ```
 ## Create virtualenv
 
@@ -49,12 +50,12 @@ Install the follow python package
 [**Virtualenv**](https://virtualenv.pypa.io/en/stable/)
 [*Virtualenvwrapper*](https://bitbucket.org/virtualenvwrapper/virtualenvwrapper/src/master/)
 
-The following instructions are for python 3.10
+The following instructions are for python 3.12
 
 Install python pip and virtualenvwrapper
 
 ```bash
-sudo apt-get install python3-pip && sudo pip3 install virtualenvwrapper
+sudo apt-get install python3-pip && sudo pip3 install virtualenvwrapper --break-system-packages
 ```
 
 Create a directory where to create environments for your virtualenvs.
@@ -106,7 +107,7 @@ cd g3w-admin/g3w-admin/base/settings
 cp local_settings_example.py local_settings.py
 ```
 
-set database, media root and session cookies name:
+set database connection parameters (DATABASES), media root (MEDIA_ROOT) and session cookies name (SESSION_COOKIE_NAME):
 
 ```python
 ...
@@ -135,20 +136,31 @@ MEDIA_ROOT = '<path_to_media_root>'
 SESSION_COOKIE_NAME = '<unique_session_id>'
 ```
 
-
+!!IMPORTANT!! Make sure that paths set for DATASOURCE_PATH and MEDIA_ROOT exist.
 
 ### With paver commands
 
 G3W-ADMIN has a series of [paver](http://pythonhosted.org/Paver/) CLI commands to administrate the suite.
 After prepared environment if sufficient invoke paver *install* task
 
+#### Install paver
+```bash
+pip3 install paver 
+```
+#### Install G3W-SUITE
 ```bash
 paver install
 ```
 
 ### Run G3W-SUITE
 
-To run the application with paver
+#### By Django
+```shell
+cd g3w-admin/g3w-admin
+python3 manage.py runserver 0.0.0.0:8000
+```
+
+#### To run the application with paver (EXPERIMENTAL)
 
 ```bash
 paver start
