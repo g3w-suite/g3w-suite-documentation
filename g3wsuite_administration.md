@@ -145,6 +145,7 @@ Through this form you can consult the list of enabled users and their characteri
  * Roles
  * User groups to which they belong
  * Associated Cartographic MacroGroups (only for Editor1 users)
+ * State of user: active/deactivated
  * Super user and/or Staff privileges
  * Email, name and surname
  * Creation date
@@ -193,7 +194,7 @@ In this section it is possible to view the list of Cartographic Macrogroups, man
 
 **ATTENTION: use the Cartographic MacroGroups only if you need them.**
 
-See chapter [Hierarchical organization of WebGis services and types of Users](https://g3w-suite.readthedocs.io/en/v3.8.x/user_groups_organization.html#hierarchical-organization-of-webgis-services-and-types-of-users-roles) to learn more about this aspect.
+See chapter [Hierarchical organization of WebGis services and types of Users](https://g3w-suite.readthedocs.io/en/v3.9.x/user_groups_organization.html#hierarchical-organization-of-webgis-services-and-types-of-users-roles) to learn more about this aspect.
 
 For example, you can create a **Macrogroup** to collect a series of **Cartographic Groups** belonging to the same Administration (single Municipality within a Union of Municipalities) or more simply to have main containers that contain second level groupings (Groups).
 
@@ -359,22 +360,19 @@ In this box you can define:
  * **`Background color`:** choice of the background color of the maps (default white)
  
 ***NB:** the security protocols prevent the creation of screenshots if WMS services with domains other than the publication one are present on the map. **In this case the icons will not be present on the client even if the MapControl is selected.**
-To avoid this, set the WMS as **internal WMS** in the [Widget managment](https://g3w-suite.readthedocs.io/en/v3.8.x/g3wsuite_administration.html#widget-management) session.
+To avoid this, set the WMS as **internal WMS** in the [Widget managment](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_administration.html#widget-management) session.
 
 ![](images/manual/g3wsuite_administration_group_add_geodata.png)
 
 With regard to the **Base Layers**, it is specified that the external services available by default are:
  * **OSM**
 
-It is also possible to add **Bing** and **Google** maps to the Base Layers but it is first necessary to acquire the respective API Keys and set them in the Django settings level.
+Due to the change in licenses, it is no longer possible to use **Bing** and **Google** as BaseLayer outside of Bing and Google applications.
 
-Remember that it is possible to build customized Base Layers starting from projects published on the suite. 
+Remember that it is possible to build customized Base Layers starting from open external Base Layer or from the contenents of a projects published on the suite.
 
-In this regard, consult the session [**Base map layer**](https://g3w-suite.readthedocs.io/en/v3.8.x/g3wsuite_administration.html#caching-layer-base-map)
+In this regard, consult the session [**Base map layer**](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_administration.html#add-custom-base-layers)
 
-It is possible to create/add **customized Base Layers** starting from the cache of the single layers present in published webgis
-
-See [**Caching layer**](https://g3w-suite.readthedocs.io/en/v3.8.x/g3wsuite_administration.html#caching-layer-base-map) paragraph in the **Widget management** session.
 
 #### Copyright
 **`Terms of use`:** description of the terms of use of the map and any other info
@@ -407,7 +405,7 @@ The association is created at the **Geocoding providers** session level.
 
 The use of the providers Bing Streets and Bing Places requires the acquisition of a free Bing API.
 
-See [Settings](https://g3w-suite.readthedocs.io/en/v3.8.x/settings.html) section for the API key definition.
+See [Settings](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html) section for the API key definition.
 
 #### Using the Geocoding map control on the WebGis service
 The Geocoding tool allows you to search for addresses and places (based on active providers) and view their position on the map and the associated information on the information panel on the right.
@@ -513,9 +511,10 @@ In the dedicated form we could define the characteristic of the project being pu
 The options present will vary according to the type of user (Admin, Editor1 or Editor2) who creates / manages the WebGis service.
  * **`Editor1 user`:** defines the **user (Editor1) manager of the WebGis service**.
 
-The entry is present only when the WebGis service is created by Admin or Editor1 user.
+    The entry is present only when the WebGis service is created by Admin or Editor1 user.
 
-In the event that the WebGis service is published by a user of type Editor1, the WebGis service is associated directly with that user
+    In the event that the WebGis service is published by a user of type Editor1, the WebGis service is associated directly with that user
+
  * **`Editor2 User`:** defines the **user (Editor2) manager of the WebGis service**.
  
    The item is present only when the user of the Admin or Editor1 type creates the service
@@ -524,6 +523,8 @@ In the event that the WebGis service is published by a user of type Editor1, the
 
  * **`Viewers users`:** define the individual **users (Viewers) who have the credentials to view the WebGis service**. By choosing the anonymous user (**AnonymusUser**) the group will be freely accessible.
  * **`Editor user groups`:** define the **user groups (Editor2) who manage the service**.
+    Also this items will be present is present only when the user of the Admin or Editor1 type 	creates the WebGis  service
+
  * **`Viewer user groups`:** you define the **user groups (Viewer) which have the credentials to view the content of the service**.
 
 ![](images/manual/g3wsuite_administration_project_add_acl.png)
@@ -581,7 +582,7 @@ The next options allow you to define the type of WMS / WFS query to be carried o
    * **Bing Streets:** Addresses based on Bing maps
    * **Bing Places:** places based on Bing maps (service available only for the USA)
 
-Enabling providers is carried out at the general application [settings level](https://g3w-suite.readthedocs.io/en/v3.8.x/settings.html).
+Enabling providers is carried out at the general application [settings level](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html).
 
 **ATTENTION:** contents marked with * are mandatory.
 
@@ -687,7 +688,7 @@ In this session it is also possible to define which of the cartographic projects
 
 To set the panoramic map, choose the projects and tick the check box in the **`Overview`** column.
 
-## Widget management
+## Widgets management
 Once a cartographic project has been published, thougth the icon ![](images/manual/iconsmall_layerlist.png) it is possible to access the list of the geographical states that compose it and define some functional aspects that will be enabled at the cartographic client level.
 
 ![](images/manual/g3wsuite_administration_project_layer_list.png)
@@ -718,7 +719,7 @@ Next to each layer are a series of icons and checkboxes:
    * **Download as xls:** for all types of layers, in .xls format
    * **Download as csv:** for all types of layers, in .csv format
    * **Download as gpx:** for geographic layers, in .gpx format
-   * **Download as PDF:** for all types of layers, in .pdf format
+   * **Download as PDF:** for all types of layers, in .pdf format (limited to the attributes associated with individual features)
  * **Visibility capabilities:** allows you to define some elements in a generic way, i.e. without distinction between users.
    * **Hide attributes table:** make the attribute table unsearchable
    * **Hide legend:** do not show the associated legend
@@ -728,7 +729,7 @@ Next to each layer are a series of icons and checkboxes:
 
 The functions present in the **Actions session** are described below.
 
-### ![](images/manual/icon_cache.png) Caching layer (Base Map)
+### ![](images/manual/icon_cache.png) Caching layer
 
 With this icon it is possible to **activate/manage the cache of the single layers** and **create XYZ Tiles layer** that you can use as **Base Layer** in your webgis.
 
@@ -747,11 +748,14 @@ To do this you need to activate the **Base layer option** form and fill in the s
 
 The newly created base layer will be available to be associated with those available for the various Cartographic Groups.
 
+Learn more about how to create a new Base Layer in the [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_administration.html#add-custom-base-layers).
+
+
 ### ![](images/manual/icon_editing.png) Editing layer
 
 Through this icon it is possible to activate the online editing function on the individual layers and define the permissions for individual / groups of users
 
-See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v3.8.x/g3wsuite_editing.html).
+See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_editing.html).
 
 
 ### ![](images/manual/icon_filter_layer.png) Hide layer by user/groups
@@ -795,7 +799,7 @@ If the chart is linked to a child layer in a 1:N relation, it can also be displa
 
 Through the **Geo-constraints by user/group** and **Alphanumeric and QGIS expressions constraints by user/groups**  widgets it is possible to define editing and display filters for users authorized to consult/edit the project.
 
-See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v3.8.x/g3wsuite_editing.html#constraints-setting).
+See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_editing.html#constraints-setting).
 
 
 ### ![](images/manual/icon_hide_columns.png) Hide columns by User/Groups
@@ -828,7 +832,7 @@ In G3W-SUITE it is possible to create search widgets.
 By default, searches can be built on individual vector layers based on the fields of the table associated with the layer.
 
 **NB: to create searches based on fields derived from simple joins (1:1/N:1) or from 1:N relation, you have to change the setting of the method used (from WMS to QGIS API).**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.8.x/settings.html#g3w-client-search-endpoint).**
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html#g3w-client-search-endpoint).**
 
 Every search widget will be saved by referring to the layer identifiers (for example the DB parameters: IP, DB name, schema, layer name).
 
@@ -858,6 +862,7 @@ In the related form we can define:
    * **`Name`:** name that G3W-SUITE will use to internally register the search widget.
  * **General configuration of research and results**
    * **`Search title`:** title that will become available in the **'Research'** panel of the WebGis interface
+   * **`Paginate results`:** option to activate pagination for the results list in order to avoid timeout problems in the case of a large number of results
  * **Search fields settings**
    * **`Field`:** field on which to carry out the research
    * **`Widget`:** method of entering the value to be searched
@@ -882,13 +887,13 @@ Otherwise it will be possible to define the values of the individual fields free
 In the event that, at QGIS project level, the following editing widgets are associated with a field:
  * Value relations
  * Value maps
- * Relationship reference
+ * Relation reference
 
 The values shown in the search tool will be those defined on the basis of the tables related via widegt.
 
 **Warning: in the case of fields with more than 100 unique values, the WMS service does not allow to obtain the complete list of values. In this case it is recommended not to use the `SelectBox` method**
 
-**Alternatively, you can use the QGIS API as a search method to overcome this limitation. See** [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.8.x/settings.html#g3w-client-search-endpoint).
+**Alternatively, you can use the QGIS API as a search method to overcome this limitation. See** [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html#g3w-client-search-endpoint).
 
 The button ![](images/manual/button_add.png) allows you to add additional fields for the construction of the search query currently manageable through **AND/OR operators**.
 
@@ -927,7 +932,7 @@ Especially useful in the case of multi geometric layers.
 The option allows you to create a search based on the fields of a table (child in a 1:N relation) and obtain results relating to the parent layer of the relation.
 
 **N.B. to create searches based on fields derived from simple joins (1: 1 / N: 1) or from 1: N relation, you have to change the setting of the method used (from WMS to QGIS API).**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.8.x/settings.html#g3w-client-search-endpoint).
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html#g3w-client-search-endpoint).
 
 The **Relations** option allows you to to define the relationship to be used (if present) to identify the parent layer whose results will be shown.
 
@@ -942,8 +947,57 @@ It will be possible to associate new layers by **loading related QML files** and
 
 ![](images/manual/g3wsuite_administration_styles.png)
 
+## Add custom Base layers
+
+It is possible to add custom Base layers and make them available at the level of individual WebGis services.
+
+![](images/manual/g3wadmin_django_administration.png)
+
+### Create new Base Layers starting from external services
+
+In the **Django Administration** session, access the **Base Layers** sub-session and click on the **Add Base Layer** button.
+
+![](images/manual/django_base_layers.png)
+
+Assuming you want to add the following WMST service [http://qgistiles.webmapp.it](http://qgstiles.webmapp.it/) you fill in the form as follows:
+
+ * **Name:** an internal identifier of the new Base Layer
+ * **Title:** the descriptive, client-side visible name of the new Base Layer
+ * **Icon:** a descriptive, client-side view of the new Base Layer
+ * **Description:** an internal description of the new Base Layer
+ * **Property:** the specifications of the new Base Layer; for example, for our case:
+
+ {
+ "crs": {
+      "epsg":3857,
+      "proj4":"+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs",
+      "geographic":False,
+      "axisinverted":False
+   },
+ "url": "http://qgstiles.webmapp.it/tiles/{z}/{x}/{y}.png",
+ "servertype": "TMS"
+}
+
+![](images/manual/g3wadmin_django_administration_add.png)
+
+The new Base Layer will then be available and can be activated at the level of individual Cartographic Groups.
+
+### Create new Base Layers starting from your own layers
+
+As a first step, you need to publish a new WebGis service based on a QGIS project containing a **single layer**, the layer that will need to be converted into a Base Layer.
+
+As an example, remember that you can publish a set of orthophotos as a single VRT file produced in QGIS.
+
+After publishing, you will need to activate the cache on that specific layer and and activate the **Save as Base layer** option in the form option.
+
+![](images/manual/g3wsuite_administration_base_layer_cache.png)
+
+Automatically a new **Base Layer** will be inserted into those present in the Base Layer subsession of the **Django Administration** session and it will be available and can be activated at the level of individual Cartographic Groups.
+
+Remember to associate a thumbnail with the Base layer, as described in the previous paragraph, to make it available at the map client level.
+
 ## Multilinguage
-By default the suite manages four languages: 
+By default the suite manages four languages for the client: 
  * English
  * Deutsch
  * French 
@@ -952,6 +1006,9 @@ By default the suite manages four languages:
  * Swedish
  * Romanian
 
+and two languages for the admin: 
+ * English
+ * Italian
 
 Other languages ​​can be added.
 
@@ -970,7 +1027,7 @@ Fixed front end content is already available in the four basic languages.
 
 Variable contents, i.e. user-definable contents, are instead translated:
 
- * Sessions **`Home`**, **`About`**, **`Maps`** and **`Login`**: content that can be defined and translated in the [**Edit General Data**](https://g3w-suite.readthedocs.io/en/v3.8.x/g3wsuite_administration.html#front-end-portal-customization) session of the Control Panel Administration
+ * Sessions **`Home`**, **`About`**, **`Maps`** and **`Login`**: content that can be defined and translated in the [**Edit General Data**](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_administration.html#front-end-portal-customization) session of the Control Panel Administration
  * Sessions **`MacroGroups Cartogarfici`**, **`Groups Cartogarfici`** and **`WebGis Services`**: contents definable and translatable in the form defining these elements, limited to the items:
    * **Public Title**
    * **Description**

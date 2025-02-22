@@ -17,7 +17,7 @@ Access policies and individual functional modules may be associated with each We
 In G3W-SUITE you can create **Users** and **Users Groups** and associate them with specific roles:
  * **`Admin1`:** user with full powers **including** Django administration (basic suite configuration)
  * **`Admin2`:** user with full powers **excluding** those of Django administration (basic configuration of the suite)
- * **`Editor1`:** **administrator of one or more Cartographic MacroGroups** for which it will be possible:
+ * **`Editor1*`:** **administrator of one or more Cartographic MacroGroups** for which it will be possible:
    * create users and/or user groups
    * create Cartographic Groups and, if necessary, assign them to an Editor 2 user
    * publish WebGis services and define their access policy
@@ -27,6 +27,10 @@ In G3W-SUITE you can create **Users** and **Users Groups** and associate them wi
    * activate and configure some functional modules
  * **`Viewer`:** user with access permission in **consultation on WebGis service**s characterized by authentication. This user can also use individual functional Modules if the relative permissions have been attributed to him
  * **`Anonymus User`:** user to be associated with WebGis services and/or functional modules **with free access**
+
+ * The use of the **Editor1** user and **MacroGroups** is recommended only in specific cases or when you want to manage autonomous work environments (e.g. single Public Administrations) in a multi-environment context (e.g. Union of Public Administrations).
+
+In this case the individual **Editor1** users will be associated with cartographic Macrogroups and will **manage users and contents completely independently** from those of other Macrogroups associated with other Editor1 users.
 
 ## Hierarchical organization of contents
 _**The following paragraph is dedicated to better understanding the relationships between the different types of users and the different elements of the suite (MacroGroups, Map Groups, WebGis services ...).**_
@@ -95,6 +99,10 @@ As described in the previous chapter, the users who can access the FileManager a
 **Admin role users** will be able to access/edit/upload all the contents of the FileManager.
 
 **Editor1 role users** (administrators of a specific MacroGroup) will be able to access/modify/upload only the contents present within a folder identified with the same user name as Editor1 itself.
+
+The creation of a **Editor1** role user (**administrator of a MacroGroup**) determines the automatic creation of a subfolder of the **project_data** folder with the same name as that defined for the Editor1 user.
+
+This user will manage, independently, only the contents of that folder.
 
 Again from the perspective of an infrastructure dedicated to a Union of Municipalities, this will allow each Editor1 (manager of one Administrations) to be able to independently manage the geographical data of their own Administration.
 
