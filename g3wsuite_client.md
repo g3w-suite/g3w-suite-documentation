@@ -3,35 +3,60 @@
 
 The application has a responsive interface consisting of expandable and reducible sessions.
 
-The color of the interface depends on the type of user logged in.
-
 ![](images/manual/g3wclient_interface.png)
 
-**`The header`** contains the following elements:
- * **Logo, title and subtitle**, deriving from:
-   * main title (set at General Data level) or MacroGroup name, according to the settings
-   * Cartographic Group name
-   * WebGis service title
- * **Change map:** which allows you to switch from one WebGis service to another (located within the same Cartographic Group) while maintaining extension and display scale
- * **User ID:** if you have logged in to the system
- * **Credits**
- * **Home:** to access the FrontEnd
- * **Language:** the choice of language is reflected in the individual menus of the map client and on the contents of the access portal. The languages available are those activated by the Administration. 
+### Header
 
 ![](images/manual/g3wclient_header.png)
 
-The **`Tools panel`** is located on the left and containing the following objects:
+The contents of the header differ for the public user and for the logged in user
+
+**Public user (Anonymous user)**
+
+ * **Logo, title and subtitle:**, deriving from:
+   * main title (set at General Data level) or MacroGroup name, according to the settings
+   * Cartographic Group name
+   * WebGis service title
+ * **Credits:** references to the G3W-SUITE project
+ * **Sign** in (far cambiare in Log in)
+   * **Sign in:** login in for registered users
+   * **Embed map:** URL with the references to the extension currently displayed
+   * **Change map:** which allows you to switch from one WebGis service to another while maintaining extension and display scale
+ * **Language:** the choice of language is reflected in the individual menus of the map client and on the contents of the access portal. The languages available are those activated by the Administration. 
+
+**Logged user**
+
+ * **Logo, title and subtitle:**, deriving from:
+   * main title (set at General Data level) or MacroGroup name, according to the settings
+   * Cartographic Group name
+   * WebGis service title
+ * **Credits:** references to the G3W-SUITE project
+ * **User name:** the name of the logged user
+   * **Admin:** access to the administration section
+   * **Log out:** log out the user  
+   * **Embed map:** URL with the references to the extension currently displayed
+   * **Change map:** which allows you to switch from one WebGis service to another while maintaining extension and display scale
+ * **Language:** the choice of language is reflected in the individual menus of the map client and on the contents of the access portal. The languages available are those activated by the Administration. 
+
+### Main menù
+
+The **`Main menù`** is located on the left.
+
+The upper section containing:
+
  * **Metadata:** any content defined in the GetCapabilities of the QGIS Project
   * **Charts:** visualization of the plots created on QGIS with the DataPlotly plugin
- * **Spatial Bookmarks:** tool for using the Spatial Bookmarks associated with the QGIS project and allowing the user to create new ones for his exclusive use.
+ * **Bookmarks:** tool for using the Spatial Bookmarks associated with the QGIS project and allowing the user to create new ones for his exclusive use.
  * **Print:** printing tool based on the layouts defined on the QGIS project
 
  * **Search:** with the search tools defined in the Administration session, as well as a free **Query Builder** like the one present in QGIS
  * **Editing layers:** open editing session
  * **Add WMS:** session to add custom WMS services to the map
 
-The lower section containing:
+
+The middle section containing:
    * **Data:** structured list of layers, defined on the QGIS project
+   * **Choose theme (view):** if defined in the QGIS project
    * **Base:** choice of the base map from those defined at the creation level of the Thematic Group
    * **Legend:** graphic legend of the various layers
 
@@ -43,15 +68,20 @@ The choice of a Theme will determine the **automatic activation of the layers an
 
 ![](images/manual/g3wclient_theme.png)
 
+The lower section containing:
+   * **Add layer:** session to add local vector layers or custom WMS services to the map
+   * **Change map:** to switch from one WebGis service to another while maintaining extension and display scale
+
 ## Navigation and interaction with the map
 
 ### Map area
 
 At the base of the map area there is an information bar showing:
- * **display scale**
  * **mouse coordinates**: coordinates can be shown in project projection system and in WGS84 LatLong (ESPG: 4326)
  * **project projection system**
  * **icon to copy the URL with the references to the extension currently displayed**
+* **display scale**
+
  
 ![](images/manual/g3wclient_footer2.png)
 
@@ -60,24 +90,35 @@ At the base of the map area there is an information bar showing:
 
 **The icons and description of the functions of the various **`MapControls`** activated at the thematic group level are shown below.**
 
- * ![ ](images/manual/icon_navigation_fitextent.png) **`zoomtoextent`:** zoom to the initial extension
- * ![ ](images/manual/icon_navigation_zoomin.png) **`zoom`:** zoom in and zoom out
- * ![ ](images/manual/icon_navigation_zoomtobox.png) **`zoombox`:** zoom tool based on drawing a rectangle
+Map-controls available on the left side of the map:
+
+ * ![ ](images/manual/icon_navigation_fitextent.png) **`Fit to extent`:** zoom to the initial extension
+ * ![ ](images/manual/icon_navigation_zoomin.png) **`Zoom in and out`:** zoom in and zoom out
+ * ![ ](images/manual/icon_navigation_zoomtobox.png) **`Zoom to box`:** zoom tool based on drawing a rectangle
+ * ![ ](images/manual/icon_navigation_querylayer.png) **`Query layer`:** puntual query of geographical layers
+ * ![ ](images/manual/icon_navigation_query_area_icon.png)) **`Query area`:**areal query
+	The panel that appears at the top left allows you to choose:
+   * geospatial operator
+     * intersects
+     * within
+   * kind of geometry to draw
+     * rectangle
+     * polygon
+     * circle, specifying the radius also manually
+     * polgyon of a layer in the map: features of one or more layers that intersecting/contained a polygonal element of a guide layer 
+   * layer/s to query, with the possibility of also querying a temporary vector layer, loaded on the fly
+ * ![ ](images/manual/icon_navigation_geolocation.png) **`Geolocation`:** geolocation tool (useful for consultation from tablet)
+ * ![ ](images/manual/icon_navigation_streetview.png) **`Streetview`:** Google StreetView on your map. Due to Google policies, StreetView it will open on a new browse tab without the aspects of synchronization with the map
+ * ![ ](images/manual/icon_navigation_addlayer.png) **`Add layer`:** tool for temporarily uploading GML, GeoJson, KML, GPX, SHP (zipped) and CSV with coordinate to WebGis, or to add a custom WMS service
+ * ![ ](images/manual/icon_navigation_measure.png) **`Measure`:** linear measuring instrument
+  * ![ ](images/manual/icon_navigation_snapshot.png) **`Screenshot`:** tool for taking snapshots of the map area
+ * ![ ](images/manual/icon_navigation_geosnapshot.png) **`GeoSnapshot`:** tool to make a snapshots (PNG) or export (GeoTIFF) of the map visible area. Use the panel that appears at the top left to define your choice
+
+Map-controls available on the bottom left corner of the map:
  * ![ ](images/manual/icon_navigation_zomme_lastnext.png) **Zoom last/next:** undo/redo tools to navigate previous and post visualization areas (icons in the down-left corner)
- * ![ ](images/manual/icon_navigation_querylayer.png) **`query`:** puntual query of geographical layers
- * ![ ](images/manual/icon_navigation_querybox.png) **`querybbox`:** query via bounding box - **N.B.** for the layers to be queried according to this method it is necessary that they are published as WFS services on the QGIS project
-  * ![ ](images/manual/icon_navigation_querypoligon.png) **`querybypolygon`:** it will be possible to automatically query the features of one or more layers that fall within a polygonal element of a guide layer. (Eg what's inside a cadastral parcel?). - **N.B.** the questionable layers must be published as WFS services on the QGIS project
-   * ![ ](images/manual/icon_navigation_querybydrawpoligon.png) **`querybydraw`:**: query based on an irregularly shaped polygon drawn by the user - N.B. for the layers to be queried according to this method it is necessary that they are published as WFS services on the QGIS project 
- * ![ ](images/manual/icon_navigation_geolocation.png) **`geolocation`:** geolocation tool (useful for consultation from tablet)
- * ![ ](images/manual/icon_navigation_nominatim.png) **`geocoding`:** search tools for addresses and toponyms based on OSM or Bing, based on the providers activated at the administration level
- * ![ ](images/manual/icon_navigation_streetview.png) **`streetview`:** Google StreetView on your map
-    * in the presence of GoogleMaps API Key, StreetView it is integrated on the client and synchronized with the position and direction of the icon on the map
-    * in the absence of GoogleMaps API Key, StreetView it will open on a new browse tab without the aspects of synchronization with the map
- * ![ ](images/manual/icon_navigation_lunghezza.png) **`length`:** linear measuring instrument
- * ![ ](images/manual/icon_navigation_area.png) **`area`:** tool for measuring surfaces
- * ![ ](images/manual/icon_navigation_addlayer.png) **`addlayers`:** tool for temporarily uploading GML, GeoJson, KML, GPX, SHP (zipped) and CSV with coordinate to WebGis. These layers will remain until the end of the work session
- * ![ ](images/manual/icon_navigation_snapshot.png) **`snapshot`:** tool for taking snapshots of the map area
- * ![ ](images/manual/icon_navigation_geosnapshot.png) **`GeoSnapshot`:** tool to export a GeoTIFF of the map area
+
+Map-controls available on the top left corner of the map:
+  * ![ ](images/manual/icon_navigation_nominatim.png) **`geocoding`:** search tools for addresses and toponyms based on OSM or Bing, based on the providers activated at the administration level
 
 **Query type**
 
@@ -85,15 +126,15 @@ It should be noted that the query function acts, by default, with the coring met
 
 To query a single layer, it must be previously selected at the TOC level.
 
-Remember that query modes based on `querybbox`, `querybypolygon` and `querybydraw` require the publication of all the layers involved as WFS services at the QGIS project level.
+Remember that **Query area** tool, to be active, require the publication of all the layers involved as WFS services at the QGIS project level.
 
-The result of these three types of queries can be based on the geometric operations intersection and containment.
+The result of these type of query can be based on the geometric operations intersection and containment.
 
 The choice made via the drop-down menu allows you to move from one result to another dynamically.
 
 ![ ](images/manual/query_intersect_within.png)
 
-The querybypoligon tupe works also on the polygon layers added using the AddLayer tool
+The Query area tool works also on the layers added using the AddLayer tool
 
 **NB:** it will be possible to zoom on the feature associated with the individual results only if the option **`Add geometry to object response`** has been activated at the QGIS project level (**`Project → Properties, QGIS Server session`**).
 
@@ -193,11 +234,12 @@ This content is divided into three sessions: **General, Space Info and Layers.**
    In case of login as anonymous user the URL of the WMS service is shown.
  * **`Spatial`:** reports the **EPSG code** of the projection system associated with the QGIS project and the **BoundingBox** relating to the initial publication extension, defined in the item: **`Project →  Properties (QGIS Server session, WMS Capabilities, Advertised extent)`**
  * **`Layers`:** reports **simple metadata associated with the individual layers**.
+* **`Credits`:** references to the G3W-SUITE project
 
 ![](images/manual/g3wclient_metadata_view.png)
 
 
-### Spatial Bookmarks
+### Bookmarks
 This tool will display the spatial bookmarks defined and associated with the QGIS project.
 
 The user, even if not logged in, will be able to create new bookmarks by simply positioning them in an area of ​​the map and then clicking on the **`+`** button to define the **`Name`** to associate with the bookmark.
@@ -243,7 +285,7 @@ The tool allows you to choose:
  * **Scale:** print scale, with delfault values ​​list, but also manually customizable
  * **DPI:** print resolution, with delfault values ​​list, but also manually customizable
  * **Rotation:** rotation angle
- * **Format:** print to PNG, JPG, SVG, PDF or GeoPDF
+  * **Format:** print to PNG, JPG, SVG, PDF or GeoPDF
  * **Custom title:** using the **ItemIDs** at the print layout level of the QGIS project it is possible to insert one or more labels with **customized content in the print** from WebGis
 
 On the map, a light rectangular area will allow you to define the print area.
@@ -254,35 +296,6 @@ If an **Atlas type print layout** is associated in the QGIS project, the layout 
 The cards to be printed are defined by referring to the atlas identifier defined in the print layout.
 
 ![](images/manual/g3wclient_print_tool_atlas.png)
-
-
-
-### Add WMS
-**Through this tool the user can add custom WMS layers to the WebGis service.**
-
-The user can add one or more WMS service by defining: 
- * custom title
- * WMS URL
-
-![](images/manual/g3wclient_wms_add.png)
-
-After that, using the + key it is possible to view the list of maps associated with the service, choose which one to load by defining:
-
- * the position (top or buttom) with respect to the other layers of the project
- * the layer to load
- * the projection system to be associated
- * a custom name
-
-![](images/manual/g3wclient_wms_tool.png)
-
-
-When the first custom WMS is added, a new tab (WMS) appears in the TOC; here you can switch on/off or delete the individual added WMS layers.
-
-![](images/manual/g3wclient_wms_tool_layer.png)
-
-The added WMS layer cannot not be queried.
-
-The list of WMS services and the specific WMS layers added will remain available to the user until the browser cache is cleared.
 
 
 
@@ -319,7 +332,16 @@ Zoom to features and download icons are available for results (single or cumulat
 
 ![](images/manual/g3wclient_search_example.png)
 
-### Map
+### Editing layer
+
+Activation of editing session. 
+
+Available only after activation of the editing function and based on the powers of the logged in user
+
+
+### TOC session
+
+Before the list of project layers there is session **Choose Theme** where it is possible to recall themes (views) defined in the QGIS project or create/save new ones if logged in.
 
 This session has three tabs:
  * **Data:** structured list of layers, defined on the QGIS project
@@ -335,9 +357,10 @@ The choice of a Theme will determine the automatic activation of the layers and 
 ### User themes
 The logged in user can create customized themes in the same way as he prepares them in QGIS, i.e. by defining the on/off layers and associating any specific styles with the individual layers.
 
-By clicking on the + button it will be possible to define a name to associate and create the Theme.
+By clicking on the **+** button it will be possible to define a name to associate and create the Theme.
 
 The created themes will always be available to the user who defined them.
+
 Once created, the User Themes will be selectable, overwritable and editable using the icons shown next to each of them.
 
 ![](images/manual/g3wclient_theme.png)
@@ -353,18 +376,17 @@ In case of multi-style associated with the layer, the number of geometries repor
 ![](images/manual/g3wclient_features_count.png)
 
 In the list of layers, right click on the name of the single layer shows the following items:
- * **Name and kind of geometry** of the layer
-  * **Metadata:** descriptive information inherited from what has been defined, at QGIS project level, in the 'Abstract' form of the 'QGIS Server' session of the 'Layer Properties'
- * **Styles:** to choose the style to be applied to the layer, in the case of multi-style layers
+ * **Name geometry type** of the layer
+ * **Metadata:** descriptive information inherited from what has been defined, at QGIS project level, in the 'Abstract' form of the 'QGIS Server' session of the 'Layer Properties'
+ * **Edit layer:** menu available following activation and based on user permissions
  * **Zoom to layer:** to zoom in on the extension of the layer
  * **Open attribute table:** to consult the associated attribute table
- * **Download Shapefile:** to download the layer as a shapefile; function activatable from the administration panel
- * **Download GEOTIFF:** to download a raster in GeoTiff format, full layer or clipped to the extent of the canvas; function activatable from the administration panel  
- * **Download GeoPackage:** to download the layer as a GeoPackage; function activatable from the administration panel
- * **Download CSV:** to download the layer as a CSV; function activatable from the administration panel
- * **Download XLS:** to download the layer as a XLS; function activatable from the administration panel
+ * **Styles:** to choose the style to be applied to the layer, in the case of multi-style layers
+ * **Opacity:** management of the level of transparency/opacity
  * **Filters:** management, based on the logged in user, of the filters associated with the layer
- * **WMS/WFS/WFS3/WCS URL:** URL of the WMS/WFS service relative to the project or URL of the external WMS
+ * **Save as:** download of the layer in different formats, based on what is defined in the Administration session
+ * **OGC Services:** URL of the WMS/WFS/WFS3 services relative to the project or URL of the external WMS layer
+ * **Layer settings:** link to the layer administration section (available only if logged in as an administrator user)
 
 ![](images/manual/g3wclient_layer_function.png)
 
@@ -381,7 +403,7 @@ The attribute table (resizable) is equipped with **paging function, highlight fu
 In the case of links to **multimedia content**, the previews of the images and/or the **Open** button will be displayed for consultation of different types of content.
 
 To the left of each record in the table there are two/three tools:
- *  checkbox to select the records/feature
+ * checkbox to select the records/feature
  * the 'Form view' icon to open the feature attributes form
  * in the case of a layer editable by the user, the attributes table will show, for each record, an editing icon to allow direct modification of the feature
 
@@ -418,7 +440,7 @@ The icons, palced in the left buttom corner of the attribute, table allow you to
 
 The icons to the right of the layer on the TOC allow you to:
  * Clear selection
- * Add/Remove filter
+ * Enable/Disable  filter
 
 ![](images/manual/g3wclient_selection_icon_toc.png)
 
@@ -476,6 +498,61 @@ If the user has created base layers starting from cached layers, these may also 
 If at the publication level of the QGIS project, the **Legend position** option i setted as TOC, this panel will be not present and the legend will be rendered inside layers TOC.
 
 If the option is activated on the QGIS project, the **legend is filtered on the map content**.
+
+### WMS
+
+List of WMS loaded by the user and available only for his session
+
+![](images/manual/g3wclient_tool_wms.png)
+
+### Add layer
+
+Through this tool the user can add custom WMS or local file layers to the WebGis service.
+#### WMS (URL)
+
+The user can add one or more WMS service by defining:
+ * **WMS URL**
+ * **Name**
+
+Clicking on Connect buttom, it is possible to view the list of the layers associated with the service, choose which one to load by defining:
+ * the **Projection system** to be associated
+ * the **Position** (top or buttom) with respect to the other layers of the project
+ * the **Opacity** of the layer
+ * an alternatice **Name** respect the original
+
+When the first custom WMS is added, a new tab (WMS) appears in the TOC; here you can switch on/off or delete the individual added WMS layers.
+
+The added WMS layer cannot not be queried.
+
+The list of WMS services and the specific WMS layers added will remain available to the user until the browser cache is cleared.
+
+Also the WMS connections created will remain available for later reuse
+
+#### Local file
+
+The user can add one or more local layer uploading it in the form.
+
+The formats currently managed are:
+ * gml
+ * geojson
+ * kml
+ * kmz
+ * gpx
+ * csv
+ * shapefile (zipped)
+
+For each layer you need to specify:
+ * associated **Projection** system
+ * **Position** (top or buttom) with respect to the other layers of the project
+ * **Persistent data:** allows you to specify whether or not the layer should be deleted when the session is closed
+ * **Label (optional):** the field to use to label the features
+ * Layer **color** and **opacity**
+
+![](images/manual/g3wclient_add_layer_local.png)
+
+### Change map
+
+The menu allows you to switch to a different map, among those accessible to the user, referring to the current extension and scale.
 
 
 

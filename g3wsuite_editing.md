@@ -76,15 +76,19 @@ At the QGIS project level (always from **`Vector Properties`**, **`Attribute For
 The alias and editing widgets defined at the project level will be available during web editing with some limitations.
 
 Below are the available widgets and any limitations:
- * **`Relation reference: with some option limitation`**
+ * **`Relation reference:`** with some option limitation
  * **`Checkbox`**
- * **`Date/time`:** management limited to the date
+ * **`Date/time`:** with Display format supported
  * **`Attachment`**
- * **`Range`**
- * **`Text edit`** multiline and html included
- * **`Unique values`**: this widget will be equipped with a **pick layer** tool at the cartographic client level
+ * **`Range`:** with default, minimum and maximum values supported
+ * **`Text edit`:** multiline and html included
+ * **`Unique values`:**: this widget will be equipped with a **pick layer** tool at the cartographic client level
  * **`Value map`**
- * **`Value relations`** with `QGIS expression-based filter` management, the suite not support `sort by value` and `allow multiple selections` options
+ * **`Value relations`:**
+   * Order value option supported
+   * Allow multiple selections supported
+   * QGIS filter expression supported
+   * the widget will be equipped with a pick layer tool at the cartographic client level
 
  **The expression-based filter can also be dependent on the values of other fields on the form and useful to create cascading drill down.**
    
@@ -95,11 +99,11 @@ This solution allows you to consult the associated attachments also from QGIS or
 **Additional settings at single layer level**
 
 In the **`Attribute Form`** section of the **`Layer Properties`** it is also possible to define for every field:
- * **enable/disable editing**
- * **mandatory and/or unique constraints**
- * **range of acceptable values** through the **Range** widget
- * **default values**
-  * **conditional forms**
+ * **field editable or not**
+ * **mandatory constraints**
+ * **unique constraints**
+ * **default values:** also based on QGIS expression and with **Apply default value** on update option supported
+ * **conditional forms**
  
 #### QGIS expressions and default values
 
@@ -145,7 +149,9 @@ Identify the layer on which you want to activate the editing function and click 
 **Attention:** check that the layer format is among those supported by QGIS for the editing function
 
 Clicking on the icon will open a modal window that will allow you to:
- * **define the editing activation scale** (only for geometric tables)
+ * **Active:** activate the editing function
+ * **Visible:** check on uncheck to show layer inside the list of layers to edit (useful for child layers in a 1:N relationship in order to allow editing only starting from the parent)
+ * **Scale:** define the editing activation scale (only for geometric tables)
  * **define the Viewer users** (individuals or groups) **enabled** for online editing
 
 For each user (single or group) it is possible to discriminate the editing powers:
@@ -164,9 +170,9 @@ I should be noted that:
 
 ##### Ability to associate references to create/update G3W-SUITE users
 
-Through these two optional settings it is possible to define two fields of the table of the layer being edited automatically filled in.
+Through these two optional settings it is possible to define four fields of the table of the layer being edited automatically filled in.
 
-These two fields will contain references to G3W-SUITE users who creators or modifiers of the individual features edited.
+These fields will contain references to G3W-SUITE users and users group who creators or modifiers of the individual features edited.
 
 All settings defined at the QGIS level for these fields (eg default values) will no longer be considered.
 
@@ -179,6 +185,13 @@ In the case of a project in which it is necessary to activate the online editing
 
 ![](images/manual/multi_layer_form.png)
 
+#### Copy editing permission from a user to the others
+
+In the case of complex projects with many users enabled for editing, it is possible to use this tool to duplicate the editing permissions defined for a user and apply them to other users (both individuals and groups).
+
+![](images/manual/editing_clone_icon.png)
+
+![](images/manual/editing_clone_setting.png)
 
 #### 1:N relational editing
 To allow editing on the related table in mode 1: n , the **editing function must also be activated** (always in the same way) **also for the related table** present in the project layers list.

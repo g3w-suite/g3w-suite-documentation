@@ -202,7 +202,11 @@ It will be possible to dynamically choose the style on the cartographic client.
 
 It will be possible to manage the styles associated with a layer from the Administration component, also by **loading .qml file styles** and **setting the default style** among those present.
 
+### Attribute table
 
+The display order of a layer's attribute table fields is inherited from the suite.
+
+ ![](images/manual/qgis_attribute_table_order.png)
 
 ### Definition of the fields that can be consulted for each layer
 Within the QGIS project it is also possible to define, for each layer, which fields are available following query on the WebGis service.
