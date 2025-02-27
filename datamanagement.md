@@ -18,7 +18,7 @@ Thanks to the integration with the APIs of QGIS it is now possible to manage the
 The suite also allows you to manage the consultation and editing of:
  * **simple join data with no nesting limits**
  * **1:N relation data**
- * **N:M relation data**
+ * **N:M relation data** with limitations
 
 ## Data on DB Server
 

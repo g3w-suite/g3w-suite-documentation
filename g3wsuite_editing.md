@@ -23,7 +23,7 @@ Multi-user editing on formats such as Shapefile, but also GeoPackage and SpatiaL
 
 ### 1:N and N:M relational editing
 
-The editing function manages both direct editing on geometric and alphanumeric layers, and editing on layers in a 1:N or N:M relations, also both geometric and alphanumeric.
+The editing function manages both direct editing on geometric and alphanumeric layers, and editing on layers in a 1:N or N:M (only in paert) relations, also both geometric and alphanumeric.
 
 **Attention:** the management of the editing of the N: M relations is limited to the management of the 1:N relationship between the parent layer and the intermediate table.
 
@@ -344,10 +344,9 @@ The tools available are the following:
  * ![](images/manual/icon_feature_modify.png) **Update feature vertex:** to modify the shape of a geometry
  * ![](images/manual/icon_feature_remove.png) **Remove feature**
  * ![](images/manual/icon_feature_multiattribute.png) **Update attributes for selected features:** to modify the attribute values associated with more than one features
- 
+ * ![](images/manual/icon_feature_multiattribute_relations.png) **Edit relations records from one or more parent features:** allows you to modify one or more fields of one or more records of a relation starting from one or more features of the parent layer
  * ![](images/manual/icon_feature_move.png) **Move feature:** to move a feature
-
-  * ![](images/manual/icon_feature_paste.png) **Paste features from other layers:** query another layer with the same geometry, select the features to copy, press the **`Paste`** icon, confirm the choice of the selected features, fill in the attributes and press the green Insert/Edit button. The copy and paste operation can also be performed by referring to geometries deriving from layers added by the user using the AddLayer tool.
+  * ![](images/manual/icon_feature_paste.png) **Paste features from other layers:** click on the icon, select a layer from those available in the drop-down menu (limited based on compatible geometry), select a feature,, fill in the attributes and press the green **Insert/Edit** button. The copy and paste operation can also be performed by referring to geometries deriving from local layers added by the user using the **AddLayer** tool.
 
  * ![](images/manual/icon_feature_copy.png) **Copy features:** to copy one or more features from the same layer
 
@@ -388,7 +387,7 @@ For this reason the green button **SAVE** will be disabled until all constraints
 
 ### 1:N and N:M related tables editing
 **G3W-SUITE allows for relational editing**; for this to be possible it is necessary that:
- * on the published QGIS project there are one or more geographic layers related (1:n or N:M) with one or more alphanumeric tables
+ * on the published QGIS project there are one or more geographic layers related (1:N) with one or more alphanumeric tables
  * on the administration panel the editing function has been activated both on the parent layer and on the child layers
  * the operator user is enabled for the editing function on these layers
 
@@ -404,7 +403,7 @@ Moving on the macro tab relating to one of the child layers, the list of records
 
 ![](images/manual/editing_form_relations.png)
 
-Clicking on it the form switch in a session dedicated to the edit of the relational table where it will be possible: * **create and add a new records** related to the edited feature
+Clicking on it the form switch in a session dedicated to the edit of the relational table where it will be possible: **create and add a new records** related to the edited feature
  * **associate an existing records** (linked to other features or orphan) to the edited feature
  * **modify the records** currently associated with the edited feature
 
@@ -448,6 +447,7 @@ A series of icons appear to the right of each record associated with the edited 
 
 In the case of 1:N relations with alphanumeric layers:
  * ![](images/manual/icon_record_attribute.png)**Update feature attribute:** modify the values associated with the attributes of this record; the change must be validated by clicking on the **Save** button at the bottom of the form.
+ * ![](images/manual/icon_record_copy.png)**Copy feature:** duplicate a record with the possibility to change the values in the new record; the change must be validated by clicking on the **Save** button at the bottom of the form.
  * ![](images/manual/icon_record_erase.png) **Delete feature:** permanently delete the record
 
 
