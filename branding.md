@@ -278,3 +278,67 @@ to:
 
 ![](images/manual/en/branding_18_legend.png)
 
+
+
+## Setting a default language
+
+
+When the suite is loaded, the client language is set to the browser's default language. 
+There might be cases where the suite needs to be loaded in a specific language. 
+This can be done, even if it is not exactly for the faint of heart.
+
+The following settings will force the suite to load as default language the one specified 
+in the ```g3w-suite-docker/config/g3w-suite/settings_docker.py``` file in the **LANGUAGE_CODE** setting:
+
+```python
+LANGUAGE_CODE = 'it'
+```
+
+To get this properly applied, we need to make a few changes g3w-admin code base.
+
+First, inside the ```g3w-admin/base/settings/__init__.py``` file, we need to change the following line:
+
+```python
+MIDDLEWARE = MIDDLEWARE + G3WADMIN_MIDDLEWARE
+```
+
+to 
+
+```python
+MIDDLEWARE =  ['core.i18n_middleware.i18n_middleware'] + MIDDLEWARE + G3WADMIN_MIDDLEWARE
+```
+
+Then we need to create a new file in the ```g3w-admin/core``` folder called ```i18n_middleware.py``` with the following content:
+
+```python
+from contextlib import suppress
+from django.conf import settings
+
+def i18n_middleware(get_response):
+    """
+    Ignore Accept-Language HTTP headers.
+
+    This will force the I18N machinery to always choose settings.LANGUAGE_CODE
+    as the default initial language unless another one is set via sessions or cookies.
+
+    Should be installed *before* any middleware that checks
+    request.META['HTTP_ACCEPT_LANGUAGE'], namely
+    `django.middleware.locale.LocaleMiddleware`.
+    """
+
+    def middleware(request):
+        lang = getattr(settings, 'LANGUAGE_CODE')
+        accept = request.META.get('HTTP_ACCEPT_LANGUAGE', '').split(',')
+
+        with suppress(ValueError):
+            # Remove `lang` from the HTTP_ACCEPT_LANGUAGE to avoid duplicates
+            accept.remove(lang)
+
+        accept = [lang] + accept
+        request.META['HTTP_ACCEPT_LANGUAGE'] = f"""{','.join(accept)}"""
+        return get_response(request)
+
+    return middleware
+```
+
+This is based on the following [gist](https://gist.github.com/vstoykov/1366794?permalink_comment_id=3649179#gistcomment-3649179).
