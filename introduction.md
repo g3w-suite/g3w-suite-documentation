@@ -40,7 +40,11 @@ At the moment it's not used a classic versioning system for the suite, this bran
 * Walter Lorenzetti - Gis3W ([@wlorenzetti](https://github.com/wlorenzetti))
 * Leonardo Lami - Gis3W ([@leolami](https://github.com/leolami/))
 * Francesco Boccacci - Gis3W ([@volterra79](https://github.com/volterra79))
+* Matteo Tosi - Gis3W ([@raruto](https://github.com/raruto))
+* Andrea Antonello - Hidrologys ([@moovida](https://github.com/moovida))
 * Alessandro Pasotti - QCooperative ([@elpaso](https://github.com/elpaso))
 * Luigi Pirelli - QCooperative ([@luipir](https://github.com/luipir))
 * Mazano - Kartoza ([@NyakudyaA](https://github.com/NyakudyaA)) (Dockerization refactoring)
 * Tudor Barascu - Kartoza ([@tudorbarascu](https://github.com/tudorbarascu))
+* Alexander Bruy ([@alexbruy](https://github.com/alexbruy))
+
