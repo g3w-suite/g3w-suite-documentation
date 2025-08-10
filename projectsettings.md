@@ -98,8 +98,6 @@ Two further aspects are manageable with regard to WMS capabilities
 ##### WFS Capabilities
 **In this section it is possible to define which `layers are exposed as WFS services`.**
 
-The WFS service is needed if you want activate areal query (by bbox, by polygon, by circle...)
-
 It is sufficient to check only the **`Published`** column
 
  ![](images/manual/qgisservergeneralaspectswfs.png)
@@ -234,8 +232,6 @@ If you set a descriptive information in the **`Abstract`** form of the **`QGIS S
 
 
 ### Temporal settings
-
-This functionality is only available using QGIS Server >= 3.26
 
 The Temporal Controller functions in QGIS are replicated on the webgis component
 

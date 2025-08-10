@@ -24,9 +24,10 @@ At the moment it's not used a classic versioning system for the suite, this bran
 
 | Branch   | Python version | Django version | QGIS        | QGIS API | Status                 |
 |----------|----------------|----------------|-------------|----------|------------------------|
-| dev      | 3.12           | 4.2            | 3.34        | Used     | Continuous development |
+| dev      | 3.12           | 4.2            | 3.40        | Used     | Continuous development |
+| v3.10    | 3.12           | 4.2            | 3.40        | Used     | Bug fixing             |
 | v3.9     | 3.12           | 4.2            | 3.34        | Used     | Bug fixing             |
-| v3.8     | 3.10           | 3.2            | 3.34        | Used     | Bug fixing             |
+| v3.8     | 3.10           | 3.2            | 3.34        | Used     | Not longer supported   |
 | v3.7     | 3.10           | 3.2            | 3.28        | Used     | Not longer supported   |
 | v3.6     | 3.10           | 3.2            | 3.22        | Used     | Not longer supported   |
 | v3.5     | 3.10           | 2.2            | 3.22        | Used     | Not longer supported   |

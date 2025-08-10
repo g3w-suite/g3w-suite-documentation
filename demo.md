@@ -18,10 +18,10 @@ Through the tutorials it will be possible to:
 
 # Download demo data
 
-The tutorial is based on predefined data and QGIS 3.34.x LTR project **downloadable from <a href="https://drive.google.com/file/d/1WK_V1wYpvSfIAY3GCBL_hbW2TX6F7AZ8/view?usp=sharing" target="_blank">this link</a>**.
+The tutorial is based on predefined data and QGIS 3.40.x LTR project **downloadable from <a href="https://drive.google.com/file/d/1eQi0RsnEhBvIo05HcaXhjcXUqnSKuwX6/view?usp=sharing" target="_blank">this link</a>**.
 
 The .zip file contains the **`G3W-SUITE`** directory with three sub directories:
-* **`projects`:** containing a QGIS project (**`public-buildings-management-demo-39.qgs`**) already optimized for the tutorial
+* **`projects`:** containing a QGIS project (**`public-buildings-management-demo-310.qgs`**) already optimized for the tutorial
 * **`project_data/spatialite`**: containing a SpatiaLite DB with basic data (**`build_management_demo.sqlite`**)
 * **`plots`**: containing a a series of plots created with the **DataPlotly** plugin and saved in xml format
 
@@ -37,7 +37,7 @@ Inside the **`build_management_demo.sqlite` SpatiaLite DB** there are the follow
 
 **IMPORTANT: a copy of this data are present on the server, you can not change your local data copy**
 
-The project (**based on QGIS LTR 3.34.x**) foresees:
+The project (**based on QGIS LTR 3.40.x**) foresees:
 * a **dressing categorized by the `buildings` layer** based on the categorical field **`type`**
 * the presence of a **1: n relation** between the **`buildings`** layer and the alphanumeric **`maintenance_works`** and **`buildings_rating`** tables
 * pre-developed **query forms** for the **`buildings`** layer and the **`maintenance_works`** table
@@ -57,7 +57,7 @@ The publication system provides for the use of the **title of the project** as t
 
 # Access the online service
 
-To publish the project, you can **access the G3W-SUITE test application** via the following URL: [**`https://v39.g3wsuite.it`**](https://v39.g3wsuite.it)
+To publish the project, you can **access the G3W-SUITE test application** via the following URL: [**`https://v310.g3wsuite.it`**](https://v310.g3wsuite.it)
 
 To access the **Administration Panel** it is necessary to log in using the following credentials:
 * user: **`demo`**
@@ -150,7 +150,6 @@ The new session will show you the **list of the layer** present in the published
 
 ![](images/manual/g3wsuite_administration_project_layer_list.png)
 
-
  * **Label:** layer alias applied at the QGIS project level
    * The blue eye icon![](images/manual/icon_layerid.png) allows you to know the ID associated with the layer at the project level, this ID will be useful for creating parameterized URLs
  * **Name:** name of the layer (file or DB table)
@@ -170,6 +169,10 @@ The new session will show you the **list of the layer** present in the published
    * ![](images/manual/icon_hide_columns.png) **Hide columns by User/Groups:** create or manage constraints on one or more fields of a layer based on single or group user/s
    * ![](images/manual/icon_widget.png) **Widgets list:** shows how many widgets (eg searches) are associated with this layer and allows you to activate new ones
    * ![](images/manual/icon_styles.png) **Manage layer styles:** manage multi-style layer
+
+   * ![](images/manual/icon_scale_visibility.png) **Scale visibility layer by Users/Groups:** allows you to define a visibility scale differentiated by user and/or user groups.  Activating this option will overwrite, for the layers involved, any display scales defined at QGIS project level
+   * ![](images/manual/icon_fields_number.png) **Preview fields (max):** allows you to define the number of fields shown in the preview of the results of a search and query. HTML formatting and image previews are managed in the preview fields.
+
  * **Download capabilities:** allows the download of the geographic and not geographic layers in various formats
    * **Download as shp/geotiff:** for vector and raster layers
    * **Download as GPK:** for geographic or not geographic layers
@@ -181,7 +184,6 @@ The new session will show you the **list of the layer** present in the published
    * **Hide attributes table:** make the attribute table unsearchable
    * **Hide legend:** do not show the associated legend
    * **Hide Layer TOC:** hide the layer in the TOC
-
 
 The number above each Action icon shows if and how many related objects are present.
 
@@ -203,21 +205,24 @@ To **create a new search**, click on the blue link **`New widget`**.
 
 In the related form we can define:
 * **Form Title**
-  * **`Type`:** "Search"
-  * **`Name`:** name that G3W-SUITE will use to internally register the search widget.
-* **General configuration of research and results**
-  * **`Search title`:** title that will become available in the **'Research'** panel of the WebGis interface
-* **Search fields settings**
-  * **`Field`:** field on which to carry out the research
-  * **`Widget`:** method of entering the value to be searched
-            `InputBox`: manual compilation
-            `SelectBox`: values ​​shown via drop-down menu
-            `AutoCompleteBox`: values ​​shown through auto-complete mode
-  * **`Alias`:** alias assigned to the field that will appear in the search form
-  * **`Description`:** description assigned to the field
-  * **`Comparison operator`:** comparison operator (**=, <,>,> <,> =, <=, LIKE, ILIKE**) through which the search query will be carried out. The LIKE and ILIKE operators will only be available for PostGis or SpatiaLite layers
-  * **`Dependency`:** this parameter (optional) allows, only in the case of SelectBox widgets, to list the list of values ​​of a field filtered according to the value defined for the previous fields. The tool allows, for example, to display, in the drop-down menu dedicated to the choice of cadastral particles, only the particles connected to the sheet chosen in the previous option. This function is only available for PostGis or SpatiaLite layers.
-
+   * **`Type`:** "Search"
+   * **`Name`:** name that G3W-SUITE will use to internally register the search widget.
+ * **General configuration of research and results**
+   * **`Search title`:** title that will become available in the **'Research'** panel of the WebGis interface
+   * **`Paginate results`:** option to activate pagination for the results list in order to avoid timeout problems in the case of a large number of results
+ * **Search fields settings**
+   * **`Field`:** field on which to carry out the research
+   * **`Widget`:** method of entering the value to be searched
+     * `InputBox`: manual compilation
+     * `SelectBox`: values ​​shown via drop-down menu
+     * `AutoCompleteBox`: values ​​shown through auto-complete mode
+     * `DateTimeBox`: widget to be used exclusively for date type fields. On the client, the user will define the date/time to search through the calendar/clock widget.
+   * **`Alias`:** alias assigned to the field that will appear in the search form
+   * **`Description`:** description assigned to the field
+   * **`Comparison operator`:** comparison operator (**=, <,>,> <,> =, <=, IN, LIKE, ILIKE**) through which the search query will be carried out. The **IN** operator simplifies searches where a field must be associated with multiple values (OR operator)
+   * **`Use alternative unique values`** (for SelectBox widget):  possibility to associate a layer of the QGIS project, that reports the list of the unique values to show in the search field. This greatly speeds up the loading times of the contents of the user-side search form, increasing the usability of the tool, especially in cases where there are numerous records with a small number of unique values.
+   * **`Dependency`:** this parameter (optional) allows, only in the case of **SelectBox** or  **AutoCompleteBox** widgets, to show the list of values of a field filtered according to the value defined for the previous fields.   
+   
 Now it is possible to **define the dependence more or less strong** (strictly).
 
 In case of **strictly dependence**, the values of the dependent fields will be loaded **only after** the choice of the value of the field on which the dependency depends.
