@@ -499,7 +499,7 @@ The association is created at the **Geocoding providers** session level.
 
 The use of the providers Bing Streets and Bing Places requires the acquisition of a free Bing API.
 
-See [Settings](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html) section for the API key definition.
+See [Settings](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html) section for the API key definition.
 
 #### Using the Geocoding map control on the WebGis service
 The Geocoding tool allows you to search for addresses and places (based on active providers) and view their position on the map and the associated information on the information panel on the right.
