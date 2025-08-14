@@ -348,7 +348,7 @@ The tools available are the following:
    * add one or more records to the child table (only if alphanumeric) associating them with all the selected parents
    * modify one or more fields of all the records of the child table, connected to the selected father geometries
  * ![](images/manual/icon_feature_move.png) **Move feature:** to move a feature
- * ![](icon_feature_rotate.png) **Rotate feature:** to rotate a geoemtry. The rotation of point geometries is linked to the presence of a field called "rotation" in the attribute table, on which the direction of the symbology associated with the point is based. 
+ * ![](images/manual/icon_feature_rotate.png) **Rotate feature:** to rotate a geoemtry. The rotation of point geometries is linked to the presence of a field called "rotation" in the attribute table, on which the direction of the symbology associated with the point is based. 
   * ![](images/manual/icon_feature_paste.png) **Paste features from other layers:** click on the icon, select a layer from those available in the drop-down menu (limited based on compatible geometry), select a feature,, fill in the attributes and press the green **Insert/Edit** button. The copy and paste operation can also be performed by referring to geometries deriving from local layers added by the user using the **AddLayer** tool.
 
  * ![](images/manual/icon_feature_copy.png) **Copy features:** to copy one or more features from the same layer

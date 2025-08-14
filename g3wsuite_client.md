@@ -25,6 +25,8 @@ The contents of the header differ for the public user and for the logged in user
    * **Change map:** which allows you to switch from one WebGis service to another while maintaining extension and display scale
  * **Language:** the choice of language is reflected in the individual menus of the map client and on the contents of the access portal. The languages available are those activated by the Administration. 
 
+![](images/manual/g3wclient_header_anonymus.png)
+
 **Logged user**
 
  * **Logo, title and subtitle:**, deriving from:
@@ -39,6 +41,8 @@ The contents of the header differ for the public user and for the logged in user
    * **Embed map:** URL with the references to the extension currently displayed
    * **Change map:** which allows you to switch from one WebGis service to another while maintaining extension and display scale
  * **Language:** the choice of language is reflected in the individual menus of the map client and on the contents of the access portal. The languages available are those activated by the Administration. 
+
+ ![](images/manual/g3wclient_header_signed.png)
 
 ### Main menù
 

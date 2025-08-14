@@ -903,7 +903,7 @@ The values shown in the search tool will be those defined on the basis of the ta
 
 **Alternatively, you can use the QGIS API as a search method to overcome this limitation. See** [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html#g3w-client-search-endpoint).
 
-
+ 
 #### Multiple layers search
 
 The **Other searching layers** option allows you to extend the search carried out to other layers.
