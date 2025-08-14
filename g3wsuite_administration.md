@@ -146,8 +146,8 @@ Through this form you can consult the list of enabled users and their characteri
  * User groups to which they belong
  * Associated Cartographic MacroGroups (only for Editor1 users)
  * State of user: active/deactivated
- * Super user and/or Staff privileges
- * Email, name and surname
+ * Super user and Staff privileges
+ * Email, name and username
  * Creation date
  * Info on user creation (G3W-SUITE or LDAP)
  
@@ -194,7 +194,7 @@ In this section it is possible to view the list of Cartographic Macrogroups, man
 
 **ATTENTION: use the Cartographic MacroGroups only if you need them.**
 
-See chapter [Hierarchical organization of WebGis services and types of Users](https://g3w-suite.readthedocs.io/en/v3.9.x/user_groups_organization.html#hierarchical-organization-of-webgis-services-and-types-of-users-roles) to learn more about this aspect.
+See chapter [Hierarchical organization of WebGis services and types of Users](https://g3w-suite.readthedocs.io/en/v3.10.x/user_groups_organization.html#hierarchical-organization-of-webgis-services-and-types-of-users-roles) to learn more about this aspect.
 
 For example, you can create a **Macrogroup** to collect a series of **Cartographic Groups** belonging to the same Administration (single Municipality within a Union of Municipalities) or more simply to have main containers that contain second level groupings (Groups).
 
@@ -347,20 +347,19 @@ In this box you can define:
    * **scale:** tool for defining the display scale
    * **mouseposition:** display of mouse position coordinates
    * **geolocation:** geolocation tool  (available only with https certificate)
-   * **nominatin:** address search tools and toponyms based on OSM
-   * **streetview:** Google StreetView on your map
-      * in the presence of GoogleMaps API Key, StreetView it is integrated on the client and synchronized with the position and direction of the icon on the map
-      * in the absence of GoogleMaps API Key, StreetView it will open on a new browse tab without the aspects of synchronization with the map
+   * **geocoding:** address search tools and toponyms based on OSM; see the [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_administration.html#geocoding-map-control-use-case-for-populating-project-layers) for using map control as a tool for populating project data
+   * **streetview:** due to Google polycy, StreetView it will open on a new browse tab without the aspects of synchronization with the map
    * **length:** linear measuring instrument
    * **area:** surface measuring instrument
    * **addlayers:** tool for temporarily uploading GML, GeoJson, KML, GPX, SHP (zipped) and CSV with coordinate to WebGis. These layers will remain until the end of the work session
    * **screenshot:*** tool to take a screenshot of the map area
-   * **GeoScreenshot:*** tool to create a GeoTIFF of the map area
+   * **geoscreenshot:*** tool to create a GeoTIFF of the map area
+   * **annotation:*** an useful tool to add custom texts or geometrics (points, line, cirlce, polygon) annotations to the map and share them
  * **`Baselayer`:** choice of the base maps that will be available on the WebGis client
  * **`Background color`:** choice of the background color of the maps (default white)
  
 ***NB:** the security protocols prevent the creation of screenshots if WMS services with domains other than the publication one are present on the map. **In this case the icons will not be present on the client even if the MapControl is selected.**
-To avoid this, set the WMS as **internal WMS** in the [Widget managment](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_administration.html#widget-management) session.
+To avoid this, set the WMS as **internal WMS** in the [Widget managment](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_administration.html#widget-management) session.
 
 ![](images/manual/g3wsuite_administration_group_add_geodata.png)
 
@@ -371,7 +370,7 @@ Due to the change in licenses, it is no longer possible to use **Bing** and **Go
 
 Remember that it is possible to build customized Base Layers starting from open external Base Layer or from the contenents of a projects published on the suite.
 
-In this regard, consult the session [**Base map layer**](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_administration.html#add-custom-base-layers)
+In this regard, consult the session [**Base map layer**](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_administration.html#add-custom-base-layers)
 
 
 #### Copyright
@@ -383,68 +382,12 @@ After filling in the various form, click on the **Save** button to confirm your 
 ![](images/manual/buttom_save.png)
 
 
-### Geocoding map control use case for populating project layers
-A specific editing function is associated with the Geocoding map control.
-
-In fact, it is possible to use the results deriving from the providers associated with this map control (OSM, Bing Streets, Bing Places) to populate point layers present within the webgis service.
-
-Below are the settings and steps to perform for this purpose.
-
-#### Activation of Geocoding map control at Cartographic Group level
-First of all, **Geocoding** must be associated with the Cartographic Group by selecting it at the **Base Layers and Map default features** session level. This will ensure that the tool is present on all WebGis services published within the Group.
-
-![](images/manual/geocoding_providers.png)
-
-#### Definition of the providers to use for each WebGis service
-In the publication form of your QGIS project you need to define the providers to be associated with the Geocoding map control:
- * **Nominatim (OSM):** addresses based on OpenStreetMap
- * **Bing Streets:** Addresses based on Bing maps
- * **Bing Places:** places based on Bing maps (service available only for the USA)
-
-The association is created at the **Geocoding providers** session level.
-
-The use of the providers Bing Streets and Bing Places requires the acquisition of a free Bing API.
-
-See [Settings](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html) section for the API key definition.
-
-#### Using the Geocoding map control on the WebGis service
-The Geocoding tool allows you to search for addresses and places (based on active providers) and view their position on the map and the associated information on the information panel on the right.
-
-It is possible to load markers relating to multiple searches into the map.
-
-![](images/manual/geocoding_marker.png)
-
-On the right of the search tool there will now be three new icons:
- * **Clear markers selection:** to delete all markers inserted on the map
- * **Toogle markers visibility:** to activate/deactivate the display of markers
- * **Toogle sidebar panel:** to view the list of markers loaded in the map and their attributes on the right panel
-
-![](images/manual/geocoding_icons.png)
-
-#### Insert the markers present in the map into a vector layer
-This function allows you to insert the results, obtained through the Geocoding map control, at the level of one or more layers, exclusively point-like, present in the WebGis service.
-
-To be able to carry out this operation, the online editing functionality must be active on these layers.
-
-Only in this case will there be a pencil icon at the search results level.
-
-Clicking on this icon will show the list of point layers on which online editing is enabled.
-
-After choosing the layer on which to insert the result, click on the pencil icon to the right of the layer name to determine the insertion of the point on the layer itself.
-
-![](images/manual/geocoding_insert.png)
-
-On the right, the information panel will open which will show the attributes of the self-editing layer filled in only to the fields of the same name as those of the source markers.
-
-![](images/manual/geocoding_insert_attributes.png)
-
-By clicking on the green **Insert/Edit** button the point will be permanently saved on the layer in use.
-
 
 
 ### Groups List
 **From this item you can access the list of the created cartographic groups.**
 
+#### General operations
 For each group, the Title and Subtitle defined at the time of creation are shown.
 
 There are also a series of icons to access specific functions:
@@ -454,7 +397,11 @@ There are also a series of icons to access specific functions:
  * ![](images/manual/icon_edit.png) **Change** group characteristics
  * ![](images/manual/icon_erase.png) **Delete** group
 
-**ATTENTION:** the removal of the cartographic group will involve:
+ In case of request to delete the Cartographic Group, a popup will ask whether the deletion of the Group should be permanent or a simple deactivation, which can be restored from the Trash menu.
+
+ ![](images/manual/group_delete.png)
+
+**ATTENTION:** the permanent removal  of the cartographic group will involve:
  * the **removal of all the WebGis services** contained therein
  * the **removal of all widgets** (eg searches) that would be orphaned after the removal of the WebGis services contained in the group. See the Widget chapter for more information.
 
@@ -568,10 +515,12 @@ Otherwise the initial extension will correspond to the maximum one defined on th
 
  
  * **`Automatic zoom to query result features`**: if in the results of a search there are only features of a layer, the webgis automatic zoom on their extension
+
+ `**Show the Metadata' section on left bar`**:  it is possible choose if show or hide the 'Metadata' section on client left bar
  
 The next options allow you to define the type of WMS / WFS query to be carried out and the maximum number of results obtainable following a query.
  * **`WMS GeMap image format`***: definition of the image format associated to WMS service in the map
- * **`Max feature to get for query`***: max number of feature to get for single or multiple mode
+ * **`Max feature to get for query`***: max number of feature to get for single or multiple mode (recommended value: 50)
  * **`Query control mode`***: single or multiple
  * **`Query by bbox control mode`***: single or multiple
  * **`Query by polygon control mode`***: single or multiple
@@ -582,7 +531,7 @@ The next options allow you to define the type of WMS / WFS query to be carried o
    * **Bing Streets:** Addresses based on Bing maps
    * **Bing Places:** places based on Bing maps (service available only for the USA)
 
-Enabling providers is carried out at the general application [settings level](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html).
+Enabling providers is carried out at the general application [settings level](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html).
 
 **ATTENTION:** contents marked with * are mandatory.
 
@@ -644,6 +593,10 @@ Through the single icons, placed at the level of each project, it is possible to
  * ![](images/manual/iconsmall_ogc.png) **List of OGC services** associated with the project
   * ![](images/manual/iconsmall_message.png) **Messages** the tool allows you to define personalized (timed) messages visible when the WebGis service starts
  
+In case of request to delete the WebGis service, a popup will ask whether the deletion of the Webgis should be permanent or a simple deactivation, which can be restored from the **Trash** menu.
+
+![](images/manual/projecet_delete.png)
+
  **Below are some insights into specific features**
 
 #### Show details
@@ -713,6 +666,10 @@ Next to each layer are a series of icons and checkboxes:
    * ![](images/manual/icon_hide_columns.png) **Hide columns by User/Groups:** create or manage constraints on one or more fields of a layer based on single or group user/s
    * ![](images/manual/icon_widget.png) **Widgets list:** shows how many widgets (eg searches) are associated with this layer and allows you to activate new ones
    * ![](images/manual/icon_styles.png) **Manage layer styles:** manage multi-style layer
+
+   * ![](images/manual/icon_scale_visibility.png) **Scale visibility layer by Users/Groups:** allows you to define a visibility scale differentiated by user and/or user groups.  Activating this option will overwrite, for the layers involved, any display scales defined at QGIS project level
+   * ![](images/manual/icon_fields_number.png) **Preview fields (max):** allows you to define the number of fields shown in the preview of the results of a search and query. HTML formatting and image previews are managed in the preview fields.
+
  * **Download capabilities:** allows the download of the geographic and not geographic layers in various formats
    * **Download as shp/geotiff:** for vector and raster layers
    * **Download as GPK:** for geographic or not geographic layers
@@ -748,14 +705,14 @@ To do this you need to activate the **Base layer option** form and fill in the s
 
 The newly created base layer will be available to be associated with those available for the various Cartographic Groups.
 
-Learn more about how to create a new Base Layer in the [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_administration.html#add-custom-base-layers).
+Learn more about how to create a new Base Layer in the [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_administration.html#add-custom-base-layers).
 
 
 ### ![](images/manual/icon_editing.png) Editing layer
 
 Through this icon it is possible to activate the online editing function on the individual layers and define the permissions for individual / groups of users
 
-See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_editing.html).
+See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_editing.html).
 
 
 ### ![](images/manual/icon_filter_layer.png) Hide layer by user/groups
@@ -768,11 +725,19 @@ With this icon it will be possible to define the list of users (single and/or gr
 
 ### ![](images/manual/icon_dataplotly.png) QPlotly widget
 
+#### Activate charts on your WebGis
+
 **View plots created using QGIS [DataPlotly](https://github.com/ghtmtt/DataPlotly) (a great plugin developed by [Matteo Ghetta](https://github.com/ghtmtt)) in the cartographic client.**
 
-The module, based on the [Plotly library](https://plotly.com/), manages **plots saved as xml**.
+The module, based on the [Plotly library](https://plotly.com/), , manages plots builts and saved as xml in the DataPlotly QGIS plugin.
 
-The plots are connected to the layers defined on the QGIS project, in this way, as for the searches and the constraints, it is possible to activate  (checkink the **Linked** checkbox) the same plots on all WebGis services in which the reference layer is present.
+At the level of the layer for which the charts has been prepared, click on the **QPlotly widgets** icon ![](images/manual/icon_dataplotly.png) and load the xml by clicking on the **'New Qplotly widget'** button.
+
+As with searches, the uploaded graph will now be available in all projects that contain the same layer. As with searches, to activate the graph in other projects, access the layer and check the **'Linked'** checkbox.
+
+After loading the XML, the references to the graph will be reported and the possibility to define, via the checkbox **‘Active on the startup’**, whether or not the graph is displayed by default at client level after accessing the **'Charts'** menu.
+
+![](images/manual/charts_admin.png)
 
 It is also possible:
  * **download the plot XML file** to reuse it in QGIS
@@ -789,17 +754,35 @@ At client level, it will be possible to **filter plots based on the geometries v
 
 #### Charts based on 1:N data relation (child layer)
 
-If the chart is linked to a child layer in a 1:N relation, it can also be displayed at the information level of the individual parent features
+If the chart is linked to a child layer in a 1:N relation, it can also be displayed at the information level of the individual parent features and in the display of the table of related children.
 
 ![](images/manual/g3wclient_fomr_1N_plots.png)
 
+![](images/manual/charts_on_childs.png)
 
+#### Chart visibility
+Graphs based on child layers/tables of a 1:N relations are visible both in the main graphs menu and associated with the attributes of a feature of the parent layer (for the relations-limited records).
+
+Admin side, via the ‘Position’ drop-down menù, it is now possible to define whether these graphs should be displayed:
+ * **Sidebar:** only on the main chart panel
+ * **Query:** only associated with parent attributes only at the parent feature attribute level
+ * **Sidebar, Query:** in both positions (default)
+
+
+#### Chart order
+On the Admin side it is possible to define the display order of the graphs, associated with the WebGis service, within the Charts panel of the cartographic client.
+
+To access the configuration menu, click on the **'Project QPlotly widgets order'** icon ![](images/manual/icon_chart_order.png)
+
+You can use Drag&Drop to define the order on the widget list
+
+![](images/manual/chart_order_settings.png)
 
 ### ![](images/manual/icon_geoconstraints.png) ![](images/manual/icon_alpha_constraints.png) Display and editing constraints
 
 Through the **Geo-constraints by user/group** and **Alphanumeric and QGIS expressions constraints by user/groups**  widgets it is possible to define editing and display filters for users authorized to consult/edit the project.
 
-See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_editing.html#constraints-setting).
+See the dedicated paragraph in the [Editing on line session](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_editing.html#constraints-setting).
 
 
 ### ![](images/manual/icon_hide_columns.png) Hide columns by User/Groups
@@ -832,7 +815,9 @@ In G3W-SUITE it is possible to create search widgets.
 By default, searches can be built on individual vector layers based on the fields of the table associated with the layer.
 
 **NB: to create searches based on fields derived from simple joins (1:1/N:1) or from 1:N relation, you have to change the setting of the method used (from WMS to QGIS API).**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html#g3w-client-search-endpoint).**
+
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html#g3w-client-search-endpoint).
+
 
 Every search widget will be saved by referring to the layer identifiers (for example the DB parameters: IP, DB name, schema, layer name).
 
@@ -872,37 +857,16 @@ In the related form we can define:
      * `DateTimeBox`: widget to be used exclusively for date type fields. On the client, the user will define the date/time to search through the calendar/clock widget.
    * **`Alias`:** alias assigned to the field that will appear in the search form
    * **`Description`:** description assigned to the field
-   * **`Comparison operator`:** comparison operator (**=, <,>,> <,> =, <=, LIKE, ILIKE**) through which the search query will be carried out.
+   * **`Comparison operator`:** comparison operator (**=, <,>,> <,> =, <=, IN, LIKE, ILIKE**) through which the search query will be carried out. The **IN** operator simplifies searches where a field must be associated with multiple values (OR operator)
+   * **`Use alternative unique values`** (for SelectBox widget):  possibility to associate a layer of the QGIS project, that reports the list of the unique values to show in the search field. This greatly speeds up the loading times of the contents of the user-side search form, increasing the usability of the tool, especially in cases where there are numerous records with a small number of unique values.
    * **`Dependency`:** this parameter (optional) allows, only in the case of **SelectBox** or  **AutoCompleteBox** widgets, to show the list of values of a field filtered according to the value defined for the previous fields.   
-   
-Now it is possible to **define the dependence more or less strong** (strictly).
-
-In case of **strictly dependence**, the values of the dependent fields will be loaded **only after** the choice of the value of the field on which the dependency depends.
-
-Otherwise it will be possible to define the values of the individual fields freely and **without a specific order**. The values available for the other fields will in any case depend on the choice made.
-
-![](images/manual/g3wsuite_administration_project_search_form.png)
-
-**Tip**
-In the event that, at QGIS project level, the following editing widgets are associated with a field:
- * Value relations
- * Value maps
- * Relation reference
-
-The values shown in the search tool will be those defined on the basis of the tables related via widegt.
-
-**Warning: in the case of fields with more than 100 unique values, the WMS service does not allow to obtain the complete list of values. In this case it is recommended not to use the `SelectBox` method**
-
-**Alternatively, you can use the QGIS API as a search method to overcome this limitation. See** [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html#g3w-client-search-endpoint).
 
 The button ![](images/manual/button_add.png) allows you to add additional fields for the construction of the search query currently manageable through **AND/OR operators**.
 
-
-The example below shows the compilation of the form for creating a search widget dedicated to a cadastral cartography layer.
-
+The example below shows the compilation of the form for creating a search widget with serveral options.
 ![](images/manual/g3wsuite_administration_project_search_form.png)
 
-Once the form has been filled in, click on the OK button to save the settings.
+Once the form has been filled in, click on the **OK** button to save the settings.
 
 Once the settings are saved, the created widget will appear in the list of Widgets associated with the layer.
 
@@ -914,6 +878,28 @@ The widget will already be **`connected`** and therefore **available in the WebG
 **IMPORTANT:** the created search widget will now be available (disconnected) for all projects in which the layer with which it has been associated will be present.
 
 **This will allow you not to have to recreate the widget several times and to decide in which projects to activate the search and in which not.**
+
+
+##### Dependency
+Now it is possible to **define the dependence more or less strong** (strictly).
+
+In case of **strictly dependence**, the values of the dependent fields will be loaded **only after** the choice of the value of the field on which the dependency depends.
+
+Otherwise it will be possible to define the values of the individual fields freely and **without a specific order**. The values available for the other fields will in any case depend on the choice made.
+
+
+##### Tip
+In the event that, at QGIS project level, the following editing widgets are associated with a field:
+ * Value relations
+ * Value maps
+ * Relation reference
+
+The values shown in the search tool will be those defined on the basis of the tables related via widegt.
+
+**Warning: in the case of fields with more than 100 unique values, the WMS service does not allow to obtain the complete list of values. In this case it is recommended not to use the `SelectBox` method**
+
+**Alternatively, you can use the QGIS API as a search method to overcome this limitation. See** [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html#g3w-client-search-endpoint).
+
 
 #### Multiple layers search
 
@@ -932,7 +918,7 @@ Especially useful in the case of multi geometric layers.
 The option allows you to create a search based on the fields of a table (child in a 1:N relation) and obtain results relating to the parent layer of the relation.
 
 **N.B. to create searches based on fields derived from simple joins (1: 1 / N: 1) or from 1: N relation, you have to change the setting of the method used (from WMS to QGIS API).**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.9.x/settings.html#g3w-client-search-endpoint).
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html#g3w-client-search-endpoint).
 
 The **Relations** option allows you to to define the relationship to be used (if present) to identify the parent layer whose results will be shown.
 
@@ -946,6 +932,12 @@ If **multi styles have been associated with the same layer** in the QGIS project
 It will be possible to associate new layers by **loading related QML files** and **set the style to be used as default**.
 
 ![](images/manual/g3wsuite_administration_styles.png)
+
+### Project layers actions
+At the top right, identified by the item "Project layers actions", there are icons dedicated to settings that act on multiple elements of the project:
+   * ![](images/manual/icon_multi_editing.png) **`Editing layer`:** allows you to enable online editing on multiple layers at the same time, simplifying the definition of enabled users
+   * ![](images/manual/icon_clone_users.png) **`Copy permissions`:** allows you to clone all the settings defined for a user (editing permissions, various constraints...), relating to the project being managed, and assign them to other users
+   * ![](images/manual/icon_chart_order.png) **`Project’s Qplotly widget order`:** allows you to define the display order of active graphs at the client interface level
 
 ## Add custom Base layers
 
@@ -1005,6 +997,9 @@ By default the suite manages four languages for the client:
  * Finnish
  * Swedish
  * Romanian
+ * Portuguese
+ * Bulgarian
+ * Ukrainian
 
 and two languages for the admin: 
  * English
@@ -1026,9 +1021,9 @@ Also for the Administration panel, through the same drop-down menu, it is possib
 Fixed front end content is already available in the four basic languages.
 
 Variable contents, i.e. user-definable contents, are instead translated:
+ * Sessions **`Home`**, **`About`**, **`Maps`** and **`Login`**: content that can be defined and translated in the [**Edit General Data**](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_administration.html#front-end-portal-customization) session of the Control Panel Administration
+ * Sessions **`Cartographic MacroGroups`**, **`Cartographic Groups`** and **`WebGis Services`**: contents definable and translatable in the form defining these elements, limited to the items:
 
- * Sessions **`Home`**, **`About`**, **`Maps`** and **`Login`**: content that can be defined and translated in the [**Edit General Data**](https://g3w-suite.readthedocs.io/en/v3.9.x/g3wsuite_administration.html#front-end-portal-customization) session of the Control Panel Administration
- * Sessions **`MacroGroups Cartogarfici`**, **`Groups Cartogarfici`** and **`WebGis Services`**: contents definable and translatable in the form defining these elements, limited to the items:
    * **Public Title**
    * **Description**
 

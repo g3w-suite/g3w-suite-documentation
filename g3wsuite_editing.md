@@ -303,7 +303,7 @@ In the alphanumeric constraints list you can see a summary of the setted rules.
 ![](images/manual/editing_geoconstrain_layer_summary.png)
 
 
-## Online editing tools at cartographic client level
+## Online editing tools on cartographic client
 ### Geographic and alphanumeric editing
 
 **Once the online editing function has been activated and configured on one or more layers of a WebGis project, the `Editing layers` item, in the left bar of the cartographic client, will be shown.**
@@ -344,8 +344,11 @@ The tools available are the following:
  * ![](images/manual/icon_feature_modify.png) **Update feature vertex:** to modify the shape of a geometry
  * ![](images/manual/icon_feature_remove.png) **Remove feature**
  * ![](images/manual/icon_feature_multiattribute.png) **Update attributes for selected features:** to modify the attribute values associated with more than one features
- * ![](images/manual/icon_feature_multiattribute_relations.png) **Edit relations records from one or more parent features:** allows you to modify one or more fields of one or more records of a relation starting from one or more features of the parent layer
+ * ![](images/manual/icon_feature_multiattribute_relations.png) **Add/Edit child records from one or more parent features:** if the layer being edited is the parent of one or more 1:N relations, it will be possible to select multiple parents and 
+   * add one or more records to the child table (only if alphanumeric) associating them with all the selected parents
+   * modify one or more fields of all the records of the child table, connected to the selected father geometries
  * ![](images/manual/icon_feature_move.png) **Move feature:** to move a feature
+ * ![](icon_feature_rotate.png) **Rotate feature:** to rotate a geoemtry. The rotation of point geometries is linked to the presence of a field called "rotation" in the attribute table, on which the direction of the symbology associated with the point is based. 
   * ![](images/manual/icon_feature_paste.png) **Paste features from other layers:** click on the icon, select a layer from those available in the drop-down menu (limited based on compatible geometry), select a feature,, fill in the attributes and press the green **Insert/Edit** button. The copy and paste operation can also be performed by referring to geometries deriving from local layers added by the user using the **AddLayer** tool.
 
  * ![](images/manual/icon_feature_copy.png) **Copy features:** to copy one or more features from the same layer
@@ -471,3 +474,62 @@ Exiting edit mode, a modal window will be displayed which will show the list of 
 
 Remember that during the editing phase the **undo/redo icons** allow you to delete/restore the latest changes made. 
  
+
+## Geocoding map control use case for populating project layers
+A specific editing function is associated with the Geocoding map control.
+
+See the dedicate paragha
+
+In fact, it is possible to use the results deriving from the providers associated with this map control (OSM, Bing Streets, Bing Places) to populate point layers present within the webgis service.
+
+Below are the settings and steps to perform for this purpose.
+
+#### Activation of Geocoding map control at Cartographic Group level
+First of all, **Geocoding** must be associated with the Cartographic Group by selecting it at the **Base Layers and Map default features** session level. This will ensure that the tool is present on all WebGis services published within the Group.
+
+![](images/manual/geocoding_providers.png)
+
+#### Definition of the providers to use for each WebGis service
+In the publication form of your QGIS project you need to define the providers to be associated with the Geocoding map control:
+ * **Nominatim (OSM):** addresses based on OpenStreetMap
+ * **Bing Streets:** Addresses based on Bing maps
+ * **Bing Places:** places based on Bing maps (service available only for the USA)
+
+The association is created at the **Geocoding providers** session level.
+
+The use of the providers Bing Streets and Bing Places requires the acquisition of a free Bing API.
+
+See [Settings](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html) section for the API key definition.
+
+#### Using the Geocoding map control on the WebGis service
+The Geocoding tool allows you to search for addresses and places (based on active providers) and view their position on the map and the associated information on the information panel on the right.
+
+It is possible to load markers relating to multiple searches into the map.
+
+![](images/manual/geocoding_marker.png)
+
+On the right of the search tool there will now be three new icons:
+ * **Clear markers selection:** to delete all markers inserted on the map
+ * **Toogle markers visibility:** to activate/deactivate the display of markers
+ * **Toogle sidebar panel:** to view the list of markers loaded in the map and their attributes on the right panel
+
+![](images/manual/geocoding_icons.png)
+
+#### Insert the markers present in the map into a vector layer
+This function allows you to insert the results, obtained through the Geocoding map control, at the level of one or more layers, exclusively point-like, present in the WebGis service.
+
+To be able to carry out this operation, the online editing functionality must be active on these layers.
+
+Only in this case will there be a pencil icon at the search results level.
+
+Clicking on this icon will show the list of point layers on which online editing is enabled.
+
+After choosing the layer on which to insert the result, click on the pencil icon to the right of the layer name to determine the insertion of the point on the layer itself.
+
+![](images/manual/geocoding_insert.png)
+
+On the right, the information panel will open which will show the attributes of the self-editing layer filled in only to the fields of the same name as those of the source markers.
+
+![](images/manual/geocoding_insert_attributes.png)
+
+By clicking on the green **Insert/Edit** button the point will be permanently saved on the layer in use.
