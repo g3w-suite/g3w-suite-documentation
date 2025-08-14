@@ -368,20 +368,17 @@ Available only after activation of the editing function and based on the powers 
 Before the list of project layers there is session **Choose Theme** where it is possible to recall themes (views) defined in the QGIS project or create/save new ones if logged in.
 
 This session has three tabs:
- * **Layers:** structured list of layers, defined on the QGIS project
+ * **Data:** structured list of layers, defined on the QGIS project
  * **Base:** choice of the base map from those defined at the Cartographic Group creation level
  * **Legend:** graphic legend
- * **WMS:** visible only if user has added external WMS
-
  
-#### Themes
 
-##### Choose Themes
+#### Choose Themes
 In the event that Themes (Views) are defined in the QGIS project, a specific choice menu will be available in the Layers session of the TOC.
 
 The choice of a Theme will determine the automatic activation of the layers and related styles, defined in the Theme itself.
 
-##### User themes
+### User themes
 The logged in user can create customized themes in the same way as he prepares them in QGIS, i.e. by defining the on/off layers and associating any specific styles with the individual layers.
 
 By clicking on the **+** button it will be possible to define a name to associate and create the Theme.
@@ -392,7 +389,7 @@ Once created, the User Themes will be selectable, overwritable and editable usin
 
 ![](images/manual/g3wclient_theme.png)
 
-#### Layers
+#### Data
 
 This tab shows the layers prepared on QGIS projects with the same organization the groups and subgroups.
 
@@ -430,9 +427,9 @@ The attribute table (resizable) is equipped with **paging function, highlight fu
 In the case of links to **multimedia content**, the previews of the images and/or the **Open** button will be displayed for consultation of different types of content.
 
 To the left of each record in the table there are two/three tools:
- * **checkbox** to select the records/feature
- * the **Form view** icon to open the feature attributes form
- * in the case of a layer editable by the user, the attributes table will show, for each record, an **editing icon** to allow direct modification of the feature
+ * checkbox to select the records/feature
+ * the 'Form view' icon to open the feature attributes form
+ * in the case of a layer editable by the user, the attributes table will show, for each record, an editing icon to allow direct modification of the feature
 
 ![](images/manual/g3wclient_table_view.png)
 
@@ -515,7 +512,7 @@ We remind you that activating a filter affects:
  * print contenent
 
 
-#### Base
+#### Base layer
 The list shows the active base layers at the cartographic group level.
 
 If the user has created base layers starting from cached layers, these may also be present.
@@ -526,43 +523,36 @@ If at the publication level of the QGIS project, the **Legend position** option 
 
 If the option is activated on the QGIS project, the **legend is filtered on the map content**.
 
-#### WMS
+### WMS
 
 List of WMS loaded by the user and available only for his session
 
 ![](images/manual/g3wclient_tool_wms.png)
 
-### Buttom area
-
-#### Add layer
+### Add layer
 
 Through this tool the user can add custom WMS or local file layers to the WebGis service.
-
-##### WMS (URL)
+#### WMS (URL)
 
 The user can add one or more WMS service by defining:
  * **WMS URL**
  * **Name**
 
-![](images/manual/g3wclient_wms_tool_add.png)
-
-Clicking on **Connect** buttom, it is possible to view the list of the layers associated with the service, choose which one to load by defining:
+Clicking on Connect buttom, it is possible to view the list of the layers associated with the service, choose which one to load by defining:
  * the **Projection system** to be associated
  * the **Position** (top or buttom) with respect to the other layers of the project
  * the **Opacity** of the layer
  * an alternatice **Name** respect the original
 
- ![](images/manual/g3wclient_wms_tool_add2.png)
-
 When the first custom WMS is added, a new tab (WMS) appears in the TOC; here you can switch on/off or delete the individual added WMS layers.
 
-The added WMS layer cannot be queried.
+The added WMS layer cannot not be queried.
 
 The list of WMS services and the specific WMS layers added will remain available to the user until the browser cache is cleared.
 
 Also the WMS connections created will remain available for later reuse
 
-##### Local file
+#### Local file
 
 The user can add one or more local layer uploading it in the form.
 
@@ -584,7 +574,7 @@ For each layer you need to specify:
 
 ![](images/manual/g3wclient_add_layer_local.png)
 
-#### Change map
+### Change map
 
 The menu allows you to switch to a different map, among those accessible to the user, referring to the current extension and scale.
 

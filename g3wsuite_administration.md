@@ -13,17 +13,16 @@ The Administration Panel allows you to manage all aspects related to the publica
 
 The main page of the Administration Panel shows:
  * **`a bar at the top`:**
-   * **Search:** to search pubblished projects and Cartographic Groups
    * **Frontend:** to return the landing page portal
    * **Username:** to edit your profile and log out
    * **Language:** to choose the interface language
    * **A gear icon** ![](images/manual/iconconfiguration.png): to access a menu with:
-       **-->  System information**: a list specifying the versions of the various applications installed; useful for reporting a bug or an issue in general
+   
        **-->  Edit general data**: to set information shown in the front-end portal 
+       
        **-->  Django Administration** (only for Admin01 user): to configure Django advanced settings
-       **-->  Files:** to access the File Manager tool to upload geographic data not managed on DB, multimedia contents, logos for printing, etc...
-       **-->  Images:** to upload background images dedicated to the access portal
-
+       
+       **-->  Files:** to access the File Manager tool
        
  * **`a text menu on the left`:**
    * **Dashboard:** Administration dashboard
@@ -126,7 +125,6 @@ Through this form it is possible to insert new users and define their characteri
  * **`Login`**: username and password
  * **`User backend`**
  * **`ACL/Roles`**
-   * **Active** designates whether this user should be treated as active; unselect this instead of deleting accounts
    * **Superuser status** (Admin1 and Admin2 users only)
    * **Staff status**: deep administration of the application (Admin1 users only)
    * Main roles (**Editor1, Editor2 or Viewer**)
@@ -285,7 +283,7 @@ Let's see in detail the various sub-sessions of the group creation form.
  * **`Use logo image for client`** option
  * **`Logo link`:** a eventual link to associate with the logo
  
- **REMEMBER**
+ **REMEBER**
  
 By default, the map client header, for each WebGis service, is composed of:
  * main title (if set at General Data management level)
@@ -340,10 +338,9 @@ In this box you can define:
    * **zoom:** zoom in and zoom out
    * **zoombox:** zoom tool based on drawing a rectangle
    * **query:** puntual query of geographical layers
-   * **querybbox:** query based on a bounding box drawn on the map (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**)
+   * **querybbox:** query via bounding box (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**)
    * **querybypolygon:** it will be possible to automatically query the features of one or more layers that fall inside a polygonal element of a guide layer. (Eg what's inside a cadastral parcel?) - **N.B. it is necessary that the all the layers involved in this kind of query are published as WFS services on the QGIS project**
-   * **querybydrawpolygon:** query based on a polygon drawn on the map  (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**)
-   * **querybycircle:** query based on a cicle drawn on the map (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**)
+   * **querybydrawpolygon:** query based on a polygon drawn on the map  (**N.B. it is necessary that the layers are published as WFS services on the QGIS project**) 
    * **zoomhistory:** undo/redo tools to navigate previous and post visualization areas
    * **overview:** presence of a panoramic map
    * **scaleline:** presence of the scale bar
@@ -354,11 +351,10 @@ In this box you can define:
    * **streetview:** due to Google polycy, StreetView it will open on a new browse tab without the aspects of synchronization with the map
    * **length:** linear measuring instrument
    * **area:** surface measuring instrument
-   * **addlayers:** tool for temporarily uploading external WMS or local file as GML, GeoJson, KML, KMZ, GPX, SHP (zipped) and CSV with coordinate to WebGis. These layers will remain until the end of the work session
+   * **addlayers:** tool for temporarily uploading GML, GeoJson, KML, GPX, SHP (zipped) and CSV with coordinate to WebGis. These layers will remain until the end of the work session
    * **screenshot:*** tool to take a screenshot of the map area
    * **geoscreenshot:*** tool to create a GeoTIFF of the map area
    * **annotation:*** an useful tool to add custom texts or geometrics (points, line, cirlce, polygon) annotations to the map and share them
-
  * **`Baselayer`:** choice of the base maps that will be available on the WebGis client
  * **`Background color`:** choice of the background color of the maps (default white)
  
@@ -591,7 +587,8 @@ Through the single icons, placed at the level of each project, it is possible to
 
   * ![](images/manual/iconsmall_wms.png) **Test the WMS Capabilities** of the project
  * ![](images/manual/iconsmall_edit.png) **Update a project:** update of the QGIS file and other options related to the project
- * ![](images/manual/iconsmall_erase.png) **Delete/Deactivate** Initially the project is moved to the trash from where it can be recovered, with all previous settings/widgets, or permanently deleted
+ * ![](images/manual/iconsmall_erase.png) **Remove a cartographic project**
+   **Warning:** removing a project also removes all the widgets (e.g. searches) that would be orphaned after the project has been removed
  * ![](images/manual/iconsmall_download.png) **Download of the QGIS project**
  * ![](images/manual/iconsmall_ogc.png) **List of OGC services** associated with the project
   * ![](images/manual/iconsmall_message.png) **Messages** the tool allows you to define personalized (timed) messages visible when the WebGis service starts
@@ -616,7 +613,7 @@ By clicking on the icon, the messages associated with the service are displayed.
 
 ![](images/manual/messages_list.png)
 
-Using the blue **+ Message** key it is possible to create a new message by defining:
+Using the + Message key it is possible to create a new message by defining:
   * title
   * message body (also in html)
   * message type (info, warning, error, critical)
@@ -651,7 +648,7 @@ Once a cartographic project has been published, thougth the icon ![](images/manu
 
 Next to each layer are a series of icons and checkboxes:
  * **Label:** layer alias applied at the QGIS project level
-   * The blue eye icon![](images/manual/icon_layerid.png) allows you to know the ID associated with the layer at the project level, this ID will be useful for creating parameterized URLs
+   * The eye icon allows you to know the ID associated with the layer at the project level, this ID will be useful for creating parameterized URLs
  * **Name:** name of the layer (file or DB table)
  * ![](images/manual/icon_layertype.png) **Type:** illustrates the type of data (WMS, PostGis, SpatiaLite, GDAL / OGR ...)
  * **WMS external:** to speed up loading, the WMS layers present in a QGIS project are managed directly by Django and not by QGIS-Server.
@@ -705,8 +702,6 @@ To do this you need to activate the **Base layer option** form and fill in the s
  * Base layer title
  * Base layer description
  * Base layer attribution
-
-![](images/manual/cache_layer.png)
 
 The newly created base layer will be available to be associated with those available for the various Cartographic Groups.
 
@@ -820,7 +815,9 @@ In G3W-SUITE it is possible to create search widgets.
 By default, searches can be built on individual vector layers based on the fields of the table associated with the layer.
 
 **NB: to create searches based on fields derived from simple joins (1:1/N:1) or from 1:N relation, you have to change the setting of the method used (from WMS to QGIS API).**
+
 See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html#g3w-client-search-endpoint).
+
 
 Every search widget will be saved by referring to the layer identifiers (for example the DB parameters: IP, DB name, schema, layer name).
 
@@ -1024,9 +1021,9 @@ Also for the Administration panel, through the same drop-down menu, it is possib
 Fixed front end content is already available in the four basic languages.
 
 Variable contents, i.e. user-definable contents, are instead translated:
-
  * Sessions **`Home`**, **`About`**, **`Maps`** and **`Login`**: content that can be defined and translated in the [**Edit General Data**](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_administration.html#front-end-portal-customization) session of the Control Panel Administration
  * Sessions **`Cartographic MacroGroups`**, **`Cartographic Groups`** and **`WebGis Services`**: contents definable and translatable in the form defining these elements, limited to the items:
+
    * **Public Title**
    * **Description**
 

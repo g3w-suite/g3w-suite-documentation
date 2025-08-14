@@ -27,8 +27,8 @@ In G3W-SUITE you can create **Users** and **Users Groups** and associate them wi
  * **`Viewer`:** user with access permission in **consultation on WebGis service**s characterized by authentication. This user can also use individual functional Modules if the relative permissions have been attributed to him
  * **`Anonymus User`:** user to be associated with WebGis services and/or functional modules **with free access**
 
-
 **Pay attention:** The use of the **Editor1** user and **MacroGroups** is recommended only in specific cases or when you want to manage autonomous work environments (e.g. single Public Administrations) in a multi-environment context (e.g. Union of Public Administrations).
+
 
 In this case the individual **Editor1** users will be associated with cartographic Macrogroups and will **manage users and contents completely independently** from those of other Macrogroups associated with other Editor1 users.
 
