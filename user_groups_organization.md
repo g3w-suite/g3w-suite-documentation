@@ -117,7 +117,7 @@ Below is a summary table of the powers associated with the different roles.
 In this case the main administrator (**Admin role**) manages users, containers and all WebGis services
 Access to Cartographic Groups and individual WebGis services can be limited to system users (**Viewer** role) or to free access (**Anonymous user**)
 
-**ontents organized on a single level (Cartographic goups)**
+**Contents organized on a single level (Cartographic goups)**
 ![](images/manual/organization_case_A1.png)
 
 **Contents organized on two levels(Cartographic Macrooups and Cartographic goups)**
@@ -130,10 +130,10 @@ User management will remain limited to the main administrator (**Admin** role)
 
 Access to Cartographic Groups and individual WebGis services can be limited to system users (**Viewer** role) or to free access (**Anonymous user**)
 
-**ontents organized on a single level (Cartographic goups)**
+**Contents organized on a single level (Cartographic goups)**
 ![](images/manual/organization_case_B1.png)
 
-**Contents organized on two levels(Cartographic Macrooups and Cartographic goups)**
+**Contents organized on two levels (Cartographic Macrooups and Cartographic goups)**
 ![](images/manual/organization_case_B2.png)
 
 ### Advanced organization

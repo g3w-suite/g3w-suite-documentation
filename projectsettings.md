@@ -218,18 +218,22 @@ The check box relating to the **`WMS`** column defines whether the values contai
 
 
 ### Definition of the attribute display form
-For each layer it is possible to define the structure of the attributes form associated with displaying the results following query operations.
+In the **Attribute form** section, it is possible, for vector layers, to define the structure of the attributes form associated with displaying the results following query operations.
 
 On QGIS, we can build a personalized form (query form) by creating thematic tabs and groups and defining the distribution of the individual fields and their aliases.
 
 This structural organization will be replicated directly on the query form on the WebGis service.
 
-The current version of QGIS also handles conditional forms and cascade drill-downs
-
 ### Layer basic information
 
 If you set a descriptive information in the **`Abstract`** form of the **`QGIS Server`** session of the **`Layer Properties`**, this information will be associated with the layer at the webgis level.
 
+
+### Editing
+
+The suite inherits numerous settings from the QGIS project related to the attribute editing features that can be defined in the **Attribute form** section.
+
+For more information, see the [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_editing.html).
 
 ### Temporal settings
 

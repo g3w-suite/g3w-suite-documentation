@@ -64,7 +64,7 @@ Using this tool it is possible to manage the physical geographic data on the ser
 **The root directory of the File Manager corresponds to the local **`project_data`** directory**
 
 It will therefore be necessary, in the case of using geographic files on the file system, to synchronize the contents of the local **`project_data`** directory (and any sub-directories) before proceeding with the publication of QGIS projects.
-
+ 
 Two specific directories can also be created within the root directory of the File Manager:
 
  * **`media_user`**: a directory exposed on the web, to store your **multimedia files**

@@ -11,7 +11,7 @@ The following aspects will be analyzed within the manual:
 * **management of the online editing function for the creation of web cartographic management systems**
 * **publishing and managing QGIS projects as WebGis services**
 * **creation of searches, visualization of graphics created with the DataPlotly plugin and definition of constraints (geographic and alphanumeric) on visualization and editing permissions**
-
+ 
 **The current release (3.10) is compatible with `QGIS 3.40.x LTR` (Server and Desktop).**
 
 ![](images/manual/demo_qgis_project.png)
