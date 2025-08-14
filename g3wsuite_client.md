@@ -17,6 +17,7 @@ The contents of the header differ for the public user and for the logged in user
    * main title (set at General Data level) or MacroGroup name, according to the settings
    * Cartographic Group name
    * WebGis service title
+ * **Alerts:** the Messages associated with the individual WebGis services and displayed when the services are started can be recalled by the user at any time. The message will be displayed on a resizable modal and can be consulted in overlay while continuing to interact with the various elements of the cartographic client.
  * **Credits:** references to the G3W-SUITE project
  * **Sign** in (far cambiare in Log in)
    * **Sign in:** login in for registered users
@@ -30,6 +31,7 @@ The contents of the header differ for the public user and for the logged in user
    * main title (set at General Data level) or MacroGroup name, according to the settings
    * Cartographic Group name
    * WebGis service title
+ * **Alerts:** the Messages associated with the individual WebGis services and displayed when the services are started can be recalled by the user at any time. The message will be displayed on a resizable modal and can be consulted in overlay while continuing to interact with the various elements of the cartographic client.
  * **Credits:** references to the G3W-SUITE project
  * **User name:** the name of the logged user
    * **Admin:** access to the administration section
@@ -44,7 +46,7 @@ The **`Main menù`** is located on the left.
 
 The upper section containing:
 
- * **Metadata:** any content defined in the GetCapabilities of the QGIS Project
+ * **Metadata:** any content defined in the GetCapabilities of the QGIS Project.Depending on the settings defined at the QGIS project publication level, this session may not be shown to the user.
   * **Charts:** visualization of the plots created on QGIS with the DataPlotly plugin
  * **Bookmarks:** tool for using the Spatial Bookmarks associated with the QGIS project and allowing the user to create new ones for his exclusive use.
  * **Print:** printing tool based on the layouts defined on the QGIS project
@@ -58,7 +60,7 @@ The middle section containing:
    * **Data:** structured list of layers, defined on the QGIS project
    * **Choose theme (view):** if defined in the QGIS project
    * **Base:** choice of the base map from those defined at the creation level of the Thematic Group
-   * **Legend:** graphic legend of the various layers
+   * **Legend:** graphic legend of the various layers. Depending on the settings defined at the QGIS project publication level, the legend can be inserted in a dedicated tab or integrated into the layer list as in QGIS.
 
 ![](images/manual/g3wclient_tool_panel.png)
 
@@ -79,9 +81,10 @@ The lower section containing:
 At the base of the map area there is an information bar showing:
  * **mouse coordinates**: coordinates can be shown in project projection system and in WGS84 LatLong (ESPG: 4326)
  * **project projection system**
- * **icon to copy the URL with the references to the extension currently displayed**
-* **display scale**
+ * **share map:** t icon to share the map bringing back various customizations
+ * **display scale**
 
+**share map icon**: this tool allows you to share the WebGis service while maintaining the customizations defined by the user (map extension, layers on/off, styles associated with the layers...) including, if present, the annotations created.
  
 ![](images/manual/g3wclient_footer2.png)
 
@@ -95,8 +98,9 @@ Map-controls available on the left side of the map:
  * ![ ](images/manual/icon_navigation_fitextent.png) **`Fit to extent`:** zoom to the initial extension
  * ![ ](images/manual/icon_navigation_zoomin.png) **`Zoom in and out`:** zoom in and zoom out
  * ![ ](images/manual/icon_navigation_zoomtobox.png) **`Zoom to box`:** zoom tool based on drawing a rectangle
- * ![ ](images/manual/icon_navigation_querylayer.png) **`Query layer`:** puntual query of geographical layers
- * ![ ](images/manual/icon_navigation_query_area_icon.png)) **`Query area`:**areal query
+ * ![ ](images/manual/icon_navigation_querylayer.png) **`Query layer`:** puntual query (all layer or only selected layer in the TOC))
+ * ![ ](images/manual/icon_navigation_query_area_icon.png) **`Query area`:** areal query
+
 	The panel that appears at the top left allows you to choose:
    * geospatial operator
      * intersects
@@ -110,23 +114,37 @@ Map-controls available on the left side of the map:
  * ![ ](images/manual/icon_navigation_geolocation.png) **`Geolocation`:** geolocation tool (useful for consultation from tablet)
  * ![ ](images/manual/icon_navigation_streetview.png) **`Streetview`:** Google StreetView on your map. Due to Google policies, StreetView it will open on a new browse tab without the aspects of synchronization with the map
  * ![ ](images/manual/icon_navigation_addlayer.png) **`Add layer`:** tool for temporarily uploading GML, GeoJson, KML, GPX, SHP (zipped) and CSV with coordinate to WebGis, or to add a custom WMS service
- * ![ ](images/manual/icon_navigation_measure.png) **`Measure`:** linear measuring instrument
-  * ![ ](images/manual/icon_navigation_snapshot.png) **`Screenshot`:** tool for taking snapshots of the map area
- * ![ ](images/manual/icon_navigation_geosnapshot.png) **`GeoSnapshot`:** tool to make a snapshots (PNG) or export (GeoTIFF) of the map visible area. Use the panel that appears at the top left to define your choice
+ * ![ ](images/manual/icon_navigation_measure.png) **`Measure`:** linear and areal measuring instrument
+ * ![ ](images/manual/icon_navigation_snapshot.png) **`Screenshot`:** tool to make a snapshots (PNG) or export (GeoTIFF) of the map visible area. Use the panel that appears at the top left to define your choice
+ * ![ ](images/manual/icon_navigation_annotations.png) **`Redlinining`:** tool to add annotations or drawings objects to the map. For each of them it will be possible to define size, color, transparency, labeling and more. The elements drawn on the map will be shareable together with the other settings of the WebGis service and reported in the print output. The tool permits to create this type of annotations:
+   * point elements
+   * free linear and polygonal elements
+   * circle/rectangle elements
+   * text labels
+
+Here is an example of using the annotation tool
+
+![ ](images/manual/annotations_tool.png)
 
 Map-controls available on the bottom left corner of the map:
- * ![ ](images/manual/icon_navigation_zomme_lastnext.png) **Zoom last/next:** undo/redo tools to navigate previous and post visualization areas (icons in the down-left corner)
+ * ![ ](images/manual/icon_navigation_zomme_lastnext.png) **`Zoom last/next`:** undo/redo tools to navigate previous and post visualization areas (icons in the down-left corner)
 
 Map-controls available on the top left corner of the map:
-  * ![ ](images/manual/icon_navigation_nominatim.png) **`geocoding`:** search tools for addresses and toponyms based on OSM or Bing, based on the providers activated at the administration level
+  * ![ ](images/manual/icon_navigation_nominatim.png) **`Geocoding`:** search tools for addresses and toponyms based on OSM or Bing, based on the providers activated at the administration level
 
-**Query type**
+#### Query type
 
-It should be noted that the query function acts, by default, with the coring method, providing information relating to all the layers underlying the point where you click with the mouse or draw a box.
+![ ](images/manual/icon_navigation_querylayer.png) **Point query**
+
+The point quey acts, by default, with the coring method, providing information relating to all the layers (setted as querable in the QGIS project) underlying the point where you click with the mouse or draw a box.
 
 To query a single layer, it must be previously selected at the TOC level.
 
-Remember that **Query area** tool, to be active, require the publication of all the layers involved as WFS services at the QGIS project level.
+![ ](images/manual/icon_navigation_query_area_icon.png) **Area query**
+
+Area query allows you to query project layers based on polygonal geometry:
+ * draw: rectangles, circles or free-form polygons
+ * deriving from a feature of a polygonal layer present in the project or added by the user
 
 The result of these type of query can be based on the geometric operations intersection and containment.
 
@@ -228,6 +246,8 @@ If **Views (Themes)** are set up in the QGIS project, it will also be possible t
 ## Tools panel
 ### Metadata
 The metadata reported in this session derive from those set at the QGIS project level.
+
+Depending on the settings defined at the QGIS project publication level, this session may not be shown to the user.
 
 This content is divided into three sessions: **General, Space Info and Layers.**
  * **`General`:** reports the **metadata defined on the QGIS project** in the item: **`Project →  Properties (QGIS Server session, Service Capabilities)`**

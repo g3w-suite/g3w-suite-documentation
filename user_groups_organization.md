@@ -15,8 +15,7 @@ Access policies and individual functional modules may be associated with each We
 
 ## Types of Users (Roles)
 In G3W-SUITE you can create **Users** and **Users Groups** and associate them with specific roles:
- * **`Admin1`:** user with full powers **including** Django administration (basic suite configuration)
- * **`Admin2`:** user with full powers **excluding** those of Django administration (basic configuration of the suite)
+ * **`Admin`:** If the "Staff status" option is also active for this user, the administrator can also access the session of Django administration (basic configuration of the suite)
  * **`Editor1*`:** **administrator of one or more Cartographic MacroGroups** for which it will be possible:
    * create users and/or user groups
    * create Cartographic Groups and, if necessary, assign them to an Editor 2 user
@@ -28,7 +27,8 @@ In G3W-SUITE you can create **Users** and **Users Groups** and associate them wi
  * **`Viewer`:** user with access permission in **consultation on WebGis service**s characterized by authentication. This user can also use individual functional Modules if the relative permissions have been attributed to him
  * **`Anonymus User`:** user to be associated with WebGis services and/or functional modules **with free access**
 
- * The use of the **Editor1** user and **MacroGroups** is recommended only in specific cases or when you want to manage autonomous work environments (e.g. single Public Administrations) in a multi-environment context (e.g. Union of Public Administrations).
+**Pay attention:** The use of the **Editor1** user and **MacroGroups** is recommended only in specific cases or when you want to manage autonomous work environments (e.g. single Public Administrations) in a multi-environment context (e.g. Union of Public Administrations).
+
 
 In this case the individual **Editor1** users will be associated with cartographic Macrogroups and will **manage users and contents completely independently** from those of other Macrogroups associated with other Editor1 users.
 
@@ -110,3 +110,43 @@ Again from the perspective of an infrastructure dedicated to a Union of Municipa
 Below is a summary table of the powers associated with the different roles.
 
 ![](images/manual/roles_table.png)
+
+## Examples of organization
+
+### Basic organization
+In this case the main administrator (**Admin role**) manages users, containers and all WebGis services
+Access to Cartographic Groups and individual WebGis services can be limited to system users (**Viewer** role) or to free access (**Anonymous user**)
+
+**ontents organized on a single level (Cartographic goups)**
+![](images/manual/organization_case_A1.png)
+
+**Contents organized on two levels(Cartographic Macrooups and Cartographic goups)**
+![](images/manual/organization_case_A2.png)
+
+### Medium organization
+In this case the main administrator (**Admin role**) wants to delegate some secondary administrators (**Editor2** role) in managing the contents (WebGis) of the individual Cartographic Groups.
+
+User management will remain limited to the main administrator (**Admin** role)
+
+Access to Cartographic Groups and individual WebGis services can be limited to system users (**Viewer** role) or to free access (**Anonymous user**)
+
+**ontents organized on a single level (Cartographic goups)**
+![](images/manual/organization_case_B1.png)
+
+**Contents organized on two levels(Cartographic Macrooups and Cartographic goups)**
+![](images/manual/organization_case_B2.png)
+
+### Advanced organization
+The case in question involves the need to create completely distinct and separate subsystems with regard to not only the contents but also the users.
+
+In this case, the main administrator (**Admin** role) delegates some secondary administrators (**Editor1** role) in managing the contents of the individual subsystems identified by the Cartographic MacroGroups.
+
+**Editor1** users can in turn delegate some secondary administrators (**Editor2** role) in managing the contents of the individual Cartographic Groups.
+
+**Editor1** users can create/manage users within their work environment (Macrogroup) ensuring separation from users created by other Editor1 users and related to other MacroGroups
+
+Access to Cartographic Groups and individual WebGIS services can be limited to system users (**Viewer** role) or to free access (**Anonymous user**).
+
+In this case, usually, the main administrator (**Admin** role) only takes care of creating the Macrogroups, the **Editor1** users and associating them correctly
+
+![](images/manual/organization_case_C.png)
