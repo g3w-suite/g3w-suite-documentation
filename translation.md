@@ -71,3 +71,22 @@ This creates the compiled **.mo** files Django uses to load translations:
 
 `locale/it/LC_MESSAGES/django.mo`
 
+## G3W-CLIENT
+
+Language files are stored into the [`src/assets/locales`](https://github.com/g3w-suite/g3w-client/blob/dev/src/assets/locales) folder.
+
+By adding some of these lines (eg. into your `plugin.js` or `custom.js`) you can change or add custom translation entries:
+
+```js
+const gettext = g3wsdk.core.i18n.t;
+const GUI     = g3wsdk.gui.GUI;
+
+GUI.isReady().then(() => {
+  gettext.register('en', { 'Credits': 'Impressum' }); // change default "en" locale: `Credits` (en) → `Impressum` (en)
+  gettext.register('it', { 'Credits': 'Impressum' }); // change default "it" locale: `Credits` (en) → `Impressum` (it)
+});
+```
+
+Otherwise, edit one of that files and then submit a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with appropriate changes.
+
+
