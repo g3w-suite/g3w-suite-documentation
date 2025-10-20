@@ -58,6 +58,7 @@ Through the web interface of the G3W-SUITE framework it is possible to:
    docker_env
    settings
    social_authentication
+   translation
 
 
 .. toctree::
