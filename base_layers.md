@@ -10,15 +10,15 @@ These operations are exclusively allowed to users with the `Admin level 1` role.
 
 ![](images/manual/django_admin_base_layers_form.png)
 
-I campi del form:
- - `Name`: un identificativo interno del base layer.
- - `Title`: il nome del base layer.
- - `icon`: unna immagine da utilizzare nella lista dei base layers disponibili nel tab relativo nel webgis.
- - `Description`: un campo descrittivo del base layer.
- - `Property`: la configurazione del base layer sotto forma di *python dict*.
+Form fields:
+ - `Name`: an internal identifier for the base layer.
+ - `Title`: the name of the base layer.
+ - `icon`: an image to use in the list of available base layers in the related tab in the webgis.
+ - `Description`: a descriptive field for the base layer.
+ - `Property`: the base layer configuration in the form of a *python dict*.
 
 
-Nel campo `Property` è possibile configurare servizi `TMS`, `WMS` e `WMTS` come base layers, di seguito alcuni esempi:
+In the `Property` field, you can configure `TMS`, `WMS`, and `WMTS` services as base layers. Below are some examples:
 
 ### TMS
 ```python
@@ -56,17 +56,17 @@ Nel campo `Property` è possibile configurare servizi `TMS`, `WMS` e `WMTS` come
 }
 ```
 
-**IMPORTANTE** le configurazioni sopra indicate non sono `JSON` ma sono `Python dict`
+**IMPORTANT** the configurations shown above are not `JSON` but are `Python dict`
 
-Di seguito un breve descrizione dei parametri:
+Below is a brief description of the parameters:
 
- - `crs`*: dichiarazione per esteso del sistema di riferimento dei dati a cui accediamo.
- - `url`*: url del servizio da raggiungere compreso dei _placeholder_ se necessari (ad esempio *{x}{y}{z}* per i servizi TMS).
- - `servicetype`*: uno tra i seguenti valori, `TMS`, `WMTS`, `WMS`.
- - `layer`: il nome del layer del servizio da richiamare per `WMTS` e `WMS`.
- - `extent`: una lista cre rappresenta l'estensione del dato.
- - `attribution`: una stringa in cui indicare le attribution che verranno mostrate sul servizio webgis del il base layer è attivo.
- - `grid`: il nome della griglia da usare nei servizzi `WMTS`
- - `grid_extent`: estensione della griglia dichiarata nel parametro `grid`
+ - `crs`*: full declaration of the reference system of the data we are accessing.
+ - `url`*: url of the service to reach including _placeholders_ if necessary (e.g., *{x}{y}{z}* for TMS services).
+ - `servicetype`*: one of the following values: `TMS`, `WMTS`, `WMS`.
+ - `layer`: the name of the service layer to call for `WMTS` and `WMS`.
+ - `extent`: a list that represents the data extent.
+ - `attribution`: a string indicating the attributions that will be shown on the webgis service when the base layer is active.
+ - `grid`: the name of the grid to use in `WMTS` services
+ - `grid_extent`: extent of the grid declared in the `grid` parameter
 
-**\*** parametri obbligatori
+**\*** mandatory parameters
