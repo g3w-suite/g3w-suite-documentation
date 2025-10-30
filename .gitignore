@@ -1,3 +1,7 @@
 /_build/
 *.mo
 .idea/
+.venv
+.vscode
+.p/
+g3w-suite-documentation.code-workspace
