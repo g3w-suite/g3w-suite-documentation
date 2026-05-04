@@ -1,3 +1,13 @@
 /_build/
 *.mo
 .idea/
+.venv/
+.vscode/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.bak
+*.swp
+*.code-workspace
