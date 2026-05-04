@@ -59,6 +59,7 @@ Through the web interface of the G3W-SUITE framework it is possible to:
    settings
    social_authentication
    translation
+   base_layers
 
 
 .. toctree::
