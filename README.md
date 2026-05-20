@@ -1,4 +1,9 @@
 # g3w-suite-documentation
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/g3w-suite/g3w-suite-documentation) [![status](https://app.readthedocs.org/projects/g3w-suite/badge/?version=latest&style=flat)](https://readthedocs.org/projects/g3w-suite/)
+
+---
+
 Edit and translate G3W-SUITE end-user documentation
 
 ---
