@@ -1,0 +1,238 @@
+/* ==========================================================================
+   G3W-SUITE custom theme for Sphinx RTD theme
+   Brand palette taken from the G3W-SUITE logo / g3wsuite.it
+   - Primary (olive green): #A4B842
+   - Primary dark:          #8AA033
+   - Secondary (dark teal): #2F5060
+   - Secondary dark:        #1F3A47
+   ========================================================================== */
+
+:root {
+    --g3w-primary:        #A4B842;
+    --g3w-primary-dark:   #8AA033;
+    --g3w-primary-light:  #BCCB6A;
+    --g3w-secondary:      #2F5060;
+    --g3w-secondary-dark: #1F3A47;
+    --g3w-accent:         #F39C12;
+    --g3w-text:           #333333;
+    --g3w-bg-soft:        #F4F6EC;
+}
+
+/* ---- Top navigation / side bar header ---- */
+.wy-side-nav-search {
+    background-color: #ECEEF1 !important;
+    border-bottom: 2px solid var(--g3w-primary);
+}
+
+.wy-nav-top {
+    background-color: var(--g3w-secondary) !important;
+}
+
+.wy-side-nav-search > a,
+.wy-side-nav-search .wy-dropdown > a {
+    color: var(--g3w-secondary-dark);
+}
+
+.wy-side-nav-search > a:hover,
+.wy-side-nav-search .wy-dropdown > a:hover {
+    background: transparent;
+    color: var(--g3w-primary-dark);
+}
+
+.wy-side-nav-search input[type="text"] {
+    border-color: var(--g3w-primary);
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: var(--g3w-text);
+}
+
+.wy-side-nav-search > div.version {
+    color: var(--g3w-secondary);
+}
+
+/* ---- Side bar menu ---- */
+.wy-nav-side {
+    background-color: var(--g3w-secondary-dark);
+}
+
+.wy-menu-vertical a {
+    color: #d9e3e8;
+}
+
+.wy-menu-vertical a:hover {
+    background-color: var(--g3w-primary);
+    color: #ffffff;
+}
+
+.wy-menu-vertical li.current {
+    background-color: #ffffff;
+}
+
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.toctree-l1.current > a {
+    background-color: var(--g3w-primary);
+    color: #ffffff;
+    border-right: none;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+    background-color: var(--g3w-bg-soft);
+    color: var(--g3w-secondary-dark);
+}
+
+.wy-menu-vertical li.toctree-l2.current > a:hover,
+.wy-menu-vertical li.toctree-l3.current > a:hover {
+    background-color: var(--g3w-primary-light);
+    color: #ffffff;
+}
+
+.wy-menu-vertical p.caption {
+    color: var(--g3w-primary-light);
+}
+
+/* ---- Mobile top bar burger ---- */
+.wy-nav-top i {
+    color: #ffffff;
+}
+
+/* ---- Links ---- */
+a {
+    color: var(--g3w-primary-dark);
+}
+
+a:hover,
+a:focus {
+    color: var(--g3w-secondary);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--g3w-secondary);
+}
+
+/* ---- Headings ---- */
+h1, h2, h3, h4, h5, h6,
+.rst-content .toctree-wrapper p.caption {
+    color: var(--g3w-secondary-dark);
+    font-weight: 600;
+}
+
+h1 {
+    border-bottom: 2px solid var(--g3w-primary);
+    padding-bottom: 0.3em;
+}
+
+h2 {
+    border-bottom: 1px solid var(--g3w-primary-light);
+    padding-bottom: 0.2em;
+}
+
+/* ---- Admonitions ---- */
+.rst-content .admonition-title,
+.wy-alert-title {
+    background-color: var(--g3w-secondary) !important;
+}
+
+.rst-content .note,
+.rst-content .seealso,
+.wy-alert.wy-alert-info {
+    background-color: var(--g3w-bg-soft);
+}
+
+.rst-content .note .admonition-title,
+.rst-content .seealso .admonition-title {
+    background-color: var(--g3w-primary) !important;
+}
+
+.rst-content .warning .admonition-title,
+.rst-content .caution .admonition-title,
+.rst-content .attention .admonition-title {
+    background-color: var(--g3w-accent) !important;
+}
+
+.rst-content .danger .admonition-title,
+.rst-content .error .admonition-title {
+    background-color: #c0392b !important;
+}
+
+.rst-content .tip .admonition-title,
+.rst-content .hint .admonition-title,
+.rst-content .important .admonition-title {
+    background-color: var(--g3w-primary-dark) !important;
+}
+
+/* ---- Buttons ---- */
+.btn-neutral,
+.btn-neutral:visited {
+    background-color: var(--g3w-bg-soft) !important;
+    color: var(--g3w-secondary-dark) !important;
+}
+
+.btn-neutral:hover {
+    background-color: var(--g3w-primary-light) !important;
+    color: #ffffff !important;
+}
+
+.btn {
+    background-color: var(--g3w-primary);
+    color: #ffffff;
+}
+
+.btn:hover {
+    background-color: var(--g3w-primary-dark);
+}
+
+/* ---- Inline code ---- */
+.rst-content code.literal,
+.rst-content tt.literal {
+    color: var(--g3w-secondary-dark);
+    background-color: var(--g3w-bg-soft);
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    padding: 1px 4px;
+}
+
+/* ---- Tables ---- */
+.rst-content table.docutils thead,
+.wy-table thead,
+.rst-content table.docutils thead th,
+.wy-table thead th {
+    background-color: var(--g3w-secondary);
+    color: #ffffff !important;
+    border-bottom: 2px solid var(--g3w-primary);
+}
+
+.rst-content table.docutils,
+.wy-table-bordered-all {
+    border: 1px solid #dcdcdc;
+}
+
+/* ---- Footer ---- */
+footer,
+.rst-footer-buttons,
+.rst-versions {
+    color: var(--g3w-text);
+}
+
+.rst-versions {
+    border-top: 2px solid var(--g3w-primary);
+}
+
+.rst-versions .rst-current-version {
+    background-color: var(--g3w-secondary-dark);
+    color: var(--g3w-primary-light);
+}
+
+.rst-versions .rst-current-version .fa-book,
+.rst-versions .rst-current-version .icon-book {
+    color: var(--g3w-primary-light);
+}
+
+/* ---- Search highlight ---- */
+.rst-content .highlighted {
+    background-color: var(--g3w-primary-light);
+    color: #ffffff;
+    padding: 0 2px;
+    border-radius: 2px;
+}
