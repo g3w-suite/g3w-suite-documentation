@@ -2,7 +2,12 @@
 *.mo
 .idea/
 .venv/
-*.pyc
+.vscode/
 __pycache__/
-*.vscode/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.bak
+*.swp
 *.code-workspace

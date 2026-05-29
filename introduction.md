@@ -20,7 +20,7 @@ The following aspects will be analyzed within the manual:
 
 ### Version
 
-At the moment it's not used a classic versioning system for the suite, this branches are avialable.
+At the moment it's not used a classic versioning system for the suite, this branches are available.
 
 | Branch   | Python version | Django version | QGIS        | QGIS API | Status                 |
 |----------|----------------|----------------|-------------|----------|------------------------|
@@ -46,6 +46,6 @@ At the moment it's not used a classic versioning system for the suite, this bran
 * Alessandro Pasotti - QCooperative ([@elpaso](https://github.com/elpaso))
 * Luigi Pirelli - QCooperative ([@luipir](https://github.com/luipir))
 * Mazano - Kartoza ([@NyakudyaA](https://github.com/NyakudyaA)) (Dockerization refactoring)
-* Tudor Barascu - Kartoza ([@tudorbarascu](https://github.com/tudorbarascu))
+* Tudor Barascu - QTIBIA Engineering/QCooperative ([@tudorbarascu](https://github.com/tudorbarascu))
 * Alexander Bruy ([@alexbruy](https://github.com/alexbruy))
 
