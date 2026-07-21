@@ -10,14 +10,14 @@ The iframe containing the G3W-SUITE application and the parent container applica
 
 ### Application → Iframe (Request)
 
-```json
+```jsonc
 {
-  "id": "<UNIQUE_STRING_IDENTIFYING_THE_REQUEST>",
+  "id": "...",              // unique string identifying the request
   "action": "editing:json",
   "data": {
-    "qgs_layer_id": "<LAYER_ID>",
-    "method": "<METHOD_NAME>",
-    "geojson": "<GEOJSON_OBJECT_OF_THE_TARGET_FEATURE>"
+    "qgs_layer_id": "...",  // QGIS layer ID
+    "method": "...",         // method to execute: "add" | "delete" | "update" | "draw"
+    "geojson": {}            // GeoJSON object of the target feature
   }
 }
 ```
@@ -43,14 +43,14 @@ The iframe containing the G3W-SUITE application and the parent container applica
 
 ### Iframe → Application (Response)
 
-```json
+```jsonc
 {
   "action": "editing:json",
   "response": {
-    "result": "<BOOLEAN: true on success, false on failure>",
+    "result": true,      // boolean: true on success, false on failure
     "data": {
-      "method": "<EXECUTED_METHOD_NAME>",
-      "geojson": "<GEOJSON_OBJECT_OF_THE_AFFECTED_FEATURE>"
+      "method": "...",   // executed method name
+      "geojson": {}      // GeoJSON of the affected feature
     }
   }
 }
@@ -66,14 +66,14 @@ Activates the drawing tool on the map for a geometric layer.
 
 **Request:**
 
-```json
+```jsonc
 {
   "id": "1784642571309",
   "action": "editing:json",
   "data": {
     "qgs_layer_id": "buildings_2f43dc1d_6725_42d2_a09b_dd446220104a",
     "method": "draw",
-    "geojson": "<OPTIONAL_GEOJSON_OF_THE_FEATURE_TO_MODIFY>"
+    "geojson": {}  // optional: GeoJSON of the feature to modify; omit when drawing a new feature
   }
 }
 ```
@@ -153,7 +153,7 @@ Once the feature has been drawn, the iframe sends a message to the parent applic
 
 **Success response:**
 
-```json
+```jsonc
 {
   "id": "1784647113405",
   "action": "editing:json",
@@ -162,7 +162,7 @@ Once the feature has been drawn, the iframe sends a message to the parent applic
     "data": {
       "method": "add",
       "fid": "70",
-      "geojson": "<GEOJSON_OF_THE_NEWLY_CREATED_AND_SAVED_FEATURE>"
+      "geojson": {}  // GeoJSON of the newly created and saved feature
     }
   }
 }
@@ -198,14 +198,14 @@ Once the feature has been drawn, the iframe sends a message to the parent applic
 
 **Request:**
 
-```json
+```jsonc
 {
   "id": "1784642571309",
   "action": "editing:json",
   "data": {
     "qgs_layer_id": "buildings_2f43dc1d_6725_42d2_a09b_dd446220104a",
     "method": "update",
-    "geojson": "<GEOJSON_OF_THE_FEATURE_TO_UPDATE (attributes and/or geometry)>"
+    "geojson": {}  // GeoJSON of the feature to update (attributes and/or geometry)
   }
 }
 ```
@@ -216,7 +216,7 @@ Once the feature has been drawn, the iframe sends a message to the parent applic
 
 **Request:**
 
-```json
+```jsonc
 {
   "id": "1784642571309",
   "action": "editing:json",
@@ -224,7 +224,7 @@ Once the feature has been drawn, the iframe sends a message to the parent applic
     "qgs_layer_id": "buildings_2f43dc1d_6725_42d2_a09b_dd446220104a",
     "method": "delete",
     "geojson": {
-      "id": "<ID_OF_THE_FEATURE_TO_DELETE>"
+      "id": "..."  // ID of the feature to delete
     }
   }
 }
