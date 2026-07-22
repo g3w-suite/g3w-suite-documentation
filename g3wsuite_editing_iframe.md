@@ -4,6 +4,33 @@
 
 The iframe containing the G3W-SUITE application and the parent container application exchange messages using the following structure.
 
+Before sending editing requests, the parent application and the iframe can perform an initial handshake using `postMessage` to confirm that both contexts are ready.
+
+### Initial Handshake (postMessage)
+
+In this example, no origin restriction is applied and messages are sent with `"*"` as `targetOrigin`.
+
+```javascript
+
+// Iframe -> Parent container
+window.parent.postMessage(
+  {
+    id:        null,
+    action:   'app:ready',
+    response: {
+      result: true,
+      data: {
+        layers: [ ... ] // Array of objects contains { id: Layer Id, name: Layer Name }
+      }
+    },
+  }
+  "*"
+);
+
+```
+
+> **Warning:** using `"*"` accepts/sends messages regardless of origin. Use this only in controlled environments. In production, it is recommended to restrict origins explicitly.
+
 ---
 
 ## Message Format
