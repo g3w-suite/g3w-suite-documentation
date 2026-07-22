@@ -2,7 +2,11 @@
 
 ## Overview
 
-The iframe containing the G3W-SUITE application and the parent container application exchange messages using the following structure.
+This section describes how to perform **online editing** when G3W-SUITE is embedded inside an `<iframe>` hosted by an external (parent) web application.
+
+In this integration scenario, the parent application and the embedded G3W-SUITE client communicate through the browser's `postMessage` API, exchanging structured JSON messages. This channel allows the parent application to programmatically drive the standard editing operations exposed by G3W-SUITE — **add**, **update**, **delete**, and **draw** features — on the layers published in the QGIS project, and to receive back the results (success, errors, or the GeoJSON of the affected features).
+
+The documentation that follows defines the message format, the initial handshake between the two contexts, and the payloads used for each supported editing operation.
 
 Before sending editing requests, the parent application and the iframe can perform an initial handshake using `postMessage` to confirm that both contexts are ready.
 
