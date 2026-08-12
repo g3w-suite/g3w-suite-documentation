@@ -18,7 +18,7 @@ Through the tutorials it will be possible to:
 
 # Download demo data
 
-The tutorial is based on predefined data and QGIS 3.40.x LTR project **downloadable from <a href="https://drive.google.com/file/d/1eQi0RsnEhBvIo05HcaXhjcXUqnSKuwX6/view?usp=sharing" target="_blank">this link</a>**.
+The tutorial is based on predefined data and QGIS 3.44.x LTR project **downloadable from <a href="https://drive.google.com/file/d/1Xpx1FvTNWtx74maXe7jatU_GgyC8QlpB/view?usp=sharing" target="_blank">this link</a>**.
 
 The .zip file contains the **`G3W-SUITE`** directory with three sub directories:
 * **`projects`:** containing a QGIS project (**`public-buildings-management-demo-310.qgs`**) already optimized for the tutorial
@@ -37,7 +37,7 @@ Inside the **`build_management_demo.sqlite` SpatiaLite DB** there are the follow
 
 **IMPORTANT: a copy of this data are present on the server, you can not change your local data copy**
 
-The project (**based on QGIS LTR 3.40.x**) foresees:
+The project (**based on QGIS LTR 3.44.x**) foresees:
 * a **dressing categorized by the `buildings` layer** based on the categorical field **`type`**
 * the presence of a **1: n relation** between the **`buildings`** layer and the alphanumeric **`maintenance_works`** and **`buildings_rating`** tables
 * pre-developed **query forms** for the **`buildings`** layer and the **`maintenance_works`** table
@@ -57,7 +57,7 @@ The publication system provides for the use of the **title of the project** as t
 
 # Access the online service
 
-To publish the project, you can **access the G3W-SUITE test application** via the following URL: [**`https://v310.g3wsuite.it`**](https://v310.g3wsuite.it)
+To publish the project, you can **access the G3W-SUITE test application** via the following URL: [**`https://v311.g3wsuite.it`**](https://v311.g3wsuite.it)
 
 To access the **Administration Panel** it is necessary to log in using the following credentials:
 * user: **`demo`**
@@ -359,7 +359,7 @@ Once the editing function is activated, updating the service, the **`Tools menu`
 
 ![](images/manual/editing_form2.png)
 
-For **further information** on the web editing function, read the [**dedicated chapter on the manual**](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_editing.html#online-editing-tools-at-cartographic-client-level)
+For **further information** on the web editing function, read the [**dedicated chapter on the manual**](https://g3w-suite.readthedocs.io/en/v3.11.x/g3wsuite_editing.html#online-editing-tools-at-cartographic-client-level)
 
 # Personalize your demo
 
@@ -367,6 +367,6 @@ For **further information** on the web editing function, read the [**dedicated c
 
 Redefine attribute forms, aliases and editing widgets associated with the individual fields and reload the project to check the new settings.
 
-**It is advisable to consult the** [paragraph dedicated](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_editing.html#activation-and-configuration) **to the list and limitations of the individual editing widgets inheritable from the QGIS project.**
+**It is advisable to consult the** [paragraph dedicated](https://g3w-suite.readthedocs.io/en/v3.11.x/g3wsuite_editing.html#activation-and-configuration) **to the list and limitations of the individual editing widgets inheritable from the QGIS project.**
 
 

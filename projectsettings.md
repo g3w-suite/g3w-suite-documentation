@@ -2,6 +2,8 @@
 
 _**This section describes how to optimize your QGIS projects to publish as a WebGis service.**_
 
+G3W-SUITE version 3.11 is compatible with QGIS projects built with the LTR version of QGIS 3.44.
+
 Thanks to the integration with QGIS Server, all the symbology aspects associated with the singoly layers are automatically reproduced on the WebGis service
 
 In the QGIS cartographic projects you can set some parameters and options that affect functionalities and contents in the derivative WebGis service, such as:
@@ -16,11 +18,18 @@ In the QGIS cartographic projects you can set some parameters and options that a
 * layer/group management from **embedded projects**
 * the **structure of the query form** visible on the WebGis service
 * the **editing widget**, **constraints** and **default values** (also based on QGIS expressions) for every fields of vector layers
-* the associated **print layouts, report included**
+* the associated **print layouts, atlas included**
 
 The following paragraphs describe which QGIS project settings are more relevant in relation to the published WebGis service.
 
 ## Project property
+
+Defining some parameters related to project properties is essential for defining:
+ * Project title and description
+ * Queryable layers
+ * OGC services through which to expose project data and related projection systems
+ * Initial extension of the webGIS service
+
 From the **`Project → Properties`** menu, you can access the **`Project Properties`** window and the three submenus of our interest:
  * **General**
  * **Data sources**
@@ -43,12 +52,12 @@ The option **`Automatically create transaction group where possible`** is automa
 #### Layers Capabilities
 
 **This submenu defines the **querable and/or searchable layers** at the WebGis service level.**
- * Check the **`Identifiable`** column if you want that the layer will be searchable on the WMS service
- * Check the **`Searchable`** column if you want that the layer will be querable on the WMS service
+ * Check the **`Identifiable`** column if you want that the layer will be searchable on the WMS service and then in the webgis service
+ * Check the **`Searchable`** column if you want that the layer will be querable on the WMS service and then in the webgis service
  
 
 **NB: this differentiation is only possible by using the QGIS APIs such as Search URL endpoint.**
-See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html#g3w-client-search-endpoint)
+See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.11.x/settings.html#g3w-client-search-endpoint)
 
 
 ![](images/manual/datasources.png)
@@ -60,7 +69,7 @@ See [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.h
 
 This information, together with info about the structure of the attribute tables of the layers present in the project, will be displayed in the **Metadata session** of the cartographic client.
 
-See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_client.html#metadata)
+See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.11.x/g3wsuite_client.html#metadata)
 
 ![](images/manual/qgisservercapabilities.png)
 
@@ -116,25 +125,30 @@ A specific menu on the webgis will allow you to choose the Theme to be displayed
 
 The views will be parameterizable at the URL level of the related webgis service.
 
-### Layer order
-
-The option to define the layer order different from the order in the TOC on the QGIS project is automatically supported.
-
 ### Legend
 
+#### Filter legend by Map content
+
 The activation of the **`Filter legend by Map content`** option on the QGIS project is automatically applied to the derived WebGis service.
+
+#### Show features count
 
 If the **`Show features count`** function is activated in the QGIS project at vector layer level, the same information will be displayed on the web map.
 
 The number of features updates automatically based on the style associated with the layer.
 
+#### Mutually exclusive groups
+
+The activation on the QGIS project of the **`Mutually exclusive group`** option for the layers groups is automatically applied to the derived WebGis service.
+
+#### Layer order
+
+The option to define the layer order different from the order in the TOC on the QGIS project is automatically supported.
+
+
 ### Spatial Bookmarks
 
 In case **`Spatial Bookmarks`** are saved at the QGIS project level, they will also be available on the web map.
-
-### Mutually exclusive groups
-
-The activation on the QGIS project of the **`Mutually exclusive group`** option for the layers groups is automatically applied to the derived WebGis service.
 
 ### 1:N and N:M relations
 
@@ -184,11 +198,11 @@ Through this tool it is possible to manage SVG icons on the server in a simple a
 The SVG folder on the server must reflect the structure in any subfolders present locally.
 
 **NB:** The name of this directory is defined by the basic settings set during the installation of the suite.
-[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html#base-settings)
+[See dedicated paragraph.](https://g3w-suite.readthedocs.io/en/v3.11.x/settings.html#base-settings)
 
 **PS:** remember that the **`File Manager`** tool also allows you to manage the synchronization of geographical data (in the case of using physical files) and the management of multimedia files.
 
-See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/projectsettings.html#viewing-multimedia-content)
+See also [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.11.x/projectsettings.html#viewing-multimedia-content)
 
 
 
@@ -212,8 +226,10 @@ To define these settings, you access the properties of one of the vectors previo
 
 This submenu lists the fields associated to the table of the vector.
 
-The check box relating to the **`WMS`** column defines whether the values contained in this field will be available following the query on the WebGis service.
-
+The last column (**Configuration**) allows you to define:
+ * whether the field is available as a search object (this setting is not set by G3W-SUITE)
+ * whether the field is exposed in the **WMS** service and, therefore, in the WebGis service
+ * whether the field is exposed in the **WFS** service, if enabled
  ![](images/manual/qgislayerproperties_wmsfields.png)
 
 
@@ -233,7 +249,7 @@ If you set a descriptive information in the **`Abstract`** form of the **`QGIS S
 
 The suite inherits numerous settings from the QGIS project related to the attribute editing features that can be defined in the **Attribute form** section.
 
-For more information, see the [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.10.x/g3wsuite_editing.html).
+For more information, see the [dedicated paragraph](https://g3w-suite.readthedocs.io/en/v3.11.x/g3wsuite_editing.html).
 
 ### Temporal settings
 
@@ -284,7 +300,7 @@ You can set also a **custom title** (definible in the WebGis side) setting an **
 
 Any images present in the print layouts must be placed in the local **`project_data`** folder (in any subdirectory) and synchronized on the server.
 
-See also the dedicated paragraph [Geographic data synchronization on the server](https://g3w-suite.readthedocs.io/en/v3.10.x/datamanagement.html#geographic-data-synchronization-on-the-server).
+See also the dedicated paragraph [Geographic data synchronization on the server](https://g3w-suite.readthedocs.io/en/v3.11.x/datamanagement.html#geographic-data-synchronization-on-the-server).
 
 ## Performances optimization
 

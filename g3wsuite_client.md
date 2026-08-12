@@ -49,34 +49,33 @@ The contents of the header differ for the public user and for the logged in user
 The **`Main menù`** is located on the left.
 
 The upper section containing:
-
+ * **Legend:** displaying the map legend
  * **Metadata:** any content defined in the GetCapabilities of the QGIS Project.Depending on the settings defined at the QGIS project publication level, this session may not be shown to the user.
-  * **Charts:** visualization of the plots created on QGIS with the DataPlotly plugin
+ * **Charts:** visualization of the plots created on QGIS with the DataPlotly plugin
  * **Bookmarks:** tool for using the Spatial Bookmarks associated with the QGIS project and allowing the user to create new ones for his exclusive use.
  * **Print:** printing tool based on the layouts defined on the QGIS project
-
  * **Search:** with the search tools defined in the Administration session, as well as a free **Query Builder** like the one present in QGIS
  * **Editing layers:** open editing session
- * **Add WMS:** session to add custom WMS services to the map
+ * **Theme:** a session to define which theme (among those defined in the QGIS project) to activate; the user (not anonymous) can create and save his own themes to recall them as needed
 
+![](images/manual/g3wclient_header_anonymus.png)
 
-The middle section containing:
-   * **Data:** structured list of layers, defined on the QGIS project
-   * **Choose theme (view):** if defined in the QGIS project
-   * **Base:** choice of the base map from those defined at the creation level of the Thematic Group
-   * **Legend:** graphic legend of the various layers. Depending on the settings defined at the QGIS project publication level, the legend can be inserted in a dedicated tab or integrated into the layer list as in QGIS.
+The middle section containing the list of project layers organized into any groups as in a QGIS project.
+
+Depending on the settings defined at the QGIS project publication level, the legend can be inserted in a dedicated tab or integrated into the layer list as in QGIS.
 
 ![](images/manual/g3wclient_tool_panel.png)
 
-In the event that **Themes (Views) are defined in the QGIS project**, a specific choice menu will be available in the Layers session of the TOC.
 
-The choice of a Theme will determine the **automatic activation of the layers and related styles**, defined in the Theme itself.
+Base Layer management is now handled by a map control at map level
 
-![](images/manual/g3wclient_theme.png)
+![](images/manual/g3wclient_tool_panel.png)
 
 The lower section containing:
    * **Add layer:** session to add local vector layers or custom WMS services to the map
    * **Change map:** to switch from one WebGis service to another while maintaining extension and display scale
+   
+These features are described in a dedicated paragraph below.
 
 ## Navigation and interaction with the map
 
@@ -96,6 +95,8 @@ At the base of the map area there is an information bar showing:
 ### Map controls
 
 **The icons and description of the functions of the various **`MapControls`** activated at the thematic group level are shown below.**
+
+![ ](images/manual/icon_navigation_tools.png) By default, most icons are collapsed; click the **Tools** icon to expand the list of available tools.
 
 Map-controls available on the left side of the map:
 
@@ -119,7 +120,6 @@ Map-controls available on the left side of the map:
  * ![ ](images/manual/icon_navigation_streetview.png) **`Streetview`:** Google StreetView on your map. Due to Google policies, StreetView it will open on a new browse tab without the aspects of synchronization with the map
  * ![ ](images/manual/icon_navigation_addlayer.png) **`Add layer`:** tool for temporarily uploading GML, GeoJson, KML, GPX, SHP (zipped) and CSV with coordinate to WebGis, or to add a custom WMS service
  * ![ ](images/manual/icon_navigation_measure.png) **`Measure`:** linear and areal measuring instrument
- * ![ ](images/manual/icon_navigation_snapshot.png) **`Screenshot`:** tool to make a snapshots (PNG) or export (GeoTIFF) of the map visible area. Use the panel that appears at the top left to define your choice
  * ![ ](images/manual/icon_navigation_annotations.png) **`Redlinining`:** tool to add annotations or drawings objects to the map. For each of them it will be possible to define size, color, transparency, labeling and more. The elements drawn on the map will be shareable together with the other settings of the WebGis service and reported in the print output. The tool permits to create this type of annotations:
    * point elements
    * free linear and polygonal elements
@@ -135,6 +135,26 @@ Map-controls available on the bottom left corner of the map:
 
 Map-controls available on the top left corner of the map:
   * ![ ](images/manual/icon_navigation_nominatim.png) **`Geocoding`:** search tools for addresses and toponyms based on OSM or Bing, based on the providers activated at the administration level
+
+### Map query
+
+Right-clicking on the map queries the map using the core sampling method, displaying results for all layers below the clicked point.
+
+If a specific layer is selected in the TOC, the results are limited to that layer.
+
+A right click on the mouse allows you to access a series of functions related (but not limited to) to the point where you click.
+
+![ ](images/manual/right_click.png)
+
+In the QGIS project (**`Vector properties → Attributes Form`**), you can create custom attribute forms (tabs, groups ...)
+
+Upon querying a geometry, the form structure will be replicated at the client level.
+
+![](images/manual/g3wclient_attribute_view.png)
+
+Any links to photos will determine the display of a clickable preview, any links to links or other multimedia content will determine the display of the Open button that will allow consultation of the link.
+
+For further information on this point, see the [**dedicated paragraph**](https://g3w-suite.readthedocs.io/en/v3.8.x/projectsettings.html#viewing-multimedia-content).
 
 #### Query type
 
@@ -160,9 +180,10 @@ The Query area tool works also on the layers added using the AddLayer tool
 
 **NB:** it will be possible to zoom on the feature associated with the individual results only if the option **`Add geometry to object response`** has been activated at the QGIS project level (**`Project → Properties, QGIS Server session`**).
 
-### Map query
 
-In the QGIS project (**`Vector properties → Attributes Form`**), you can create custom attribute forms (tabs, groups ...)
+### Viewing query results
+
+The display of the attributes of the queried geometries is by default structured on a single column but in the QGIS project (**`Vector properties → Attributes Form`**), you can create custom attribute forms (tabs, groups ...)
 
 Upon querying a geometry, the form structure will be replicated at the client level.
 
@@ -186,14 +207,14 @@ The bar above the query results shows the following icons:
  * **Show relations (1: N):** if present on the QGIS project
  * **Show relation charts:** display of plots related to 1: N related data. Only if 1: N relationships are associated with the interrogated layer and plots have been activated on the referencing tables.
  * **Print Atlas:** prints the reports (atlas) (if set on QGIS project) related to the queried feature
- * **Download single results (Shapefile, GPK, GPX, CSV, XLS):** if activated in the administration session
  * **Remove feature from result:** remove the feature to the current list of results (useful to choose manually the list of objects to select/download)
  * **Add/Remove selection:** add/remove the features to the current selection
  * **Copy map URL pointing to the geometry :** to create a parameterized URL that points to this features
  * **Editing:** to start editing directly on this feature
+ * **Download single results (Shapefile, GPK, GPX, CSV, XLS):** if activated in the administration session
  
 
-#### Multiple result
+#### Multiple results
 
 In case the query provides more results these will be listed as a list with the possibility to expand the detailed information.
 
@@ -209,17 +230,31 @@ A series of icons, relating to the list of resulting features, will allow you to
  * **Add/Remove selection:** add/remove the list of features result to the current selection
  
 
+### Display 1:1 (join) and 1:N relation data
 
-### Display of 1:n relation data
+#### Join data
 
-In the event that, at the QGIS project level, **one or more type 1:n relations** have been associated with a layer, the icon **View Relationships**  will be shown in the attribute form.
+The fields resulting from a join (created in QGIS) with a third layer will automatically be visible at the end of the fields of the parent layer or, if a custom form is defined, within the form according to the defined specifications.
+
+#### 1:N relation data
+
+In the event that, at the QGIS project level, **one or more type 1:n relations** have been associated with a layer, the icon **Show Relationships**  will be shown in the attribute form.
+
+![](client_icon_relations_list.png)
 
 By clicking on the icon you will access the **list of 1:N relations** present and, from these, the list of child records associated with the individual relationships. 
 
-In the case of a **simple 1:1 or N:1 joins**, the joined records will be displayed directly in the main form.
+If the relations are inserted in a custom form dedicated to displaying attributes (QGIS Attributes form), then the link to them will be displayed directly in the parent attributes form.
 
+![](client_relations_list.png)
 
-In the new frame, a filter, applied generically to the contents of all fields, will allow you to filter the list of child records.
+After accessing one of the existing relationships, the child records will be displayed in tabular format.
+
+Above the table, a dedicated section will report the main information of the parent feature (breadcrumps).
+
+![](g3wclient_relations_records_view.png)
+
+A filter, applied generically to the contents of all fields, will allow you to filter the list of child records.
 
 The icon to the left of each record allows you to switch from the classic table view to the one based on any form defined on the QGIS project
 
@@ -248,30 +283,11 @@ If **Views (Themes)** are set up in the QGIS project, it will also be possible t
    * Ex: `<url>?map_theme=<theme_name>`
 
 ## Tools panel
-### Metadata
-The metadata reported in this session derive from those set at the QGIS project level.
 
-Depending on the settings defined at the QGIS project publication level, this session may not be shown to the user.
+The upper part of the left bar contains, if activated, the following items:
 
-This content is divided into three sessions: **General, Space Info and Layers.**
- * **`General`:** reports the **metadata defined on the QGIS project** in the item: **`Project →  Properties (QGIS Server session, Service Capabilities)`**
-   In case of login as anonymous user the URL of the WMS service is shown.
- * **`Spatial`:** reports the **EPSG code** of the projection system associated with the QGIS project and the **BoundingBox** relating to the initial publication extension, defined in the item: **`Project →  Properties (QGIS Server session, WMS Capabilities, Advertised extent)`**
- * **`Layers`:** reports **simple metadata associated with the individual layers**.
-* **`Credits`:** references to the G3W-SUITE project
-
-![](images/manual/g3wclient_metadata_view.png)
-
-
-### Bookmarks
-This tool will display the spatial bookmarks defined and associated with the QGIS project.
-
-The user, even if not logged in, will be able to create new bookmarks by simply positioning them in an area of ​​the map and then clicking on the **`+`** button to define the **`Name`** to associate with the bookmark.
-
-These bookmarks will be saved in the browser cache and therefore always available until deleted.
-
-![](images/manual/spatial_bookmarks.png)
-
+### Legend
+This session allows you to see the complete legend of the service.
 
 ### Charts
 **View graphs created using QGIS [DataPlotly](https://github.com/ghtmtt/DataPlotly) and activated at the admin session level.**
@@ -300,6 +316,28 @@ If the **chart is linked to a child layer in a 1:N relation**, it can also be di
 
 ![](images/manual/g3wclient_fomr_1N_plots.png)
 
+### Metadata
+The metadata reported in this session derive from those set at the QGIS project level.
+
+Depending on the settings defined at the QGIS project publication level, this session may not be shown to the user.
+
+This content is divided into three sessions: **General, Data, Legend** and **Credits**
+ * **`General`:** reports the **metadata defined on the QGIS project** in the item: **`Project →  Properties (QGIS Server session, Service Capabilities)`**.
+   The URLs of the various OGC services associated with the map are also listed, as well as information about the EPSG and bounding boxes associated with the project. 
+ * **`Data`:** reports **simple metadata associated with the individual layers**.
+ * **` Legend`:** reports the legend of the entire project
+ * **`Credits`:** references to the G3W-SUITE project and application version information
+
+![](images/manual/g3wclient_metadata_view.png)
+
+### Bookmarks
+This tool will display the spatial bookmarks defined and associated with the QGIS project.
+
+The user, even if not logged in, will be able to create new bookmarks by simply positioning them in an area of ​​the map and then clicking on the **`+`** button to define the **`Name`** to associate with the bookmark.
+
+These bookmarks will be saved in the browser cache and therefore always available until deleted.
+
+![](images/manual/spatial_bookmarks.png)
 
 ### Print
 **Printing tool based on layouts defined on QGIS project.**
@@ -321,11 +359,13 @@ The cards to be printed are defined by referring to the atlas identifier defined
 
 ![](images/manual/g3wclient_print_tool_atlas.png)
 
+ The same panel allows you to create a screenshot (PNG or GeoTiff) of the area displayed on the map.
+ 
+![](g3wclient_print_tool_screenshot.png)
 
+### Search and Advanced Search
 
-### Search and Query Builder
-
-A classic ![](images/manual/query_builder_icon.png) **Query Builder** is present at the Search menu level.
+A classic ![](images/manual/query_builder_icon.png) **Advanced Search** is present at the Search menu level.
 Through this tool it is possible to:
  * carry out alphanumeric searches on geometric layers
  * save the query to reuse it until the end of the work session
@@ -362,23 +402,14 @@ Activation of editing session.
 
 Available only after activation of the editing function and based on the powers of the logged in user
 
-
-### TOC session
-
-Before the list of project layers there is session **Choose Theme** where it is possible to recall themes (views) defined in the QGIS project or create/save new ones if logged in.
-
-This session has three tabs:
- * **Data:** structured list of layers, defined on the QGIS project
- * **Base:** choice of the base map from those defined at the Cartographic Group creation level
- * **Legend:** graphic legend
- 
-
-#### Choose Themes
+### Choose Theme
 In the event that Themes (Views) are defined in the QGIS project, a specific choice menu will be available in the Layers session of the TOC.
 
 The choice of a Theme will determine the automatic activation of the layers and related styles, defined in the Theme itself.
 
-### User themes
+The name of the chosen theme will be displayed prominently in this session.
+
+#### User themes
 The logged in user can create customized themes in the same way as he prepares them in QGIS, i.e. by defining the on/off layers and associating any specific styles with the individual layers.
 
 By clicking on the **+** button it will be possible to define a name to associate and create the Theme.
@@ -389,9 +420,12 @@ Once created, the User Themes will be selectable, overwritable and editable usin
 
 ![](images/manual/g3wclient_theme.png)
 
-#### Data
+## TOC session
 
-This tab shows the layers prepared on QGIS projects with the same organization the groups and subgroups.
+The midle part of the left bar contains the following items:
+
+
+**This session shows the layers prepared on QGIS projects with the same organization the groups and subgroups.**
 
 If the **`Show features count`** function is activated in the project, the layer will show the number of total features and based on the subdivision linked to the symbology.
 
@@ -400,16 +434,16 @@ In case of multi-style associated with the layer, the number of geometries repor
 ![](images/manual/g3wclient_features_count.png)
 
 In the list of layers, right click on the name of the single layer shows the following items:
- * **Name geometry type** of the layer
+ * **Name and geometry type** of the layer
  * **Metadata:** descriptive information inherited from what has been defined, at QGIS project level, in the 'Abstract' form of the 'QGIS Server' session of the 'Layer Properties'
  * **Edit layer:** menu available following activation and based on user permissions
+ * **Legend:** to view the legend tab
  * **Zoom to layer:** to zoom in on the extension of the layer
  * **Open attribute table:** to consult the associated attribute table
  * **Styles:** to choose the style to be applied to the layer, in the case of multi-style layers
  * **Opacity:** management of the level of transparency/opacity
  * **Filters:** management, based on the logged in user, of the filters associated with the layer
- * **Save as:** download of the layer in different formats, based on what is defined in the Administration session
- * **OGC Services:** URL of the WMS/WFS/WFS3 services relative to the project or URL of the external WMS layer
+ * **Export:** download of the layer in different formats, based on what is defined in the Administration session
  * **Layer settings:** link to the layer administration section (available only if logged in as an administrator user)
 
 ![](images/manual/g3wclient_layer_function.png)
@@ -420,7 +454,7 @@ It is possible to hide, automatically, layers from the TOC when they have no rec
 
 Useful when using filters on layers or geographic views. 
 
-##### Attribute table
+### Attribute table
 
 The attribute table (resizable) is equipped with **paging function, highlight function and zooming** to the associated features.
 
@@ -428,8 +462,9 @@ In the case of links to **multimedia content**, the previews of the images and/o
 
 To the left of each record in the table there are two/three tools:
  * checkbox to select the records/feature
- * the 'Form view' icon to open the feature attributes form
- * in the case of a layer editable by the user, the attributes table will show, for each record, an editing icon to allow direct modification of the feature
+ * the ‘Form view‘ icon to open the feature attributes form
+ * in the case of a layer editable by the user, an editing icon to allow direct modification of the feature
+ * the ‘Show relations’ icon to open the list of 1:N relations (if present) of thath parent record
 
 ![](images/manual/g3wclient_table_view.png)
 
@@ -445,7 +480,6 @@ It is possible to **select the features of the individual layers and apply filte
  * on the contents of the plots
  * on print contents
  * on the editable geometries
-
 
 The selection of features can be made:
  * at the attribute table level (through the checkboxes on the left of each records)
@@ -478,7 +512,7 @@ Activation of the filter is reflected:
  ![](images/manual/g3wclient_table_select.png)
 
 
-##### Filter users based
+#### Filter users based
 **On the client you can select (highlight) and filter a subset of vector layer geometries.**
 
 It is possible to activate a filter on a layer starting from:
@@ -511,46 +545,49 @@ We remind you that activating a filter affects:
  * features underlying the graphs
  * print contenent
 
+## Bottom session
 
-#### Base layer
-The list shows the active base layers at the cartographic group level.
-
-If the user has created base layers starting from cached layers, these may also be present.
-
-#### Legend
-
-If at the publication level of the QGIS project, the **Legend position** option i setted as TOC, this panel will be not present and the legend will be rendered inside layers TOC.
-
-If the option is activated on the QGIS project, the **legend is filtered on the map content**.
-
-### WMS
-
-List of WMS loaded by the user and available only for his session
-
-![](images/manual/g3wclient_tool_wms.png)
+The bottom part of the left bar contains the following items:
 
 ### Add layer
 
-Through this tool the user can add custom WMS or local file layers to the WebGis service.
+Through this tool the user can add custom WMS, TSM or local file layers to the WebGis service.
+
 #### WMS (URL)
 
 The user can add one or more WMS service by defining:
  * **WMS URL**
  * **Name**
 
-Clicking on Connect buttom, it is possible to view the list of the layers associated with the service, choose which one to load by defining:
+Clicking on Connect buttom, you can view the list of layers associated with the service and choose which one (or which ones) to load into the map by defining:
  * the **Projection system** to be associated
  * the **Position** (top or buttom) with respect to the other layers of the project
  * the **Opacity** of the layer
  * an alternatice **Name** respect the original
+ 
+![](images/manual/g3wclient_add_wms.png)
 
-When the first custom WMS is added, a new tab (WMS) appears in the TOC; here you can switch on/off or delete the individual added WMS layers.
+The WMS layer will be added to the map and TOC after the project layer list.
 
-The added WMS layer cannot not be queried.
+**N.B.** the added WMS layer cannot not be queried.
 
 The list of WMS services and the specific WMS layers added will remain available to the user until the browser cache is cleared.
 
-Also the WMS connections created will remain available for later reuse
+#### TMS (URL)
+The user can add one or more TSM service by defining:
+ * **URL:** the TMS service URL
+ * **Name:** custom name to associate with the service
+ * **Projection system** to be associated
+ * **Position** (top or buttom) with respect to the other layers of the project
+ * **Opacity** of the layer
+
+![](images/manual/g3wclient_add_tms.png)
+
+The TMS layer will be added to the map and TOC after the project layer list.
+
+**N.B.:** the added TMS layer cannot not be queried.
+
+The list of TMS services and the specific WMS layers added will remain available to the user until the browser cache is cleared.
 
 #### Local file
 
@@ -576,9 +613,15 @@ For each layer you need to specify:
 
 ### Change map
 
-The menu allows you to switch to a different map, among those accessible to the user, referring to the current extension and scale.
+The item allows you to switch to a different map, among those accessible to the user, referring to the current extension and scale.
 
+Clicking this item will open a modal panel displaying other maps in the same Cartographic Group as the current map.
 
+![](images/manual/g3wclient_change_map.png)
+
+You can change the map view while maintaining the current scale and extent.
+
+An arrow icon in the upper left corner will allow you to navigate between Cartographic Groups (and possibly Cartographic Macrogroups) to select other maps.
 
 ## Time series
 

@@ -304,17 +304,16 @@ In the alphanumeric constraints list you can see a summary of the setted rules.
 
 
 ## Online editing tools on cartographic client
+
 ### Geographic and alphanumeric editing
 
 **Once the online editing function has been activated and configured on one or more layers of a WebGis project, the `Editing layers` item, in the left bar of the cartographic client, will be shown.**
 
 A click on the Editing layers item will allow you to go to the dedicated panel.
 
-If the editing function is activated at the Admin level, it is also possible to start the online editing also through the **Editing icon** that appears at the level of the **search and query results form** of a vector layer.
-
-![](images/manual/editing_client_start.png) 
-
 ![](images/manual/editing_client_tool.png)
+
+If the editing function is activated at the Admin level, it is also possible to start the online editing also through the **Editing icon** that appears at the level of the **search and query results form** of a vector layer.
 
 **N.B.** If the editing function is activated at the Admin level, it is also possible to start the online editing also through the **Editing icon** that appears at the level of the **attibute tables** (for every records) and in the **search and query results form** (for every results)
 
@@ -499,7 +498,7 @@ The association is created at the **Geocoding providers** session level.
 
 The use of the providers Bing Streets and Bing Places requires the acquisition of a free Bing API.
 
-See [Settings](https://g3w-suite.readthedocs.io/en/v3.10.x/settings.html) section for the API key definition.
+See [Settings](https://g3w-suite.readthedocs.io/en/v3.11.x/settings.html) section for the API key definition.
 
 #### Using the Geocoding map control on the WebGis service
 The Geocoding tool allows you to search for addresses and places (based on active providers) and view their position on the map and the associated information on the information panel on the right.
