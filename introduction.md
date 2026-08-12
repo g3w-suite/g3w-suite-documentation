@@ -12,7 +12,7 @@ The following aspects will be analyzed within the manual:
 * **publishing and managing QGIS projects as WebGis services**
 * **creation of searches, visualization of graphics created with the DataPlotly plugin and definition of constraints (geographic and alphanumeric) on visualization and editing permissions**
  
-**The current release (3.10) is compatible with `QGIS 3.40.x LTR` (Server and Desktop).**
+**The current release (3.11) is compatible with `QGIS 3.44.x LTR` (Server and Desktop).**
 
 ![](images/manual/demo_qgis_project.png)
 
@@ -24,9 +24,10 @@ At the moment it's not used a classic versioning system for the suite, this bran
 
 | Branch   | Python version | Django version | QGIS        | QGIS API | Status                 |
 |----------|----------------|----------------|-------------|----------|------------------------|
-| dev      | 3.12           | 4.2            | 3.40        | Used     | Continuous development |
+| dev      |                |                | 4.0         | Used     | Continuous development |
+| v3.11    | 3.12           | 4.2            | 3.44        | Used     | Bug fixing             |
 | v3.10    | 3.12           | 4.2            | 3.40        | Used     | Bug fixing             |
-| v3.9     | 3.12           | 4.2            | 3.34        | Used     | Bug fixing             |
+| v3.9     | 3.12           | 4.2            | 3.34        | Used     | Not longer supported   |
 | v3.8     | 3.10           | 3.2            | 3.34        | Used     | Not longer supported   |
 | v3.7     | 3.10           | 3.2            | 3.28        | Used     | Not longer supported   |
 | v3.6     | 3.10           | 3.2            | 3.22        | Used     | Not longer supported   |
