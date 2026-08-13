@@ -240,19 +240,19 @@ The fields resulting from a join (created in QGIS) with a third layer will autom
 
 In the event that, at the QGIS project level, **one or more type 1:n relations** have been associated with a layer, the icon **Show Relationships**  will be shown in the attribute form.
 
-![](client_icon_relations_list.png)
+![](images/manual/client_icon_relations_list.png)
 
 By clicking on the icon you will access the **list of 1:N relations** present and, from these, the list of child records associated with the individual relationships. 
 
 If the relations are inserted in a custom form dedicated to displaying attributes (QGIS Attributes form), then the link to them will be displayed directly in the parent attributes form.
 
-![](client_relations_list.png)
+![](images/manual/client_relations_list.png)
 
 After accessing one of the existing relationships, the child records will be displayed in tabular format.
 
 Above the table, a dedicated section will report the main information of the parent feature (breadcrumps).
 
-![](g3wclient_relations_records_view.png)
+![](images/manual/g3wclient_relations_records_view.png)
 
 A filter, applied generically to the contents of all fields, will allow you to filter the list of child records.
 
