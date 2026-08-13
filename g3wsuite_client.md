@@ -248,11 +248,14 @@ If the relations are inserted in a custom form dedicated to displaying attribute
 
 ![](images/manual/client_relations_list.png)
 
+
 After accessing one of the existing relationships, the child records will be displayed in tabular format.
 
 Above the table, a dedicated section will report the main information of the parent feature (breadcrumps).
 
+
 ![](images/manual/g3wclient_relations_records_view.png)
+
 
 A filter, applied generically to the contents of all fields, will allow you to filter the list of child records.
 
