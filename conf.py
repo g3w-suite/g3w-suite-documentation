@@ -19,6 +19,8 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+import os
+
 import sphinx_rtd_theme
 import datetime
 
@@ -68,7 +70,7 @@ author = u'GIS3W Team'
 # built documents.
 #
 # The short X.Y version.
-version = 'dev'
+version = os.environ.get('READTHEDOCS_VERSION_NAME', 'dev')
 # The full version, including alpha/beta/rc tags.
 release = 'dev'
 
