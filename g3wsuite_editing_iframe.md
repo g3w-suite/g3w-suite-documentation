@@ -65,6 +65,7 @@ window.parent.postMessage(
 | `delete` | Delete an existing feature from the database |
 | `update` | Update an existing feature |
 | `draw` | Draw a new feature or modify the geometry of an existing one |
+| `save` | Save current draw feature, and stop draw tool |
 
 ---
 
@@ -141,6 +142,28 @@ Once the feature has been drawn, the iframe sends a message to the parent applic
 ```
 
 > **Note:** Pay attention to the `"id": "_new_1784646052597"` value — in particular the `_new_` prefix, which is required to generate a new ID when the feature IDs stored in the database are auto-incremented.
+
+---
+
+### Save / Save current darw feature (Deactive Map Drawing)
+
+Save darw feature and deactive the drawing tool on the map for a geometric layer.
+
+**Request:**
+
+```jsonc
+{
+  "id": "1784642571309",
+  "action": "editing:json",
+  "data": {
+    "qgs_layer_id": "buildings_2f43dc1d_6725_42d2_a09b_dd446220104a",
+    "method": "save",
+    "geojson": {}  // optional: GeoJSON of the feature to modify; omit when drawing a new feature
+  }
+}
+```
+
+Once the feature has been save, then calls the `add` method to save it to the database.
 
 ---
 
