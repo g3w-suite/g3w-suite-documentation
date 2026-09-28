@@ -76,6 +76,7 @@ Through the web interface of the G3W-SUITE framework it is possible to:
    g3wsuite_administration
    g3wsuite_client
    g3wsuite_editing
+   g3wsuite_editing_iframe
    branding
 
 .. toctree::

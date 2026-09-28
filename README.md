@@ -11,6 +11,7 @@ Edit and translate G3W-SUITE end-user documentation
 Start editing one of the following branches to make a change:
 
 - [dev](https://github.com/g3w-suite/g3w-suite-documentation/tree/dev)
+- [v3.11.x](https://github.com/g3w-suite/g3w-suite-documentation/tree/v3.11.x)
 - [v3.10.x](https://github.com/g3w-suite/g3w-suite-documentation/tree/v3.10.x)
 - [v3.9.x](https://github.com/g3w-suite/g3w-suite-documentation/tree/v3.9.x)
 - [v3.8.x](https://github.com/g3w-suite/g3w-suite-documentation/tree/v3.8.x)
